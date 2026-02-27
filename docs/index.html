@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1920">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>서풍 - 여수에서 시작된 50년 수산의 길</title>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -518,7 +521,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
     <button class="su-start" id="startBtn">START</button>
   </div>
 </div>
-<audio id="bgm" loop preload="auto"><source src="bgm.mp3" type="audio/mpeg"></audio>
+<audio id="bgm" loop preload="auto"></audio>
 <div id="watermark">
   <svg viewBox="0 0 48 32" fill="none"><path d="M2 24c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity=".7"/><path d="M2 16c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".45"/><path d="M2 8c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" opacity=".25"/></svg>
   <span>서풍</span>
@@ -530,6 +533,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 <script>
 (function(){
 'use strict';
+var CB='?v='+Date.now();
+document.getElementById('bgm').src='bgm.mp3'+CB;
 var LANG='ko',SPEED=1.0;
 var params=new URLSearchParams(location.search);
 if(params.get('lang'))LANG=params.get('lang');
@@ -786,8 +791,8 @@ function loadImg(id){
   return new Promise(function(res){
     var img=new Image();
     img.onload=function(){loaded.add(id);cache.set(id,img.src);applyBg(id,img.src);res();};
-    img.onerror=function(){var j=new Image();j.onload=function(){loaded.add(id);cache.set(id,j.src);applyBg(id,j.src);res();};j.onerror=function(){res();};j.src='images/'+id+'.jpg';};
-    img.src='images/'+id+'.webp';
+    img.onerror=function(){var j=new Image();j.onload=function(){loaded.add(id);cache.set(id,j.src);applyBg(id,j.src);res();};j.onerror=function(){res();};j.src='images/'+id+'.jpg'+CB;};
+    img.src='images/'+id+'.webp'+CB;
   });
 }
 function applyBg(id,src){
