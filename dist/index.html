@@ -327,13 +327,12 @@ window.onerror=function(){setTimeout(function(){location.reload();},5000);};
 
 async function init(){
   build();
-  var bar=document.getElementById('pf'),pct=document.getElementById('pp');
-  var ids=S.slice(0,5).filter(function(s){return s.id;}).map(function(s){return s.id;});
-  var n=0;
-  for(var k=0;k<ids.length;k++){await loadImg(ids[k]);n++;var pc=Math.round(n/ids.length*100);bar.style.width=pc+'%';pct.textContent=pc+'%';}
+  // 첫 슬라이드가 CSS 로고이므로 즉시 시작, 이미지는 백그라운드 로딩
   document.getElementById('preloader').classList.add('done');
-  setTimeout(function(){document.getElementById('preloader').style.display='none';},800);
-  updateC();startP(S[0].dur);sched();reqWL();preAround(0);
+  setTimeout(function(){document.getElementById('preloader').style.display='none';},600);
+  updateC();startP(S[0].dur);sched();reqWL();
+  // 다음 슬라이드 이미지를 백그라운드로 미리 로딩
+  preAround(0);
 }
 init();
 })();
