@@ -307,10 +307,105 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
   background:rgba(255,255,255,.03);color:rgba(255,255,255,.6);font-size:13px;
   cursor:pointer;font-family:inherit;transition:all .2s}
 .su-btn-sm:hover{background:rgba(79,195,247,.08);border-color:rgba(79,195,247,.2);color:#fff}
+
+/* === GUIDE SCREEN === */
+#guide{position:fixed;inset:0;z-index:2000;background:radial-gradient(ellipse at 50% 30%,#0d2040,#0a1628 70%);
+  display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s;overflow-y:auto}
+#guide.hide{opacity:0;visibility:hidden;pointer-events:none}
+.guide-card{max-width:900px;width:90%;padding:48px 56px;border-radius:24px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(79,195,247,.12);backdrop-filter:blur(20px);
+  position:relative}
+.guide-title{font-size:36px;font-weight:900;text-align:center;margin-bottom:6px;
+  background:linear-gradient(135deg,#4fc3f7,#81d4fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px}
+.guide-sub{text-align:center;font-size:15px;color:rgba(255,255,255,.4);letter-spacing:4px;margin-bottom:32px}
+.guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.guide-item{display:flex;gap:16px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.guide-item .gi-icon{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2)}
+.guide-item .gi-body{flex:1;min-width:0}
+.guide-item .gi-label{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+.guide-item .gi-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+.guide-item .gi-desc em{color:#4fc3f7;font-style:normal;font-weight:600}
+.guide-key{display:inline-block;padding:2px 8px;border-radius:5px;background:rgba(79,195,247,.15);border:1px solid rgba(79,195,247,.3);
+  font-size:12px;font-weight:700;color:#4fc3f7;font-family:monospace;vertical-align:middle}
+.guide-enter{display:block;margin:32px auto 0;padding:16px 60px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,#4fc3f7,#0288d1);color:#fff;font-size:20px;font-weight:800;
+  cursor:pointer;letter-spacing:2px;font-family:inherit;transition:all .3s;box-shadow:0 4px 20px rgba(79,195,247,.3)}
+.guide-enter:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,195,247,.5)}
+.guide-skip{display:block;margin:12px auto 0;background:none;border:none;color:rgba(255,255,255,.3);font-size:13px;
+  cursor:pointer;font-family:inherit;letter-spacing:1px}
+.guide-skip:hover{color:rgba(255,255,255,.6)}
+#startup.behind-guide{opacity:.3;pointer-events:none}
 </style>
 </head>
 <body>
-<div id="startup">
+<div id="guide">
+  <div class="guide-card">
+    <div class="guide-title">사용 설명서</div>
+    <div class="guide-sub">SEOPUNG EXPO SLIDESHOW GUIDE</div>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <div class="gi-icon">🌐</div>
+        <div class="gi-body">
+          <div class="gi-label">언어 선택</div>
+          <div class="gi-desc">한국어 · English · 中文 · 日本語<br>4개 언어로 슬라이드 전환 가능</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">⚡</div>
+        <div class="gi-body">
+          <div class="gi-label">재생 속도</div>
+          <div class="gi-desc">슬라이더로 <em>x0.5 ~ x3.0</em> 배속 조절<br><em>Apply to All</em> 버튼으로 전체 적용</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">✅</div>
+        <div class="gi-body">
+          <div class="gi-label">슬라이드 선택</div>
+          <div class="gi-desc">체크박스로 원하는 슬라이드만 선택<br><em>All / None</em> 버튼으로 일괄 설정</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">⏱️</div>
+        <div class="gi-body">
+          <div class="gi-label">개별 시간 설정</div>
+          <div class="gi-desc">각 슬라이드 오른쪽 <em>숫자(초)</em>를 직접 편집<br>1초 ~ 30초 범위 설정 가능</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">▶️</div>
+        <div class="gi-body">
+          <div class="gi-label">시작하기</div>
+          <div class="gi-desc"><em>START</em> 버튼 클릭 시 자동 슬라이드 시작<br>배경 음악이 자동 재생됩니다</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">⏹️</div>
+        <div class="gi-body">
+          <div class="gi-label">중단하기</div>
+          <div class="gi-desc"><span class="guide-key">ESC</span> 키 또는 화면 <em>더블클릭</em><br>설정 화면으로 돌아갑니다</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">🖥️</div>
+        <div class="gi-body">
+          <div class="gi-label">전체화면 추천</div>
+          <div class="gi-desc"><span class="guide-key">F11</span> 키로 전체화면 전환<br>박람회 모니터에 최적화됩니다</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="gi-icon">🔗</div>
+        <div class="gi-body">
+          <div class="gi-label">URL 바로 시작</div>
+          <div class="gi-desc"><em>?lang=en&speed=1.5</em> 파라미터 추가 시<br>설정 없이 바로 재생됩니다</div>
+        </div>
+      </div>
+    </div>
+    <button class="guide-enter" id="guideOk">설정 화면으로 이동</button>
+    <button class="guide-skip" id="guideSkip">다음부터 이 안내를 건너뜁니다</button>
+  </div>
+</div>
+<div id="startup" class="behind-guide">
   <div class="su-left">
     <svg class="su-wave" viewBox="0 0 120 80" width="80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg>
     <div class="su-logo-txt">서풍</div>
@@ -709,8 +804,24 @@ function stopShow(){
   cur=0;
 }
 
+/* Guide screen logic */
+var guideEl=document.getElementById('guide');
+var guideSkipped=localStorage.getItem('seopung_skip_guide')==='1';
+
+function closeGuide(){
+  guideEl.classList.add('hide');
+  document.getElementById('startup').classList.remove('behind-guide');
+}
+document.getElementById('guideOk').addEventListener('click',closeGuide);
+document.getElementById('guideSkip').addEventListener('click',function(){
+  localStorage.setItem('seopung_skip_guide','1');
+  closeGuide();
+});
+if(guideSkipped){closeGuide();}
+
 /* Auto-start if URL params provided */
 if(params.get('lang')){
+  closeGuide();
   var allIdx=[];for(var i=0;i<S.length;i++)allIdx.push(i);
   startShow(LANG,SPEED,allIdx);
 }
