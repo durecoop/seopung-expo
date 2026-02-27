@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>서풍 - 여수에서 시작된 50년 수산의 길</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
+  font-family:'맑은 고딕','Malgun Gothic',sans-serif;-webkit-font-smoothing:antialiased}
+
+/* === PRELOADER === */
+#preloader{position:fixed;inset:0;z-index:9999;background:#0a1628;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s}
+#preloader.done{opacity:0;pointer-events:none}
+.pre-logo{font-size:72px;font-weight:900;color:#4fc3f7;margin-bottom:40px;letter-spacing:12px;
+  text-shadow:0 0 40px rgba(79,195,247,.5)}
+.pre-bar{width:320px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.pre-fill{height:100%;width:0;background:linear-gradient(90deg,#4fc3f7,#81d4fa);transition:width .3s}
+.pre-pct{margin-top:16px;font-size:14px;color:rgba(255,255,255,.4)}
+
+/* === WATERMARK === */
+#watermark{position:fixed;top:28px;right:36px;z-index:100;display:flex;align-items:center;gap:12px;pointer-events:none}
+#watermark svg{width:44px;height:32px;filter:drop-shadow(0 0 12px rgba(79,195,247,.3))}
+#watermark span{font-size:22px;font-weight:800;color:rgba(79,195,247,.55);letter-spacing:4px}
+
+/* === SLIDESHOW === */
+#slideshow{position:fixed;inset:0;z-index:1}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;will-change:opacity;pointer-events:none;overflow:hidden}
+.slide.active{opacity:1;z-index:2}
+.slide.prev{opacity:0;z-index:1}
+
+/* === BG === */
+.slide .bg{position:absolute;inset:-80px;background-size:cover;background-position:center;
+  will-change:transform;filter:brightness(.5)}
+.slide .bg-lqip{position:absolute;inset:-80px;background-size:cover;background-position:center;
+  filter:blur(30px) brightness(.35);transition:opacity .8s}
+.slide .bg-lqip.loaded{opacity:0}
+.slide .overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,22,40,.35) 0%,rgba(10,22,40,.05) 30%,rgba(10,22,40,.5) 65%,rgba(10,22,40,.95) 100%)}
+
+/* === CONTENT === */
+.slide .content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:0 100px 100px}
+.slide .content .tag{display:inline-block;font-size:18px;font-weight:700;letter-spacing:4px;
+  color:#4fc3f7;margin-bottom:14px;opacity:0;transform:translateY(20px)}
+.slide .content h1{font-size:62px;font-weight:900;line-height:1.2;margin-bottom:18px;
+  opacity:0;transform:translateY(40px);text-shadow:0 4px 40px rgba(0,0,0,.7)}
+.slide .content p{font-size:26px;line-height:1.6;max-width:900px;color:rgba(255,255,255,.85);
+  opacity:0;transform:translateY(20px);text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.slide .content .badge-row{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.slide .content .badge{display:inline-flex;align-items:center;padding:10px 22px;
+  background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.35);border-radius:28px;
+  font-size:15px;font-weight:700;color:#4fc3f7;backdrop-filter:blur(8px)}
+
+/* text anim */
+.slide.active .content .tag{animation:fadeUp .7s .15s ease both}
+.slide.active .content h1{animation:fadeUp .8s .35s ease both}
+.slide.active .content p{animation:fadeUp .7s .55s ease both}
+.slide.active .content .badge-row{animation:fadeUp .7s .75s ease both}
+
+/* === KENBURNS === */
+.kb-zi .bg{animation:kbZi var(--dur) ease both}
+.kb-zo .bg{animation:kbZo var(--dur) ease both}
+.kb-pu .bg{animation:kbPu var(--dur) ease both}
+.kb-pd .bg{animation:kbPd var(--dur) ease both}
+.kb-pr .bg{animation:kbPr var(--dur) ease both}
+.kb-sl .bg{animation:kbSl var(--dur) ease both}
+@keyframes kbZi{from{transform:scale(1)}to{transform:scale(1.12)}}
+@keyframes kbZo{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes kbPu{from{transform:translateY(40px) scale(1.05)}to{transform:translateY(-40px) scale(1.05)}}
+@keyframes kbPd{from{transform:translateY(-40px) scale(1.05)}to{transform:translateY(40px) scale(1.05)}}
+@keyframes kbPr{from{transform:translateX(-30px) scale(1.05)}to{transform:translateX(30px) scale(1.05)}}
+@keyframes kbSl{from{transform:scale(1) rotate(-.3deg)}to{transform:scale(1.08) rotate(.3deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeInScale{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes popIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes bounceIn{0%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes slideInR{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes glowPulse{0%,100%{text-shadow:0 0 30px rgba(79,195,247,.5),0 4px 40px rgba(0,0,0,.5)}50%{text-shadow:0 0 80px rgba(79,195,247,.9),0 0 120px rgba(79,195,247,.4),0 4px 40px rgba(0,0,0,.5)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes countUp{from{opacity:0;transform:translateY(20px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* === WARM (굴비) === */
+.warm .content .tag{color:#d4a373}
+.warm .content .badge{background:rgba(212,163,115,.1);border-color:rgba(212,163,115,.35);color:#d4a373}
+.warm .overlay{background:linear-gradient(180deg,rgba(40,25,10,.35) 0%,rgba(30,18,5,.05) 30%,rgba(30,18,5,.55) 65%,rgba(20,12,5,.95) 100%)}
+
+/* === SLIDE: LOGO === */
+.slide-logo{background:radial-gradient(ellipse at 50% 60%,#0d2040,#0a1628 70%)}
+.slide-logo .content{justify-content:center;align-items:center;text-align:center;padding:0}
+.logo-icon{margin-bottom:16px;opacity:0}
+.slide.active .logo-icon{animation:fadeInScale 1s .1s ease both}
+.logo-main{font-size:180px;font-weight:900;letter-spacing:20px;opacity:0;
+  text-shadow:0 0 60px rgba(79,195,247,.6),0 8px 60px rgba(0,0,0,.5)}
+.logo-sub{font-size:20px;font-weight:600;letter-spacing:8px;color:rgba(79,195,247,.8);margin-top:20px;opacity:0}
+.logo-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,#4fc3f7,transparent);margin:24px auto;opacity:0}
+.logo-desc{font-size:32px;font-weight:300;color:rgba(255,255,255,.7);opacity:0;letter-spacing:3px}
+.slide.active .logo-main{animation:fadeInScale 1.2s .2s ease both}
+.slide.active .logo-sub{animation:fadeUp .8s .8s ease both}
+.slide.active .logo-line{animation:fadeIn .8s 1s ease both}
+.slide.active .logo-desc{animation:fadeUp .8s 1.2s ease both}
+.particles{position:absolute;inset:0;overflow:hidden;z-index:0}
+.p{position:absolute;border-radius:50%;background:rgba(79,195,247,.25);animation:float 4s ease-in-out infinite}
+.p:nth-child(1){width:6px;height:6px;left:12%;top:18%;animation-duration:5s}
+.p:nth-child(2){width:4px;height:4px;left:28%;top:72%;animation-delay:.5s;animation-duration:4s}
+.p:nth-child(3){width:8px;height:8px;left:52%;top:28%;animation-delay:1s;animation-duration:6s}
+.p:nth-child(4){width:3px;height:3px;left:72%;top:58%;animation-delay:1.5s;animation-duration:3.5s}
+.p:nth-child(5){width:5px;height:5px;left:88%;top:22%;animation-delay:2s;animation-duration:4.5s}
+.p:nth-child(6){width:4px;height:4px;left:8%;top:82%;animation-delay:.8s;animation-duration:5.5s}
+
+/* === SLIDE: STATS CSS === */
+.slide-stats{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
+.slide-stats .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;width:100%;max-width:1100px}
+.stat-card{background:rgba(79,195,247,.05);border:1px solid rgba(79,195,247,.12);border-radius:16px;padding:36px 20px;opacity:0;transform:translateY(30px)}
+.stat-num{font-size:52px;font-weight:900;color:#4fc3f7;line-height:1}
+.stat-unit{font-size:20px;font-weight:700;color:#4fc3f7}
+.stat-label{font-size:15px;color:rgba(255,255,255,.45);margin-top:10px}
+.slide.active .stat-card{animation:countUp .7s ease both}
+.slide.active .stat-card:nth-child(1){animation-delay:.3s}
+.slide.active .stat-card:nth-child(2){animation-delay:.5s}
+.slide.active .stat-card:nth-child(3){animation-delay:.7s}
+.partners-row{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;justify-content:center}
+.pchip{padding:12px 28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:36px;font-size:17px;font-weight:600;color:rgba(255,255,255,.75);opacity:0}
+.slide.active .pchip{animation:popIn .5s ease both}
+.slide.active .pchip:nth-child(1){animation-delay:1s}
+.slide.active .pchip:nth-child(2){animation-delay:1.12s}
+.slide.active .pchip:nth-child(3){animation-delay:1.24s}
+.slide.active .pchip:nth-child(4){animation-delay:1.36s}
+.slide.active .pchip:nth-child(5){animation-delay:1.48s}
+.haccp-line{margin-top:28px;opacity:0;display:inline-flex;align-items:center;gap:10px;padding:10px 24px;
+  background:rgba(79,195,247,.12);border:2px solid rgba(79,195,247,.4);border-radius:28px;
+  font-size:20px;font-weight:800;color:#4fc3f7}
+.slide.active .haccp-line{animation:bounceIn .8s .85s ease both}
+
+/* === SLIDE: INK (수묵화) === */
+.slide-ink .bg{filter:brightness(.8)!important;background-color:#f5f0e8}
+.slide-ink .overlay{background:linear-gradient(180deg,rgba(245,240,232,.1) 0%,rgba(245,240,232,0) 30%,rgba(20,12,5,.5) 65%,rgba(20,12,5,.95) 100%)!important}
+
+/* === SLIDE: PROMISE === */
+.slide-promise .content{justify-content:center;align-items:center;text-align:center}
+.slide-promise h1{font-size:68px}
+.promise-list{list-style:none;margin-top:28px;text-align:left;max-width:640px}
+.promise-list li{font-size:21px;color:rgba(255,255,255,.8);padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);opacity:0;transform:translateX(-30px);
+  display:flex;align-items:center;gap:12px}
+.promise-list .chk{color:#4fc3f7;font-size:18px;font-weight:900}
+.slide.active .promise-list li{animation:slideInR .5s ease both}
+.slide.active .promise-list li:nth-child(1){animation-delay:.5s}
+.slide.active .promise-list li:nth-child(2){animation-delay:.7s}
+.slide.active .promise-list li:nth-child(3){animation-delay:.9s}
+.slide.active .promise-list li:nth-child(4){animation-delay:1.1s}
+.contact-block{margin-top:36px;opacity:0}
+.slide.active .contact-block{animation:fadeUp .7s 1.4s ease both}
+.contact-block .cl{font-size:17px;color:rgba(255,255,255,.45);line-height:2;letter-spacing:1px}
+
+/* === SLIDE: CLOSING === */
+.slide-end{background:radial-gradient(ellipse at 50% 50%,#0d2040,#0a1628 70%)}
+.slide-end .content{justify-content:center;align-items:center;text-align:center;padding:0}
+.slide.active.slide-end .logo-main{animation:fadeInScale 1s .2s ease both}
+.slide.active.slide-end .glow{animation:glowPulse 2s 1s ease-in-out infinite}
+.slide-end .contact-block{margin-top:40px}
+
+/* === PROCESS FLOW === */
+.pflow{display:flex;align-items:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.pf-s{padding:11px 22px;background:rgba(212,163,115,.1);border:1px solid rgba(212,163,115,.22);
+  border-radius:8px;font-size:17px;font-weight:700;color:#d4a373;opacity:0;transform:scale(.7)}
+.pf-a{font-size:18px;color:rgba(212,163,115,.35);opacity:0}
+.slide.active .pf-s{animation:bounceIn .5s ease both}
+.slide.active .pf-a{animation:fadeIn .3s ease both}
+.slide.active .pf-s:nth-child(1){animation-delay:.35s}
+.slide.active .pf-a:nth-child(2){animation-delay:.5s}
+.slide.active .pf-s:nth-child(3){animation-delay:.6s}
+.slide.active .pf-a:nth-child(4){animation-delay:.75s}
+.slide.active .pf-s:nth-child(5){animation-delay:.85s}
+.slide.active .pf-a:nth-child(6){animation-delay:1s}
+.slide.active .pf-s:nth-child(7){animation-delay:1.1s}
+.slide.active .pf-a:nth-child(8){animation-delay:1.25s}
+.slide.active .pf-s:nth-child(9){animation-delay:1.35s}
+.slide.active .pf-a:nth-child(10){animation-delay:1.5s}
+.slide.active .pf-s:nth-child(11){animation-delay:1.6s}
+
+/* === PROGRESS === */
+#progress{position:fixed;bottom:0;left:0;right:0;height:4px;z-index:100;background:rgba(255,255,255,.06)}
+#progress-fill{height:100%;width:0;background:linear-gradient(90deg,#4fc3f7,#81d4fa);transition:width .3s linear}
+#counter{position:fixed;bottom:14px;right:36px;z-index:100;font-size:13px;color:rgba(255,255,255,.2);font-weight:600;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div id="preloader">
+  <div class="pre-logo">서풍</div>
+  <div class="pre-bar"><div class="pre-fill" id="pf"></div></div>
+  <div class="pre-pct" id="pp">로딩 중...</div>
+</div>
+<div id="watermark">
+  <svg viewBox="0 0 48 32" fill="none"><path d="M2 24c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity=".7"/><path d="M2 16c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".45"/><path d="M2 8c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" opacity=".25"/></svg>
+  <span>서풍</span>
+</div>
+<div id="slideshow"></div>
+<div id="progress"><div id="progress-fill"></div></div>
+<div id="counter"></div>
+
+<script>
+(function(){
+'use strict';
+var S=[
+/* 0: 로고 */
+{id:null,dur:7000,ef:'',css:'slide-logo',html:'<div class="particles"><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div></div><div class="content"><div class="logo-icon"><svg viewBox="0 0 120 80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg></div><div class="logo-main">서풍</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-line"></div><div class="logo-desc">여수에서 시작된 50년 수산의 길</div></div>'},
+/* 1: 대표 부부 항구 */
+{id:'slide02',dur:7000,ef:'kb-pu',tag:'2대째 경영',t:'50년, 한 번도 변하지 않은<br>새벽길',p:'매일 새벽 3시, 여수 항구에서 시작되는 서풍의 하루.<br>2대째 이어온 변함없는 신뢰입니다.',b:['50년 전통','2대 경영']},
+/* 2: 대표 어선 물고기 */
+{id:'slide03',dur:6000,ef:'kb-zi',tag:'산지 직선별',t:'직접 보고, 직접 고른다',p:'위탁 수매는 하지 않습니다.<br>대표가 직접 어선에 올라 최상급만 엄선합니다.',b:['산지 직거래','원물 엄선']},
+/* 3: 사옥 전경 근접 드론 */
+{id:'slide_f1',dur:6000,ef:'kb-sl',tag:'HEADQUARTERS',t:'6,600㎡ 최첨단<br>HACCP 가공시설',p:'여수 청정 자연 속, 국제 기준을 갖춘 최신 가공 시설.<br>대한민국 수산 가공의 새로운 기준을 세웁니다.',b:['HACCP 인증','6,600㎡']},
+/* 4: 사옥 항공 전경 */
+{id:'slide_f2',dur:5500,ef:'kb-zo',tag:'YEOSU, KOREA',t:'청정 여수의 심장부',p:'산과 바다가 만나는 여수의 청정 환경에서<br>대한민국 최고의 수산물이 탄생합니다.',b:[]},
+/* 5: 대표 부부 */
+{id:'slide04',dur:6000,ef:'kb-sl',tag:'TRUST',t:'대한민국 수산 가공의<br>자존심',p:'연 매출 1,000억 원 돌파, 100개 이상 학교급식 납품.<br>대한민국 수산 가공 업계를 선도합니다.',b:['연매출 1,000억+','학교급식 100+']},
+/* 6: ASC/MSC */
+{id:'slide05',dur:5500,ef:'kb-zi',tag:'GLOBAL STANDARD',t:'글로벌이 인정한 품질',p:'세계 최고 권위 ASC·MSC 국제 인증 획득.<br>지속가능한 수산물의 글로벌 기준을 충족합니다.',b:['ASC 인증','MSC 인증','HACCP']},
+/* 7: 사업실적 CSS */
+{id:null,dur:8000,ef:'',css:'slide-stats',html:'<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">BUSINESS PERFORMANCE</div><h1 style="font-size:50px">압도적 규모, 압도적 신뢰</h1><div class="stats-grid"><div class="stat-card"><div class="stat-num">1,000<span class="stat-unit">억+</span></div><div class="stat-label">연간 매출액</div></div><div class="stat-card"><div class="stat-num">6,600<span class="stat-unit">㎡</span></div><div class="stat-label">HACCP 인증 가공시설</div></div><div class="stat-card"><div class="stat-num">50<span class="stat-unit">년</span></div><div class="stat-label">수산 전문 노하우</div></div></div><div class="haccp-line">HACCP &middot; ASC &middot; MSC 국제 인증 완료</div><div class="partners-row"><div class="pchip">풀무원</div><div class="pchip">CJ</div><div class="pchip">쿠팡</div><div class="pchip">올가홀푸드</div><div class="pchip">초록마을</div></div></div>'},
+/* 8: 오징어 */
+{id:'slide07',dur:7000,ef:'kb-pd',tag:'SIGNATURE PRODUCT',t:'품질인증 오징어',p:'바다가 선물한 최고의 한 마리.<br>여수 근해에서 당일 조업한 신선함 그대로!',b:['국가 품질인증','당일 조업']},
+/* 9: 오징어 건조 */
+{id:'slide08',dur:6000,ef:'kb-zo',tag:'자연 건조',t:'해풍이 만든<br>자연 그대로의 맛',p:'여수 바닷바람에 정성껏 말린 전통 건조 방식.<br>인공 첨가물 없이 자연 그대로입니다.',b:['자연 건조','무첨가']},
+/* 10: HACCP 가공 */
+{id:'slide_h1',dur:6000,ef:'kb-pr',tag:'HACCP FACILITY',t:'숙련된 전문 인력의<br>철저한 선별',p:'HACCP 인증 시설에서 위생복을 갖춘 전문 인력이<br>한 마리 한 마리 정성껏 가공합니다.',b:['위생 관리','전문 인력']},
+/* 11: IQF 냉동 */
+{id:'slide_h2',dur:6000,ef:'kb-zi',tag:'IQF SYSTEM',t:'-40℃ 급속냉동<br>신선함을 잠그다',p:'최첨단 IQF 개별급속냉동 시스템으로<br>잡은 그 순간의 신선함을 완벽하게 보존합니다.',b:['IQF 급속냉동','-40℃','900g 품질인증']},
+/* 12: 소금 절임 굴비 */
+{id:'slide10',dur:7000,ef:'kb-pu',warm:true,tag:'PREMIUM GULBI',t:'영광 법성포 굴비',p:'천 년 전통의 깊은 맛. 소금과 해풍이 빚어낸 황금빛 보석.<br>6단계 전통 공정으로 정성껏 만듭니다.',b:[],proc:['수매','이동','절간','엮걸이','세척','건조']},
+/* 13: 항아리 굴비 */
+{id:'slide11',dur:6000,ef:'kb-sl',warm:true,tag:'깊은 풍미',t:'장독대 위의<br>황금빛 보석',p:'전통 옹기 항아리에서 숙성되는 깊은 풍미.<br>시간이 만들어낸 명품 굴비입니다.',b:['전통 숙성','프리미엄']},
+/* 14: 수묵화 */
+{id:'slide12',dur:5500,ef:'kb-zo',warm:true,css:'slide-ink',tag:'千年의 맛',t:'한 마리 한 마리,<br>장인의 정성으로',p:'천 년을 이어온 영광 법성포의 전통.<br>서풍이 그 맛의 정수를 이어갑니다.',b:[]},
+/* 15: 가공시설 앵글 */
+{id:'slide13',dur:5500,ef:'kb-pr',warm:true,tag:'생산 시설',t:'최첨단 굴비 가공 시설',p:'산지에서 직송된 원물을 첨단 시설에서 가공.<br>전통의 맛을 현대 기술로 완성합니다.',b:['산지 직송','첨단 가공']},
+/* 16: 10마리 굴비 */
+{id:'slide14',dur:6000,ef:'kb-zi',warm:true,tag:'BEST GIFT',t:'프리미엄 10마리<br>실속 구성',p:'명절 선물, 감사의 마음을 담기에 충분한 격.<br>한 세트로 온 가족이 즐기는 넉넉한 구성.',b:['선물 추천','10마리 구성']},
+/* 17: 식탁 */
+{id:'slide15_table',dur:6000,ef:'kb-sl',warm:true,tag:'품격 있는 한 상',t:'격이 다른 한 상,<br>특별한 선물',p:'영광 법성포 굴비로 차린 한 상.<br>받는 분도, 보내는 분도 모두 만족합니다.',b:[]},
+/* 18: 약속 */
+{id:'slide16',dur:8000,ef:'kb-zi',css:'slide-promise',tag:'OUR PROMISE',t:'서풍이<br>약속합니다',p:'',b:[],prom:['50년 노하우로 최상급 원물만 엄선합니다','HACCP·ASC·MSC 국제 기준을 준수합니다','산지에서 식탁까지 콜드체인을 유지합니다','고객 만족을 최우선 가치로 삼겠습니다'],contact:true},
+/* 19: 마무리 로고 */
+{id:null,dur:7000,ef:'',css:'slide-end',html:'<div class="particles"><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div></div><div class="content"><div class="logo-icon"><svg viewBox="0 0 120 80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg></div><div class="logo-main glow" style="font-size:140px">서풍</div><div class="logo-sub" style="margin-top:14px;font-size:17px">신뢰의 수산 전문 기업</div><div class="logo-line"></div><div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div></div>'}
+];
+
+var L={"slide02":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAfEAACAgICAwEAAAAAAAAAAAAAAQIDESEEEhQiMUL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREhP/2gAMAwEAAhEDEQA/AERu9cHYzWDtNcN5ZpdItp/CukJxJEpLIG5OrsBfSE5lLK2VVm2b8iM47J+Un3EZZjTW1DvhkCd1SewHRLeSTfpAAA9fAAAD/9k=","slide03":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAfABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAdEAACAgMBAQEAAAAAAAAAAAAAAQIRAwQhEhQy/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFxEBAQEBAAAAAAAAAAAAAAAAABEBEv/aAAwDAQACEQMRAD8A7X6Y0bRi+2MX0pi3YyNbobUgMMtuV8YAnEn7cm74GPJJS4WyUoNiayVu0Zpi69SV2AyoC6Mf/9k=","slide_f1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABoQAAIDAQEAAAAAAAAAAAAAAAABAgMRBDH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AF+bkVkdbw3lwV56IU2zWJSZSbbpT0Anz5EpNJgM4BF//9k=","slide_f2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABsQAAIDAQEBAAAAAAAAAAAAAAABAgQRMQMh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCKr6ufxm7MIxjuiaXAstvSCZyWgLfQA//Z","slide04":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAfEAACAgICAwEAAAAAAAAAAAAAAQIDESEEEhMiMUL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREhP/2gAMAwEAAhEDEQA/AJo2+uDYyRtNcN5Ol0i3krpCcSRKSyB3J1dgK6QnMpZWSrntjPOpx2T8pPsJyzKmtnu+OQEOqT2A6JXyCf8ASABhQvgAAg//2Q==","slide05":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAgMG/8QAHhAAAwADAAIDAAAAAAAAAAAAAAECAwQRITESE1H/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABkRAQADAQEAAAAAAAAAAAAAAAABAhFBMv/aAAwDAQACEQMRAD8Ap49qYSljStVKfSDO1ivnWNLM7lKK8C05hQul8gEFkyJeQGHmJbbSTKutVY8fsmzjqK60O41bnwDK8247vZydA4NZO+gEjbtbCX1GtH0AE8dM+jvF+AACW//Z","slide07":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgUG/8QAGxAAAgMBAQEAAAAAAAAAAAAAAAECAyEEETP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABETH/2gAMAwEAAhEDEQA/AOitfkGxDmulK1pvBy/a2Z/JF/ZsL1UzGgAAUkWbBoV5q3CbbGW8KoCsBACH/9k=","slide08":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAaABQDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQBAgMFBv/EAB4QAAMAAgIDAQAAAAAAAAAAAAABAgMEERIxMkJB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AOjVk9xScsv6RZ5pX6GrDHcBGt3GnxyBqsauKqforl2XK8laFtn1AbDk2Ldt8gLPyA4Ff//Z","slide_h1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEAv/EABoQAAMAAwEAAAAAAAAAAAAAAAABAgMRMRP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAA//EABcRAAMBAAAAAAAAAAAAAAAAAAABAhH/2gAMAwEAAhEDEQA/AJ/K7NxheNbKcY74xgJXVbAb6BF29KKEf//Z","slide_h2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABsQAAMAAgMAAAAAAAAAAAAAAAABAgMEERIx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AM4LmV1Q2qTIsXpQgFXrqq5AeAH/2Q==","slide10":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAtABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEDBAIF/8QAHhAAAwADAAIDAAAAAAAAAAAAAAECAxEhEiIxMlH/xAAXAQEBAQEAAAAAAAAAAAAAAAABAAMC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APVT2db4Z4y+a4dq/wBMmhT6Cq8sqgERNRC2g6T6jNkTrieiE6xr5OgvczXW+gx1e39gQT5Oe76RTrfSyIT6yLXsFMU1C2C1pbA1P//Z","slide11":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAXABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUCAQT/xAAfEAACAgIBBQAAAAAAAAAAAAAAAQIDBBRhERIhMUH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAIQH/2gAMAwEAAhEDEQA/ALWzyd2CTG1tLyadz9JkVUVNkE+E24gURYZjVXJqvJbXX6AXjHsrtn2IAAf/2Q==","slide12":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQIG/8QAIBAAAgEDBAMAAAAAAAAAAAAAAAECAwQSBREhIhQxM//EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AONJs40YZTXY16VGNam4y5TILlYvaK2J7Rsmlh3ukS8iWEeAeowT5aBQUPo+xYowUfQBJSOTTAAh/9k=","slide13":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAcEAACAwADAQAAAAAAAAAAAAAAAQIDEQQSITH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwCbXS2xizjSrr3TO4/DpCUpLJPUSie+2/AGrEu78AlH/9k=","slide14":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAEDBQT/xAAcEAADAAIDAQAAAAAAAAAAAAAAAQIDEQQSMTL/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AN7LfRbKJ5G6J5baRyYm+4FpS9rYIj5QEIzSq9KseKFXgAJeABT/2Q==","slide15_table":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBAX/xAAdEAACAwACAwAAAAAAAAAAAAAAAQIDEQQhEiIx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AMFc7GsXwkuLOyWs2QjXGOrCM+R4rIozh1fTW4VpAphy8j2BC5dds+lvR06a4uvWgA0mW31m0gAJH//Z","slide16":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAdEAACAwADAQEAAAAAAAAAAAAAAQIDEQQSISIy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABgRAQEBAQEAAAAAAAAAAAAAAAABERIT/9oADAMBAAIRAxEAPwCdW/OHYzR2muHuml0i3pfpE8VPKS0DcnV2Ar0iealldKqz1jFcrIaTcxPsYqbzDHGlthrvimAiVUnLQHhaq5AmP6QAApwAAG//2Q=="};
+
+var T=S.length, cur=0, tmr=null, wl=null;
+var loaded=new Set(), cache=new Map();
+
+function build(){
+  var c=document.getElementById('slideshow');
+  S.forEach(function(s,i){
+    var d=document.createElement('div');
+    d.className='slide'+(s.warm?' warm':'')+(s.css?' '+s.css:'');
+    d.dataset.i=i;
+    d.style.setProperty('--dur',s.dur+'ms');
+    if(i===0) d.classList.add('active',s.ef||'');
+    d.innerHTML=s.html?s.html:mkSlide(s);
+    c.appendChild(d);
+  });
+}
+
+function mkSlide(s){
+  var lq=L[s.id]||'', h='';
+  if(lq) h+='<div class="bg-lqip" style="background-image:url('+lq+')"></div>';
+  if(s.id) h+='<div class="bg" data-id="'+s.id+'"></div>';
+  h+='<div class="overlay"></div>';
+  if(s.css==='slide-promise'){
+    h+='<div class="content">';
+    if(s.tag) h+='<div class="tag">'+s.tag+'</div>';
+    h+='<h1>'+s.t+'</h1>';
+    if(s.prom){h+='<ul class="promise-list">';s.prom.forEach(function(x){h+='<li><span class="chk">\u2714</span>'+x+'</li>';});h+='</ul>';}
+    if(s.contact) h+='<div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div>';
+    h+='</div>';return h;
+  }
+  h+='<div class="content">';
+  if(s.tag) h+='<div class="tag">'+s.tag+'</div>';
+  h+='<h1>'+s.t+'</h1>';
+  if(s.p) h+='<p>'+s.p+'</p>';
+  if(s.proc){h+='<div class="pflow">';s.proc.forEach(function(x,j){h+='<div class="pf-s">'+x+'</div>';if(j<s.proc.length-1)h+='<span class="pf-a">\u25B6</span>';});h+='</div>';}
+  if(s.b&&s.b.length){h+='<div class="badge-row">';s.b.forEach(function(x){h+='<div class="badge">'+x+'</div>';});h+='</div>';}
+  h+='</div>';return h;
+}
+
+function loadImg(id){
+  if(!id||loaded.has(id))return Promise.resolve();
+  return new Promise(function(res){
+    var img=new Image();
+    img.onload=function(){loaded.add(id);cache.set(id,img.src);applyBg(id,img.src);res();};
+    img.onerror=function(){var j=new Image();j.onload=function(){loaded.add(id);cache.set(id,j.src);applyBg(id,j.src);res();};j.onerror=function(){res();};j.src='images/'+id+'.jpg';};
+    img.src='images/'+id+'.webp';
+  });
+}
+function applyBg(id,src){
+  document.querySelectorAll('.bg[data-id="'+id+'"]').forEach(function(el){
+    el.style.backgroundImage='url('+src+')';
+    var lq=el.previousElementSibling;
+    if(lq&&lq.classList.contains('bg-lqip'))lq.classList.add('loaded');
+  });
+}
+function preAround(i){for(var o=0;o<=2;o++){var s=S[(i+o)%T];if(s.id)loadImg(s.id);}}
+function unloadFar(i){S.forEach(function(s,j){if(!s.id)return;var d=Math.min(Math.abs(j-i),T-Math.abs(j-i));if(d>3&&loaded.has(s.id)){document.querySelectorAll('.bg[data-id="'+s.id+'"]').forEach(function(el){el.style.backgroundImage='';var lq=el.previousElementSibling;if(lq&&lq.classList.contains('bg-lqip'))lq.classList.remove('loaded');});loaded.delete(s.id);cache.delete(s.id);}});}
+
+function goTo(i){
+  var sl=document.querySelectorAll('.slide');
+  sl.forEach(function(x){x.classList.remove('active','prev','kb-zi','kb-zo','kb-pu','kb-pd','kb-pr','kb-sl');});
+  sl[cur].classList.add('prev');
+  sl[i].classList.add('active');
+  if(S[i].ef)sl[i].classList.add(S[i].ef);
+  cur=i;preAround(cur);unloadFar(cur);updateC();startP(S[cur].dur);
+}
+function startP(d){var f=document.getElementById('progress-fill');f.style.transition='none';f.style.width='0%';f.offsetWidth;f.style.transition='width '+d+'ms linear';f.style.width='100%';}
+function updateC(){document.getElementById('counter').textContent=(cur+1)+' / '+T;}
+function sched(){clearTimeout(tmr);tmr=setTimeout(function(){goTo((cur+1)%T);sched();},S[cur].dur);}
+
+async function reqWL(){try{if('wakeLock' in navigator){wl=await navigator.wakeLock.request('screen');}}catch(e){}}
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')reqWL();});
+window.onerror=function(){setTimeout(function(){location.reload();},5000);};
+
+async function init(){
+  build();
+  var bar=document.getElementById('pf'),pct=document.getElementById('pp');
+  var ids=S.slice(0,5).filter(function(s){return s.id;}).map(function(s){return s.id;});
+  var n=0;
+  for(var k=0;k<ids.length;k++){await loadImg(ids[k]);n++;var pc=Math.round(n/ids.length*100);bar.style.width=pc+'%';pct.textContent=pc+'%';}
+  document.getElementById('preloader').classList.add('done');
+  setTimeout(function(){document.getElementById('preloader').style.display='none';},800);
+  updateC();startP(S[0].dur);sched();reqWL();preAround(0);
+}
+init();
+})();
+</script>
+</body>
+</html>

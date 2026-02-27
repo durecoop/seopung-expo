@@ -1,0 +1,12 @@
+{
+  "name": "seopung-expo",
+  "version": "1.0.0",
+  "description": "서풍 박람회 자동반복 홍보 슬라이드쇼",
+  "type": "module",
+  "scripts": {
+    "build": "node build-images.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}
