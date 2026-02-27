@@ -420,6 +420,22 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
   font-weight:800;letter-spacing:4px;color:#4fc3f7;margin-bottom:10px;opacity:0;transform:translateY(20px)}
 .slide.active .hero-accent{animation:fadeUp .6s .05s ease both}
 
+/* === PENCIL HIGHLIGHT EFFECT === */
+.hl{position:relative;display:inline;padding:0 4px}
+.hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:0;height:40%;z-index:-1;border-radius:2px;opacity:.7;
+  transform:skewX(-2deg) rotate(-.5deg)}
+.hl-yellow::after{background:linear-gradient(90deg,rgba(255,235,59,.6),rgba(255,213,0,.7),rgba(255,235,59,.5))}
+.hl-cyan::after{background:linear-gradient(90deg,rgba(79,195,247,.5),rgba(129,212,250,.6),rgba(79,195,247,.4))}
+.hl-green::after{background:linear-gradient(90deg,rgba(76,175,80,.5),rgba(129,199,132,.6),rgba(76,175,80,.4))}
+.hl-orange::after{background:linear-gradient(90deg,rgba(255,152,0,.5),rgba(255,183,77,.6),rgba(255,152,0,.4))}
+.hl-pink::after{background:linear-gradient(90deg,rgba(233,30,99,.4),rgba(240,98,146,.5),rgba(233,30,99,.35))}
+.hl-red::after{background:linear-gradient(90deg,rgba(244,67,54,.4),rgba(229,115,115,.5),rgba(244,67,54,.35))}
+
+/* === PB BRAND LOGOS === */
+.pb-logo{display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:16px;margin:0 auto 12px;position:relative;overflow:hidden}
+.pb-logo svg{width:52px;height:52px}
+.pb-logo-text{font-size:16px;font-weight:900;letter-spacing:1px;text-align:center}
+
 /* === SLIDE: PHILOSOPHY === */
 .slide-philosophy{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
 .slide-philosophy .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
@@ -785,8 +801,8 @@ var P='<div class="p"></div>';
 return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
 
 function certs5Html(lg){
-var ti={ko:'5대 인증 완비',en:'5 Major Certifications',zh:'五大认证完备',ja:'5大認証完備'};
-var su={ko:'국제 인증부터 국가 품질인증까지<br>대한민국 수산 가공의 자존심',en:'From international to national certifications<br>The pride of Korean seafood processing',zh:'从国际认证到国家品质认证<br>韩国水产加工的骄傲',ja:'国際認証から国家品質認証まで<br>韓国水産加工の誇り'};
+var ti={ko:'<span class="hl hl-cyan">5대 인증</span> 완비',en:'<span class="hl hl-cyan">5 Major</span> Certifications',zh:'<span class="hl hl-cyan">五大认证</span>完备',ja:'<span class="hl hl-cyan">5大認証</span>完備'};
+var su={ko:'국제 인증부터 국가 품질인증까지<br><span class="hl hl-yellow">대한민국 수산 가공의 자존심</span>',en:'From international to national certifications<br><span class="hl hl-yellow">The pride of Korean seafood processing</span>',zh:'从国际认证到国家品质认证<br><span class="hl hl-yellow">韩国水产加工的骄傲</span>',ja:'国際認証から国家品質認証まで<br><span class="hl hl-yellow">韓国水産加工の誇り</span>'};
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var hs={ko:'식품안전 관리인증',en:'Food Safety Mgmt',zh:'食品安全管理',ja:'食品安全管理'};
 var qc={ko:'수산물 품질인증',en:'Seafood Quality Cert.',zh:'水产品质认证',ja:'水産物品質認証'};
@@ -802,10 +818,10 @@ var s1d={ko:'원료기인성(뼈) VOC 이물 발생 관리 강화',en:'Strengthe
 var s2t={ko:'검출 원리',en:'Detection Principle',zh:'检测原理',ja:'検出原理'};
 var s2d={ko:'X-ray 촬영 → AI가 이물·결함·충진량 이상을 자동 판별',en:'X-ray imaging → AI auto-detects foreign matter, defects & fill anomalies',zh:'X光拍摄 → AI自动判别异物·缺陷·填充量异常',ja:'X線撮影 → AIが異物・欠陥・充填量異常を自動判別'};
 var s3t={ko:'검증 과정',en:'Verification',zh:'验证过程',ja:'検証過程'};
-var s3d={ko:'농심엔지니어링과 6개월간 엄격한 검증 완료',en:'6-month rigorous verification with Nongshim Engineering',zh:'与农心工程公司6个月严格验证完成',ja:'農心エンジニアリングと6ヶ月間の厳格な検証完了'};
+var s3d={ko:'농심엔지니어링과 <span class="hl hl-green">6개월간</span> 엄격한 검증 완료',en:'<span class="hl hl-green">6-month</span> rigorous verification with Nongshim Engineering',zh:'与农心工程公司<span class="hl hl-green">6个月</span>严格验证完成',ja:'農心エンジニアリングと<span class="hl hl-green">6ヶ月間</span>の厳格な検証完了'};
 var s4t={ko:'도입 일정',en:'Schedule',zh:'导入日程',ja:'導入日程'};
-var s4d={ko:'26년 1월 발주(약 2억원), 4월 현장 도입 예정',en:'Ordered Jan 2026 (~200M KRW), on-site April 2026',zh:'26年1月发订(约2亿韩元), 4月现场导入',ja:'26年1月発注(約2億ウォン), 4月現場導入予定'};
-var b1={ko:'투자금액 약 2억원',en:'Investment ~200M KRW',zh:'投资金额约2亿韩元',ja:'投資金額約2億ウォン'};
+var s4d={ko:'26년 1월 발주(약 2억원), <span class="hl hl-orange">4월 현장 도입</span> 예정',en:'Ordered Jan 2026 (~200M KRW), on-site <span class="hl hl-orange">April 2026</span>',zh:'26年1月发订(约2亿韩元), <span class="hl hl-orange">4月现场导入</span>',ja:'26年1月発注(約2億ウォン), <span class="hl hl-orange">4月現場導入</span>予定'};
+var b1={ko:'투자금액 약 <span class="hl hl-orange">2억원</span>',en:'Investment <span class="hl hl-orange">~200M KRW</span>',zh:'投资金额约<span class="hl hl-orange">2亿韩元</span>',ja:'投資金額約<span class="hl hl-orange">2億ウォン</span>'};
 var b2={ko:'2026년 4월 가동 개시',en:'Operations start April 2026',zh:'2026年4月启动运行',ja:'2026年4月稼動開始'};
 var cap={ko:'AI 엑스레이 장비 작동 모습',en:'AI X-Ray equipment in operation',zh:'AI X光设备运行画面',ja:'AI X線装備稼働の様子'};
 return '<div class="content"><div class="ax-left"><img src="images/검사기.gif" alt="AI X-Ray"><div class="ax-caption">'+cap[lg]+'</div></div><div class="ax-right"><div style="margin-bottom:12px"><div class="tag" style="font-size:16px;letter-spacing:6px;opacity:1;transform:none">AI X-RAY INSPECTION</div><h1 style="font-size:40px;opacity:1;transform:none">'+ti[lg]+'</h1><p style="font-size:16px;color:rgba(255,255,255,.6);opacity:1;transform:none;margin-top:4px">'+su[lg]+'</p></div><div class="ax-step"><div class="ax-num">1</div><div class="ax-body"><div class="ax-title">'+s1t[lg]+'</div><div class="ax-desc">'+s1d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">2</div><div class="ax-body"><div class="ax-title">'+s2t[lg]+'</div><div class="ax-desc">'+s2d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">3</div><div class="ax-body"><div class="ax-title">'+s3t[lg]+'</div><div class="ax-desc">'+s3d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">4</div><div class="ax-body"><div class="ax-title">'+s4t[lg]+'</div><div class="ax-desc">'+s4d[lg]+'</div></div></div><div class="ax-footer"><div class="ax-badge">'+b1[lg]+'</div><div class="ax-badge">'+b2[lg]+'</div></div></div></div>';}
@@ -821,9 +837,9 @@ var c=[
 {ko:'재투자',en:'Reinvest',zh:'再投资',ja:'再投資'}
 ];
 var col1t={ko:'재투자',en:'Reinvestment',zh:'再投资',ja:'再投資'};
-var col1d={ko:'매출액 5~6%를<br>설비 투자에 환원',en:'5-6% of revenue<br>reinvested in facilities',zh:'将销售额5~6%<br>回馈设备投资',ja:'売上の5～6%を<br>設備投資に還元'};
+var col1d={ko:'매출액 <span class="hl hl-yellow">5~6%</span>를<br>설비 투자에 환원',en:'<span class="hl hl-yellow">5-6%</span> of revenue<br>reinvested in facilities',zh:'将销售额<span class="hl hl-yellow">5~6%</span><br>回馈设备投资',ja:'売上の<span class="hl hl-yellow">5～6%</span>を<br>設備投資に還元'};
 var col2t={ko:'품질강화',en:'Quality Enhancement',zh:'品质强化',ja:'品質強化'};
-var col2d={ko:'HACCP(2011) → 이력추적(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',en:'HACCP(2011) → Traceability(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',zh:'HACCP(2011) → 追溯制(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',ja:'HACCP(2011) → トレーサビリティ(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)'};
+var col2d={ko:'HACCP(2011) → 이력추적(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',en:'HACCP(2011) → Traceability(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',zh:'HACCP(2011) → 追溯制(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',ja:'HACCP(2011) → トレーサビリティ(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)'};
 var col3t={ko:'생산효율화',en:'Production Efficiency',zh:'生产效率化',ja:'生産効率化'};
 var col3d={ko:'급속동결, 자동화 포장,<br>생산라인 고도화',en:'Flash freezing, auto packaging,<br>production line upgrades',zh:'急速冷冻, 自动化包装,<br>生产线高度化',ja:'急速凍結, 自動化包装,<br>生産ライン高度化'};
 var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">MANAGEMENT PHILOSOPHY</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="phi-cycle">';
@@ -853,8 +869,8 @@ var c1t={ko:'MG 품목 확산',en:'MG Item Expansion',zh:'MG品目扩散',ja:'MG
 var c1d={ko:'전략적 저단가 품목으로<br>물량 기반 매출 확대',en:'Volume-based revenue growth<br>with strategic low-cost items',zh:'以战略性低价品目<br>扩大物量基础销售',ja:'戦略的低単価品目で<br>物量基盤売上拡大'};
 var c2t={ko:'튀김전용 활성화',en:'Fry-Ready Activation',zh:'油炸专用活性化',ja:'揚げ物専用活性化'};
 var c2d={ko:'튀김전용 제품 라인<br>B2B 채널 강화',en:'Fry-ready product line<br>B2B channel strengthening',zh:'油炸专用产品线<br>B2B渠道强化',ja:'揚げ物専用製品ライン<br>B2Bチャネル強化'};
-var c3t={ko:'ASC/MSC 매출 +330%',en:'ASC/MSC Revenue +330%',zh:'ASC/MSC销售 +330%',ja:'ASC/MSC売上 +330%'};
-var c3d={ko:'인증 제품 매출<br>26년 12억 목표',en:'Certified product revenue<br>target 1.2B KRW in 2026',zh:'认证产品销售<br>26年12亿目标',ja:'認証製品売上<br>26年12億目標'};
+var c3t={ko:'ASC/MSC 매출 <span class="hl hl-green">+330%</span>',en:'ASC/MSC Revenue <span class="hl hl-green">+330%</span>',zh:'ASC/MSC销售 <span class="hl hl-green">+330%</span>',ja:'ASC/MSC売上 <span class="hl hl-green">+330%</span>'};
+var c3d={ko:'인증 제품 매출<br>26년 <span class="hl hl-yellow">12억</span> 목표',en:'Certified product revenue<br>target <span class="hl hl-yellow">1.2B KRW</span> in 2026',zh:'认证产品销售<br>26年<span class="hl hl-yellow">12亿</span>目标',ja:'認証製品売上<br>26年<span class="hl hl-yellow">12億</span>目標'};
 return '<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">REVENUE & PLAN</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="rev-bars"><div class="rev-bar"><div class="rb-fill" style="height:160px;background:rgba(79,195,247,.3)"></div><div class="rb-val">376'+u[lg]+'</div><div class="rb-year">2024</div></div><div class="rev-bar"><div class="rb-fill" style="height:170px;background:rgba(79,195,247,.5)"></div><div class="rb-val">379'+u[lg]+'</div><div class="rb-year">2025</div></div><div class="rev-bar"><div class="rb-fill" style="height:190px;background:linear-gradient(180deg,#ffd54f,#ffb300)"></div><div class="rb-val" style="color:#ffd54f">400'+u[lg]+'</div><div class="rb-year" style="color:#ffd54f;font-weight:900">2026 '+({ko:'목표',en:'Target',zh:'目标',ja:'目標'})[lg]+'</div></div></div><div class="rev-cols"><div class="rev-col"><div class="rc-title">'+c1t[lg]+'</div><div class="rc-desc">'+c1d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c2t[lg]+'</div><div class="rc-desc">'+c2d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c3t[lg]+'</div><div class="rc-desc">'+c3d[lg]+'</div></div></div></div>';}
 
 function investmentHtml(lg){
@@ -870,7 +886,7 @@ var items=[
 {icon:svgGear,n:{ko:'전처리 자동화',en:'Pre-process Auto',zh:'前处理自动化',ja:'前処理自動化'},c:'3.5'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'해동·세척·절단 자동화',en:'Thaw/wash/cut automation',zh:'解冻·清洗·切割自动化',ja:'解凍・洗浄・切断自動化'}},
 {icon:svgOven,n:{ko:'오븐 설비',en:'Oven Equipment',zh:'烤箱设备',ja:'オーブン設備'},c:'0.9'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'마리네이드 오븐구이',en:'Marinade oven grill',zh:'腌制烤箱烧烤',ja:'マリネードオーブン焼き'}}
 ];
-var total={ko:'총 투자 8.9억원',en:'Total Investment 890M KRW',zh:'总投资8.9亿韩元',ja:'総投資8.9億ウォン'};
+var total={ko:'총 투자 <span class="hl hl-orange">8.9억원</span>',en:'Total Investment <span class="hl hl-orange">890M KRW</span>',zh:'总投资<span class="hl hl-orange">8.9亿韩元</span>',ja:'総投資<span class="hl hl-orange">8.9億ウォン</span>'};
 var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">2026 INVESTMENT</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="inv-grid">';
 items.forEach(function(it){h+='<div class="inv-card"><div class="inv-icon">'+it.icon+'</div><div class="inv-name">'+it.n[lg]+'</div><div class="inv-cost">'+it.c+'</div><div class="inv-desc">'+it.d[lg]+'</div></div>';});
 h+='</div><div class="inv-total">'+total[lg]+'</div></div>';return h;}
@@ -886,7 +902,7 @@ var items=[
 {icon:svgBox,t:{ko:'B2B 원팩 Kit',en:'B2B One-Pack Kit',zh:'B2B一包Kit',ja:'B2Bワンパックキット'},d:{ko:'급식·외식 원스톱 밀키트<br>간편 조리 솔루션 제공',en:'School/restaurant one-stop meal kit<br>Easy cooking solution',zh:'供餐·外食一站式料理包<br>提供简便烹饪方案',ja:'給食・外食ワンストップミールキット<br>簡便調理ソリューション提供'}},
 {icon:svgFlame,t:{ko:'마리네이드 오븐구이',en:'Marinade Oven Grill',zh:'腌制烤箱烧烤',ja:'マリネードオーブン焼き'},d:{ko:'프리미엄 간편식 신규 라인<br>HMR 시장 진출 기반 확보',en:'Premium ready-meal new line<br>HMR market entry foundation',zh:'高端简便餐新产品线<br>确保HMR市场进入基础',ja:'プレミアム簡便食新ライン<br>HMR市場進出基盤確保'}}
 ];
-var hl={ko:'ASC/MSC 매출 26년 12억 (+330%)',en:'ASC/MSC Revenue 1.2B KRW in 2026 (+330%)',zh:'ASC/MSC销售26年12亿(+330%)',ja:'ASC/MSC売上26年12億(+330%)'};
+var hl={ko:'ASC/MSC 매출 26년 <span class="hl hl-yellow">12억</span> (<span class="hl hl-green">+330%</span>)',en:'ASC/MSC Revenue <span class="hl hl-yellow">1.2B KRW</span> in 2026 (<span class="hl hl-green">+330%</span>)',zh:'ASC/MSC销售26年<span class="hl hl-yellow">12亿</span>(<span class="hl hl-green">+330%</span>)',ja:'ASC/MSC売上26年<span class="hl hl-yellow">12億</span>(<span class="hl hl-green">+330%</span>)'};
 var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">SUSTAINABLE BRAND</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="sus-cards">';
 items.forEach(function(it){h+='<div class="sus-card"><div class="sus-icon">'+it.icon+'</div><div class="sus-title">'+it.t[lg]+'</div><div class="sus-desc">'+it.d[lg]+'</div></div>';});
 h+='</div><div class="sus-highlight">'+hl[lg]+'</div></div>';return h;}
@@ -906,7 +922,7 @@ h+='</div></div>';return h;}
 
 function newproductsHtml(lg){
 var ti={ko:'신제품 개발현황',en:'New Product Development',zh:'新产品开发现状',ja:'新製品開発現況'};
-var su={ko:'10년간 134품목 개발, 제품당 평균 1천만원 투자',en:'134 products developed over 10 years, ~10M KRW investment per product',zh:'10年间开发134品目，每品目平均投资1千万韩元',ja:'10年間134品目開発、製品当たり平均1千万ウォン投資'};
+var su={ko:'10년간 <span class="hl hl-cyan">134품목</span> 개발, 제품당 평균 1천만원 투자',en:'<span class="hl hl-cyan">134 products</span> developed over 10 years, ~10M KRW investment per product',zh:'10年间开发<span class="hl hl-cyan">134品目</span>，每品目平均投资1千万韩元',ja:'10年間<span class="hl hl-cyan">134品目</span>開発、製品当たり平均1千万ウォン投資'};
 var n1l={ko:'개발 기간',en:'Duration',zh:'开发期间',ja:'開発期間'};
 var n2l={ko:'개발 품목',en:'Products',zh:'开发品目',ja:'開発品目'};
 var n3l={ko:'품목당 투자',en:'Per Product',zh:'每品目投资',ja:'品目当たり投資'};
@@ -931,7 +947,7 @@ var pillars=[
 {icon:svgChip,t:{ko:'기술혁신',en:'Tech Innovation',zh:'技术革新',ja:'技術革新'},d:{ko:'AI 엑스레이·초분광 도입<br>스마트팩토리 전면 구축<br>자동화·IoT 기반 생산',en:'AI X-ray & hyperspectral<br>Full smart factory build<br>Automation & IoT production',zh:'AI X光·超光谱导入<br>智能工厂全面构建<br>自动化·IoT基础生产',ja:'AI X線・超分光導入<br>スマートファクトリー全面構築<br>自動化・IoT基盤生産'}},
 {icon:svgHeart,t:{ko:'파트너십',en:'Partnership',zh:'合作伙伴',ja:'パートナーシップ'},d:{ko:'풀무원·CJ 장기 파트너<br>B2B 원팩·MG 품목 확산<br>상생 성장 생태계 구축',en:'Pulmuone/CJ long-term partner<br>B2B one-pack/MG expansion<br>Win-win growth ecosystem',zh:'Pulmuone·CJ长期合作<br>B2B原包·MG品目扩散<br>共赢成长生态系统构建',ja:'プルムウォン・CJ長期パートナー<br>B2Bワンパック・MG品目拡散<br>共生成長エコシステム構築'}}
 ];
-var slogan={ko:'No.1 수산가공 파트너',en:'No.1 Seafood Processing Partner',zh:'No.1 水产加工合作伙伴',ja:'No.1 水産加工パートナー'};
+var slogan={ko:'<span class="hl hl-yellow">No.1</span> 수산가공 파트너',en:'<span class="hl hl-yellow">No.1</span> Seafood Processing Partner',zh:'<span class="hl hl-yellow">No.1</span> 水产加工合作伙伴',ja:'<span class="hl hl-yellow">No.1</span> 水産加工パートナー'};
 var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">VISION 2026+</div><h1 style="font-size:44px">'+ti[lg]+'</h1><div class="vis-pillars">';
 pillars.forEach(function(p){h+='<div class="vis-pillar"><div class="vis-icon">'+p.icon+'</div><div class="vis-title">'+p.t[lg]+'</div><div class="vis-desc">'+p.d[lg]+'</div></div>';});
 h+='</div><div class="vis-slogan">'+slogan[lg]+'</div></div>';return h;}
@@ -944,8 +960,8 @@ return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div cl
 
 function statsHtml(lg){
 var ti={ko:'사업 실적',en:'Business Performance',zh:'业务实绩',ja:'事業実績'};
-var u1={ko:'억',en:'B',zh:'亿',ja:'億'};var l1={ko:'연간 매출액 (+6%)',en:'Annual Revenue (+6%)',zh:'年销售额 (+6%)',ja:'年間売上高 (+6%)'};
-var l2={ko:'HACCP 인증 가공시설',en:'HACCP Certified Facility',zh:'HACCP认证加工设施',ja:'HACCP認証加工施設'};
+var u1={ko:'억',en:'B',zh:'亿',ja:'億'};var l1={ko:'연간 매출액 (<span class="hl hl-green">+6%</span>)',en:'Annual Revenue (<span class="hl hl-green">+6%</span>)',zh:'年销售额 (<span class="hl hl-green">+6%</span>)',ja:'年間売上高 (<span class="hl hl-green">+6%</span>)'};
+var l2={ko:'<span class="hl hl-cyan">HACCP</span> 인증 가공시설',en:'<span class="hl hl-cyan">HACCP</span> Certified Facility',zh:'<span class="hl hl-cyan">HACCP</span>认证加工设施',ja:'<span class="hl hl-cyan">HACCP</span>認証加工施設'};
 var u3={ko:'년',en:'Yrs',zh:'年',ja:'年'};var l3={ko:'수산 전문 노하우',en:'Seafood Expertise',zh:'水产专业经验',ja:'水産専門ノウハウ'};
 var u4={ko:'품목',en:'Items',zh:'品目',ja:'品目'};var l4={ko:'개발 품목 수',en:'Products Developed',zh:'开发品目数',ja:'開発品目数'};
 function ring(v,u,la){return '<div class="stat-ring"><div class="stat-ring-wrap"><svg class="ring-svg" viewBox="0 0 140 140"><circle class="rbg" cx="70" cy="70" r="60"/><circle class="rfill" cx="70" cy="70" r="60" style="--so:'+v+'"/></svg><div class="stat-inner"><div class="stat-num" style="font-size:34px">'+u+'</div></div></div><div class="stat-label">'+la+'</div></div>';}
@@ -986,17 +1002,24 @@ h+='</div></div></div>';return h;}
 
 function pbHtml(lg){
 var ti={ko:'전문 PB 파트너',en:'Professional PB Partners',zh:'专业PB合作伙伴',ja:'専門PBパートナー'};
-var su={ko:'One Platform \u2014 10년간 134품목 개발 파트너십',en:'One Platform \u2014 134 products developed over 10 years',zh:'One Platform \u2014 10年间134品目开发合作',ja:'One Platform \u2014 10年間134品目開発パートナーシップ'};
+var su={ko:'One Platform \u2014 10년간 <span class="hl hl-yellow">134품목</span> 개발 파트너십',en:'One Platform \u2014 <span class="hl hl-yellow">134 products</span> developed over 10 years',zh:'One Platform \u2014 10年间<span class="hl hl-yellow">134品目</span>开发合作',ja:'One Platform \u2014 10年間<span class="hl hl-yellow">134品目</span>開発パートナーシップ'};
+/* SVG brand logos for each PB partner */
+var logoP='<div class="pb-logo" style="background:rgba(44,167,72,.1)"><svg viewBox="0 0 100 60" fill="none"><circle cx="22" cy="30" r="14" fill="#2ca748"/><circle cx="22" cy="30" r="8" fill="rgba(255,255,255,.9)"/><text x="52" y="36" font-size="18" font-weight="900" fill="#2ca748" font-family="sans-serif">풀무원</text></svg></div>';
+var logoCJ='<div class="pb-logo" style="background:rgba(228,0,43,.08)"><svg viewBox="0 0 100 60" fill="none"><rect x="8" y="12" width="36" height="36" rx="6" fill="#e4002b"/><text x="14" y="39" font-size="22" font-weight="900" fill="#fff" font-family="sans-serif">CJ</text><text x="52" y="28" font-size="11" font-weight="700" fill="#e4002b" font-family="sans-serif">Fresh</text><text x="52" y="44" font-size="11" font-weight="700" fill="#e4002b" font-family="sans-serif">way</text></svg></div>';
+var logoCoup='<div class="pb-logo" style="background:rgba(227,70,0,.08)"><svg viewBox="0 0 100 60" fill="none"><path d="M20 42L32 10h6l-14 38c-2 4-6 4-8 0z" fill="#e34600"/><circle cx="35" cy="12" r="5" fill="#e34600"/><text x="46" y="36" font-size="14" font-weight="900" fill="#e34600" font-family="sans-serif">쿠팡</text></svg></div>';
+var logoOrga='<div class="pb-logo" style="background:rgba(90,143,60,.1)"><svg viewBox="0 0 100 60" fill="none"><path d="M24 44c-6-8-4-20 4-26s20-4 26 4" stroke="#5a8f3c" stroke-width="3" fill="none"/><circle cx="28" cy="20" r="6" fill="#5a8f3c"/><text x="42" y="36" font-size="11" font-weight="800" fill="#5a8f3c" font-family="sans-serif">ORGA</text></svg></div>';
+var logoDure='<div class="pb-logo" style="background:rgba(0,120,60,.08)"><svg viewBox="0 0 100 60" fill="none"><circle cx="26" cy="28" r="16" stroke="#00783c" stroke-width="3" fill="rgba(0,120,60,.1)"/><path d="M18 28c4-6 12-6 16 0" stroke="#00783c" stroke-width="2.5" fill="none"/><text x="50" y="24" font-size="10" font-weight="800" fill="#00783c" font-family="sans-serif">두레</text><text x="50" y="38" font-size="10" font-weight="800" fill="#00783c" font-family="sans-serif">생협</text></svg></div>';
+var logoChoroc='<div class="pb-logo" style="background:rgba(26,140,26,.08)"><svg viewBox="0 0 100 60" fill="none"><path d="M20 40L28 16c1-3 4-3 5 0l8 24" stroke="#1a8c1a" stroke-width="2.5" fill="rgba(26,140,26,.1)"/><circle cx="30" cy="20" r="4" fill="#1a8c1a"/><text x="46" y="24" font-size="9" font-weight="800" fill="#1a8c1a" font-family="sans-serif">초록</text><text x="46" y="38" font-size="9" font-weight="800" fill="#1a8c1a" font-family="sans-serif">마을</text></svg></div>';
 var partners=[
-{n:'풀무원',r:{ko:'제조',en:'Manufacturing',zh:'制造',ja:'製造'},cls:'b-pulmuone2'},
-{n:'CJ프레쉬웨이',r:{ko:'B2B 식자재',en:'B2B Food Service',zh:'B2B食材',ja:'B2B食材'},cls:'b-cjfw'},
-{n:'쿠팡',r:{ko:'이커머스',en:'E-Commerce',zh:'电子商务',ja:'Eコマース'},cls:'b-coupang2'},
-{n:'올가홀푸드',r:{ko:'프리미엄',en:'Premium',zh:'高端',ja:'プレミアム'},cls:'b-orga2'},
-{n:'두레생협',r:{ko:'친환경',en:'Eco-Friendly',zh:'环保',ja:'エコフレンドリー'},cls:'b-dure'},
-{n:'초록마을',r:{ko:'유기농',en:'Organic',zh:'有机',ja:'オーガニック'},cls:'b-choroc2'}
+{n:'풀무원',logo:logoP,r:{ko:'제조',en:'Manufacturing',zh:'制造',ja:'製造'},cls:'b-pulmuone2'},
+{n:'CJ프레쉬웨이',logo:logoCJ,r:{ko:'B2B 식자재',en:'B2B Food Service',zh:'B2B食材',ja:'B2B食材'},cls:'b-cjfw'},
+{n:'쿠팡',logo:logoCoup,r:{ko:'이커머스',en:'E-Commerce',zh:'电子商务',ja:'Eコマース'},cls:'b-coupang2'},
+{n:'올가홀푸드',logo:logoOrga,r:{ko:'프리미엄',en:'Premium',zh:'高端',ja:'プレミアム'},cls:'b-orga2'},
+{n:'두레생협',logo:logoDure,r:{ko:'친환경',en:'Eco-Friendly',zh:'环保',ja:'エコフレンドリー'},cls:'b-dure'},
+{n:'초록마을',logo:logoChoroc,r:{ko:'유기농',en:'Organic',zh:'有机',ja:'オーガニック'},cls:'b-choroc2'}
 ];
 var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">PB PARTNERSHIP</div><h1 style="font-size:46px">'+ti[lg]+'</h1><div class="pb-platform">'+su[lg]+'</div><div class="pb-grid">';
-partners.forEach(function(p){h+='<div class="pb-card '+p.cls+'"><div class="pb-name">'+p.n+'</div><div class="pb-role">'+p.r[lg]+'</div></div>';});
+partners.forEach(function(p){h+='<div class="pb-card '+p.cls+'">'+p.logo+'<div class="pb-name">'+p.n+'</div><div class="pb-role">'+p.r[lg]+'</div></div>';});
 h+='</div></div>';return h;}
 
 function prioritiesHtml(lg){
