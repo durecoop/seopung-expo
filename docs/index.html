@@ -227,53 +227,117 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 .b-orga{background:rgba(90,143,60,.12);border:1.5px solid rgba(90,143,60,.4);color:#5a8f3c}
 .b-choroc{background:rgba(26,140,26,.12);border:1.5px solid rgba(26,140,26,.4);color:#1a8c1a}
 
+/* === PRODUCT GRID SLIDE === */
+.slide-products{background:linear-gradient(135deg,#0a1628,#0d1e38 50%,#0a1628)}
+.slide-products .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
+.prod-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:32px;width:100%;max-width:1300px}
+.prod-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:16px;
+  padding:16px;text-align:center;opacity:0;transform:translateY(20px) scale(.9);transition:transform .3s}
+.prod-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:#1a2a44}
+.prod-card .pname{font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-top:10px;line-height:1.3}
+.prod-card .pprice{font-size:12px;color:rgba(79,195,247,.7);margin-top:4px}
+.slide.active .prod-card{animation:fadeInScale .5s ease both}
+.slide.active .prod-card:nth-child(1){animation-delay:.2s}
+.slide.active .prod-card:nth-child(2){animation-delay:.3s}
+.slide.active .prod-card:nth-child(3){animation-delay:.4s}
+.slide.active .prod-card:nth-child(4){animation-delay:.5s}
+.slide.active .prod-card:nth-child(5){animation-delay:.6s}
+.slide.active .prod-card:nth-child(6){animation-delay:.7s}
+.slide.active .prod-card:nth-child(7){animation-delay:.8s}
+.slide.active .prod-card:nth-child(8){animation-delay:.9s}
+.slide.active .prod-card:nth-child(9){animation-delay:1s}
+.slide.active .prod-card:nth-child(10){animation-delay:1.1s}
+.slide.active .prod-card:nth-child(11){animation-delay:1.2s}
+.slide.active .prod-card:nth-child(12){animation-delay:1.3s}
+.prod-count{font-size:15px;color:rgba(79,195,247,.6);margin-top:24px;opacity:0}
+.slide.active .prod-count{animation:fadeUp .5s 1.5s ease both}
+
 /* === PROGRESS === */
 #progress{position:fixed;bottom:0;left:0;right:0;height:4px;z-index:100;background:rgba(255,255,255,.06)}
 #progress-fill{height:100%;width:0;background:linear-gradient(90deg,#4fc3f7,#81d4fa);transition:width .3s linear}
 #counter{position:fixed;bottom:14px;right:36px;z-index:100;font-size:13px;color:rgba(255,255,255,.2);font-weight:600;letter-spacing:2px}
 
 /* === STARTUP SCREEN === */
-#startup{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at 50% 40%,#0d2040,#0a1628 70%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#startup{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at 50% 30%,#0d2040,#0a1628 70%);
+  display:flex;overflow-y:auto;transition:opacity .8s,visibility .8s}
 #startup.hide{opacity:0;visibility:hidden;pointer-events:none}
-.su-wave{margin-bottom:20px;opacity:.7}
-.su-logo-txt{font-size:100px;font-weight:900;color:#fff;letter-spacing:12px;
+.su-left{flex:0 0 40%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px;background:rgba(0,0,0,.15);position:relative;overflow:hidden}
+.su-left::after{content:'';position:absolute;inset:0;background:url(images/slide_f2.webp) center/cover;opacity:.15;z-index:0}
+.su-left>*{position:relative;z-index:1}
+.su-wave{margin-bottom:16px;opacity:.8}
+.su-logo-txt{font-size:90px;font-weight:900;color:#fff;letter-spacing:10px;
   text-shadow:0 0 60px rgba(79,195,247,.5),0 8px 40px rgba(0,0,0,.5)}
-.su-sub{font-size:16px;letter-spacing:8px;color:rgba(79,195,247,.7);margin-top:10px}
-.su-label{font-size:13px;color:rgba(255,255,255,.35);margin-top:48px;letter-spacing:4px;text-transform:uppercase}
-.lang-row{display:flex;gap:16px;margin-top:16px}
-.lang-btn{padding:18px 40px;border:2px solid rgba(79,195,247,.25);border-radius:14px;
-  background:rgba(79,195,247,.04);color:#fff;font-size:20px;font-weight:700;
+.su-hanja{font-size:28px;color:rgba(79,195,247,.7);letter-spacing:8px;margin-top:4px;font-weight:300}
+.su-meaning{max-width:380px;text-align:center;margin-top:20px;line-height:1.8;font-size:16px;color:rgba(255,255,255,.6)}
+.su-meaning em{color:#4fc3f7;font-style:normal;font-weight:700}
+.su-sub{font-size:14px;letter-spacing:6px;color:rgba(79,195,247,.5);margin-top:16px}
+.su-right{flex:1;display:flex;flex-direction:column;padding:36px 48px;overflow-y:auto}
+.su-label{font-size:13px;color:rgba(255,255,255,.35);letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+.lang-row{display:flex;gap:12px}
+.lang-btn{padding:14px 30px;border:2px solid rgba(79,195,247,.25);border-radius:12px;
+  background:rgba(79,195,247,.04);color:#fff;font-size:18px;font-weight:700;
   cursor:pointer;transition:all .3s;letter-spacing:1px;font-family:inherit}
-.lang-btn:hover{border-color:#4fc3f7;background:rgba(79,195,247,.12);
-  transform:translateY(-3px);box-shadow:0 8px 30px rgba(79,195,247,.2)}
-.lang-btn .lf{display:block;font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;font-weight:400}
-.speed-section{margin-top:36px;display:flex;align-items:center;gap:16px}
-.speed-section label{font-size:13px;color:rgba(255,255,255,.4)}
-#speedSlider{width:200px;accent-color:#4fc3f7;cursor:pointer}
-.speed-val{font-size:16px;color:#4fc3f7;font-weight:700;min-width:44px;text-align:center}
+.lang-btn:hover,.lang-btn.sel{border-color:#4fc3f7;background:rgba(79,195,247,.15);
+  transform:translateY(-2px);box-shadow:0 4px 20px rgba(79,195,247,.2)}
+.lang-btn .lf{display:block;font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;font-weight:400}
+.speed-section{display:flex;align-items:center;gap:12px;margin-top:8px}
+.speed-section label{font-size:12px;color:rgba(255,255,255,.4)}
+#speedSlider{width:180px;accent-color:#4fc3f7;cursor:pointer}
+.speed-val{font-size:15px;color:#4fc3f7;font-weight:700;min-width:40px;text-align:center}
+.slide-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px;max-height:340px;overflow-y:auto;
+  padding-right:8px;scrollbar-width:thin;scrollbar-color:rgba(79,195,247,.3) transparent}
+.slide-chk{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .2s}
+.slide-chk:hover{background:rgba(79,195,247,.06);border-color:rgba(79,195,247,.15)}
+.slide-chk input{accent-color:#4fc3f7;width:16px;height:16px;cursor:pointer}
+.slide-chk .sname{font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+.slide-chk .sdur{font-size:11px;color:rgba(255,255,255,.25);margin-left:auto}
+.su-start{margin-top:20px;padding:16px 60px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,#4fc3f7,#0288d1);color:#fff;font-size:20px;font-weight:800;
+  cursor:pointer;letter-spacing:2px;font-family:inherit;transition:all .3s;box-shadow:0 4px 20px rgba(79,195,247,.3)}
+.su-start:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,195,247,.5)}
+.su-btns{display:flex;gap:12px;margin-top:12px}
+.su-btn-sm{padding:10px 20px;border:1px solid rgba(255,255,255,.1);border-radius:8px;
+  background:rgba(255,255,255,.03);color:rgba(255,255,255,.6);font-size:13px;
+  cursor:pointer;font-family:inherit;transition:all .2s}
+.su-btn-sm:hover{background:rgba(79,195,247,.08);border-color:rgba(79,195,247,.2);color:#fff}
 </style>
 </head>
 <body>
 <div id="startup">
-  <svg class="su-wave" viewBox="0 0 120 80" width="80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg>
-  <div class="su-logo-txt">서풍</div>
-  <div class="su-sub">SEOPUNG &middot; SINCE 1976</div>
-  <div class="su-label">Select Language</div>
-  <div class="lang-row">
-    <button class="lang-btn" data-lang="ko">한국어<span class="lf">Korean</span></button>
-    <button class="lang-btn" data-lang="en">English<span class="lf">영어</span></button>
-    <button class="lang-btn" data-lang="zh">中文<span class="lf">Chinese</span></button>
-    <button class="lang-btn" data-lang="ja">日本語<span class="lf">Japanese</span></button>
+  <div class="su-left">
+    <svg class="su-wave" viewBox="0 0 120 80" width="80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg>
+    <div class="su-logo-txt">서풍</div>
+    <div class="su-hanja">西風 &middot; SEOPUNG</div>
+    <div class="su-meaning">서방정토(西方淨土)로 향하는 바람처럼,<br><em>가장 좋은 곳(바다)에서<br>가장 좋은 것을 가져다주는 존재</em></div>
+    <div class="su-sub">SINCE 1976 &middot; YEOSU, KOREA</div>
   </div>
-  <div class="su-label" style="margin-top:28px">Slide Speed</div>
-  <div class="speed-section">
-    <label>Slow</label>
-    <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
-    <label>Fast</label>
-    <span class="speed-val" id="speedVal">1.0x</span>
+  <div class="su-right">
+    <div class="su-label">Language</div>
+    <div class="lang-row">
+      <button class="lang-btn sel" data-lang="ko">한국어<span class="lf">Korean</span></button>
+      <button class="lang-btn" data-lang="en">English<span class="lf">영어</span></button>
+      <button class="lang-btn" data-lang="zh">中文<span class="lf">Chinese</span></button>
+      <button class="lang-btn" data-lang="ja">日本語<span class="lf">Japanese</span></button>
+    </div>
+    <div class="su-label" style="margin-top:20px">Speed</div>
+    <div class="speed-section">
+      <label>Slow</label>
+      <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
+      <label>Fast</label>
+      <span class="speed-val" id="speedVal">1.0x</span>
+    </div>
+    <div class="su-label" style="margin-top:20px">Slides <span id="slideCount"></span></div>
+    <div class="slide-list" id="slideList"></div>
+    <div class="su-btns">
+      <button class="su-btn-sm" id="selAll">All</button>
+      <button class="su-btn-sm" id="selNone">None</button>
+    </div>
+    <button class="su-start" id="startBtn">START</button>
   </div>
 </div>
+<audio id="bgm" loop preload="auto"><source src="bgm.mp3" type="audio/mpeg"></audio>
 <div id="watermark">
   <svg viewBox="0 0 48 32" fill="none"><path d="M2 24c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity=".7"/><path d="M2 16c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".45"/><path d="M2 8c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" opacity=".25"/></svg>
   <span>서풍</span>
@@ -384,6 +448,7 @@ var S=[
 /* 5 */ {id:'slide04',dur:6000,ef:'kb-sl',tag:'TRUST',t:'대한민국 수산 가공의<br>자존심',p:'연 매출 1,000억 원 돌파, 100개 이상 학교급식 납품.<br>대한민국 수산 가공 업계를 선도합니다.',b:['연매출 1,000억+','학교급식 100+']},
 /* 6 */ {id:null,dur:7000,ef:'',css:'slide-certs',htmlFn:'certs'},
 /* 7 */ {id:null,dur:9000,ef:'',css:'slide-stats',htmlFn:'stats'},
+/* 7.5: 상품 라인업 */ {id:null,dur:10000,ef:'',css:'slide-products',htmlFn:'prodGrid'},
 /* 8 */ {id:'slide07',dur:7000,ef:'kb-pd',tag:'SIGNATURE PRODUCT',t:'품질인증 오징어',p:'바다가 선물한 최고의 한 마리.<br>여수 근해에서 당일 조업한 신선함 그대로!',b:['국가 품질인증','당일 조업']},
 /* 9 */ {id:'slide08',dur:6000,ef:'kb-zo',tag:'자연 건조',t:'해풍이 만든<br>자연 그대로의 맛',p:'여수 바닷바람에 정성껏 말린 전통 건조 방식.<br>인공 첨가물 없이 자연 그대로입니다.',b:['자연 건조','무첨가']},
 /* 10 */ {id:'slide_h1',dur:6000,ef:'kb-pr',tag:'HACCP FACILITY',t:'숙련된 전문 인력의<br>철저한 선별',p:'HACCP 인증 시설에서 위생복을 갖춘 전문 인력이<br>한 마리 한 마리 정성껏 가공합니다.',b:['위생 관리','전문 인력']},
@@ -400,7 +465,31 @@ var S=[
 
 var L={"slide02":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAfEAACAgICAwEAAAAAAAAAAAAAAQIDESEEEhQiMUL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREhP/2gAMAwEAAhEDEQA/AERu9cHYzWDtNcN5ZpdItp/CukJxJEpLIG5OrsBfSE5lLK2VVm2b8iM47J+Un3EZZjTW1DvhkCd1SewHRLeSTfpAAA9fAAAD/9k=","slide03":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAfABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAdEAACAgMBAQEAAAAAAAAAAAAAAQIRAwQhEhQy/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAFxEBAQEBAAAAAAAAAAAAAAAAABEBEv/aAAwDAQACEQMRAD8A7X6Y0bRi+2MX0pi3YyNbobUgMMtuV8YAnEn7cm74GPJJS4WyUoNiayVu0Zpi69SV2AyoC6Mf/9k=","slide_f1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABoQAAIDAQEAAAAAAAAAAAAAAAABAgMRBDH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AF+bkVkdbw3lwV56IU2zWJSZSbbpT0Anz5EpNJgM4BF//9k=","slide_f2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABsQAAIDAQEBAAAAAAAAAAAAAAABAgQRMQMh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCKr6ufxm7MIxjuiaXAstvSCZyWgLfQA//Z","slide04":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAfEAACAgICAwEAAAAAAAAAAAAAAQIDESEEEhMiMUL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREhP/2gAMAwEAAhEDEQA/AJo2+uDYyRtNcN5Ol0i3krpCcSRKSyB3J1dgK6QnMpZWSrntjPOpx2T8pPsJyzKmtnu+OQEOqT2A6JXyCf8ASABhQvgAAg//2Q==","slide05":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAgMG/8QAHhAAAwADAAIDAAAAAAAAAAAAAAECAwQRITESE1H/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABkRAQADAQEAAAAAAAAAAAAAAAABAhFBMv/aAAwDAQACEQMRAD8Ap49qYSljStVKfSDO1ivnWNLM7lKK8C05hQul8gEFkyJeQGHmJbbSTKutVY8fsmzjqK60O41bnwDK8247vZydA4NZO+gEjbtbCX1GtH0AE8dM+jvF+AACW//Z","slide07":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgUG/8QAGxAAAgMBAQEAAAAAAAAAAAAAAAECAyEEETP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABETH/2gAMAwEAAhEDEQA/AOitfkGxDmulK1pvBy/a2Z/JF/ZsL1UzGgAAUkWbBoV5q3CbbGW8KoCsBACH/9k=","slide08":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAaABQDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQBAgMFBv/EAB4QAAMAAgIDAQAAAAAAAAAAAAABAgMEERIxMkJB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AOjVk9xScsv6RZ5pX6GrDHcBGt3GnxyBqsauKqforl2XK8laFtn1AbDk2Ldt8gLPyA4Ff//Z","slide_h1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEAv/EABoQAAMAAwEAAAAAAAAAAAAAAAABAgMRMRP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAA//EABcRAAMBAAAAAAAAAAAAAAAAAAABAhH/2gAMAwEAAhEDEQA/AJ/K7NxheNbKcY74xgJXVbAb6BF29KKEf//Z","slide_h2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABsQAAMAAgMAAAAAAAAAAAAAAAABAgMEERIx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AM4LmV1Q2qTIsXpQgFXrqq5AeAH/2Q==","slide10":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAtABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEDBAIF/8QAHhAAAwADAAIDAAAAAAAAAAAAAAECAxEhEiIxMlH/xAAXAQEBAQEAAAAAAAAAAAAAAAABAAMC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APVT2db4Z4y+a4dq/wBMmhT6Cq8sqgERNRC2g6T6jNkTrieiE6xr5OgvczXW+gx1e39gQT5Oe76RTrfSyIT6yLXsFMU1C2C1pbA1P//Z","slide11":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAXABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUCAQT/xAAfEAACAgIBBQAAAAAAAAAAAAAAAQIDBBRhERIhMUH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAIQH/2gAMAwEAAhEDEQA/ALWzyd2CTG1tLyadz9JkVUVNkE+E24gURYZjVXJqvJbXX6AXjHsrtn2IAAf/2Q==","slide12":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQIG/8QAIBAAAgEDBAMAAAAAAAAAAAAAAAECAwQSBREhIhQxM//EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AONJs40YZTXY16VGNam4y5TILlYvaK2J7Rsmlh3ukS8iWEeAeowT5aBQUPo+xYowUfQBJSOTTAAh/9k=","slide13":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAcEAACAwADAQAAAAAAAAAAAAAAAQIDEQQSITH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwCbXS2xizjSrr3TO4/DpCUpLJPUSie+2/AGrEu78AlH/9k=","slide14":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAEDBQT/xAAcEAADAAIDAQAAAAAAAAAAAAAAAQIDEQQSMTL/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AN7LfRbKJ5G6J5baRyYm+4FpS9rYIj5QEIzSq9KseKFXgAJeABT/2Q==","slide15_table":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBAX/xAAdEAACAwACAwAAAAAAAAAAAAAAAQIDEQQhEiIx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AMFc7GsXwkuLOyWs2QjXGOrCM+R4rIozh1fTW4VpAphy8j2BC5dds+lvR06a4uvWgA0mW31m0gAJH//Z","slide16":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAdEAACAwADAQEAAAAAAAAAAAAAAQIDEQQSISIy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABgRAQEBAQEAAAAAAAAAAAAAAAABERIT/9oADAMBAAIRAxEAPwCdW/OHYzR2muHuml0i3pfpE8VPKS0DcnV2Ar0iealldKqz1jFcrIaTcxPsYqbzDHGlthrvimAiVUnLQHhaq5AmP6QAApwAAG//2Q=="};
 
-var htmlFns={logo:logoHtml,certs:certsHtml,stats:statsHtml,end:endHtml};
+function prodGridHtml(lg){
+var ti={ko:'80여 가지 프리미엄 수산물',en:'80+ Premium Seafood Products',zh:'80多种优质水产品',ja:'80種以上のプレミアム水産物'};
+var sub={ko:'여수 청정 바다에서 식탁까지, 서풍이 엄선한 프리미엄 라인업',en:'From Yeosu\'s pristine waters to your table - Seopung\'s premium lineup',zh:'从丽水清净海域到餐桌——西风精选高端系列',ja:'麗水の清浄な海からお食卓まで、西風が厳選したプレミアムラインナップ'};
+var items=[
+{id:'prod_44807',n:{ko:'데친문어',en:'Boiled Octopus',zh:'煮章鱼',ja:'茹でタコ'}},
+{id:'prod_56751',n:{ko:'황금굴비',en:'Golden Gulbi',zh:'黄金黄花鱼',ja:'黄金グルビ'}},
+{id:'prod_55991',n:{ko:'손질꽃게',en:'Blue Crab',zh:'梭子蟹',ja:'ワタリガニ'}},
+{id:'prod_43978',n:{ko:'고흥뻘낙지',en:'Mud Octopus',zh:'泥章鱼',ja:'テナガダコ'}},
+{id:'prod_58644',n:{ko:'제주은갈치',en:'Silver Hairtail',zh:'济州银带鱼',ja:'太刀魚'}},
+{id:'prod_54375',n:{ko:'꼬마전복살',en:'Baby Abalone',zh:'小鲍鱼肉',ja:'小アワビ'}},
+{id:'prod_57261',n:{ko:'해물모듬',en:'Seafood Mix',zh:'海鲜拼盘',ja:'海鮮盛合せ'}},
+{id:'prod_36664',n:{ko:'선동오징어',en:'Fresh Squid',zh:'鲜鱿鱼',ja:'船凍イカ'}},
+{id:'prod_53558',n:{ko:'자숙새꼬막',en:'Cockles',zh:'蚶子',ja:'赤貝'}},
+{id:'prod_56458',n:{ko:'반건조민어',en:'Semi-dried Croaker',zh:'半干黄花鱼',ja:'半干しニベ'}},
+{id:'prod_55919',n:{ko:'손질병어',en:'Butterfish',zh:'鲳鱼',ja:'マナガツオ'}},
+{id:'prod_35736',n:{ko:'건보리새우',en:'Dried Shrimp',zh:'干虾',ja:'干しエビ'}}
+];
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">PRODUCT LINEUP</div><h1 style="font-size:46px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:6px">'+sub[lg]+'</p><div class="prod-grid">';
+items.forEach(function(it){
+h+='<div class="prod-card"><picture><source srcset="images/'+it.id+'.webp" type="image/webp"><img src="images/'+it.id+'.jpg" alt="'+it.n[lg]+'" loading="lazy"></picture><div class="pname">'+it.n[lg]+'</div></div>';
+});
+h+='</div><div class="prod-count">...외 70여 가지 수산물</div></div>';
+return h;}
+
+var htmlFns={logo:logoHtml,certs:certsHtml,stats:statsHtml,end:endHtml,prodGrid:prodGridHtml};
 
 /* Apply language + speed to slides */
 function applyLang(lg){
@@ -481,41 +570,123 @@ function applyBg(id,src){
   });
 }
 function preAround(i){for(var o=0;o<=2;o++){var s=S[(i+o)%T];if(s.id)loadImg(s.id);}}
-function unloadFar(i){S.forEach(function(s,j){if(!s.id)return;var d=Math.min(Math.abs(j-i),T-Math.abs(j-i));if(d>3&&loaded.has(s.id)){document.querySelectorAll('.bg[data-id="'+s.id+'"]').forEach(function(el){el.style.backgroundImage='';var lq=el.previousElementSibling;if(lq&&lq.classList.contains('bg-lqip'))lq.classList.remove('loaded');});loaded.delete(s.id);cache.delete(s.id);}});}
+function preAroundA(i){for(var o=0;o<=2;o++){var s=activeSlides[(i+o)%T];if(s&&s.id)loadImg(s.id);}}
+function unloadFarA(i){activeSlides.forEach(function(s,j){if(!s.id)return;var d=Math.min(Math.abs(j-i),T-Math.abs(j-i));if(d>3&&loaded.has(s.id)){document.querySelectorAll('.bg[data-id="'+s.id+'"]').forEach(function(el){el.style.backgroundImage='';var lq=el.previousElementSibling;if(lq&&lq.classList.contains('bg-lqip'))lq.classList.remove('loaded');});loaded.delete(s.id);cache.delete(s.id);}});}
 
 function goTo(i){
   var sl=document.querySelectorAll('.slide');
   sl.forEach(function(x){x.classList.remove('active','prev','kb-zi','kb-zo','kb-pu','kb-pd','kb-pr','kb-sl');});
   sl[cur].classList.add('prev');
   sl[i].classList.add('active');
-  if(S[i].ef)sl[i].classList.add(S[i].ef);
-  cur=i;preAround(cur);unloadFar(cur);updateC();startP(S[cur]._dur);
+  if(activeSlides[i].ef)sl[i].classList.add(activeSlides[i].ef);
+  cur=i;preAroundA(cur);unloadFarA(cur);updateC();startP(activeSlides[cur]._dur);
 }
 function startP(d){var f=document.getElementById('progress-fill');f.style.transition='none';f.style.width='0%';f.offsetWidth;f.style.transition='width '+d+'ms linear';f.style.width='100%';}
 function updateC(){document.getElementById('counter').textContent=(cur+1)+' / '+T;}
-function sched(){clearTimeout(tmr);tmr=setTimeout(function(){goTo((cur+1)%T);sched();},S[cur]._dur);}
+function sched(){clearTimeout(tmr);tmr=setTimeout(function(){goTo((cur+1)%T);sched();},activeSlides[cur]._dur);}
 
 async function reqWL(){try{if('wakeLock' in navigator){wl=await navigator.wakeLock.request('screen');}}catch(e){}}
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')reqWL();});
 
-function startShow(lg,sp){
+var activeSlides=[];
+function startShow(lg,sp,selected){
   LANG=lg;SPEED=sp;
   applyLang(lg);
-  try{ build(); }catch(e){ console.error(e); }
-  updateC();startP(S[0]._dur);sched();reqWL();preAround(0);
+  /* Filter to selected slides only */
+  activeSlides=selected.map(function(i){return S[i];});
+  T=activeSlides.length;cur=0;
+  try{ buildFiltered(activeSlides); }catch(e){ console.error(e); }
+  updateC();startP(activeSlides[0]._dur);sched();reqWL();preAroundA(0);
   document.getElementById('startup').classList.add('hide');
+  /* Play BGM */
+  if(bgm){try{bgm.volume=0.3;bgm.play().catch(function(){});}catch(e){}}
+}
+function buildFiltered(arr){
+  var c=document.getElementById('slideshow');c.innerHTML='';
+  arr.forEach(function(s,i){
+    var d=document.createElement('div');
+    d.className='slide'+(s.warm?' warm':'')+(s.css?' '+s.css:'');
+    d.dataset.i=i;d.style.setProperty('--dur',s._dur+'ms');
+    if(i===0){d.classList.add('active');if(s.ef)d.classList.add(s.ef);}
+    d.innerHTML=s.html?s.html:mkSlide(s);
+    c.appendChild(d);
+  });
 }
 
 /* Startup screen logic */
 var slider=document.getElementById('speedSlider');
 var sval=document.getElementById('speedVal');
+var bgm=document.getElementById('bgm');
+var selLang='ko';
+
 if(slider){slider.addEventListener('input',function(){SPEED=parseFloat(this.value);sval.textContent=SPEED.toFixed(1)+'x';});}
+
+/* Language buttons */
 document.querySelectorAll('.lang-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){startShow(this.dataset.lang,SPEED);});
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('sel');});
+    this.classList.add('sel');
+    selLang=this.dataset.lang;
+  });
 });
 
+/* Slide names for checklist */
+var slideNames=[
+'로고 오프닝','대표 부부 항구','대표 어선','사옥 전경 (드론)','사옥 항공 전경',
+'대한민국 수산 가공의 자존심','글로벌 인증 뱃지','사업실적 그래프','상품 라인업',
+'품질인증 오징어','오징어 건조','HACCP 가공','IQF 냉동',
+'영광 법성포 굴비','항아리 굴비','수묵화','굴비 가공시설','10마리 굴비 세트','식탁 연출',
+'서풍의 약속','마무리 로고'
+];
+
+/* Build slide checklist */
+var sList=document.getElementById('slideList');
+var sCount=document.getElementById('slideCount');
+S.forEach(function(s,i){
+  var lbl=document.createElement('label');
+  lbl.className='slide-chk';
+  var cb=document.createElement('input');
+  cb.type='checkbox';cb.checked=true;cb.dataset.idx=i;
+  var nm=document.createElement('span');nm.className='sname';nm.textContent=slideNames[i]||('Slide '+(i+1));
+  var dur=document.createElement('span');dur.className='sdur';dur.textContent=(s.dur/1000).toFixed(1)+'s';
+  lbl.appendChild(cb);lbl.appendChild(nm);lbl.appendChild(dur);sList.appendChild(lbl);
+});
+function updateCount(){
+  var n=sList.querySelectorAll('input:checked').length;
+  sCount.textContent='('+n+'/'+S.length+')';
+}
+updateCount();
+sList.addEventListener('change',updateCount);
+document.getElementById('selAll').addEventListener('click',function(){sList.querySelectorAll('input').forEach(function(c){c.checked=true;});updateCount();});
+document.getElementById('selNone').addEventListener('click',function(){sList.querySelectorAll('input').forEach(function(c){c.checked=false;});updateCount();});
+
+/* START button */
+document.getElementById('startBtn').addEventListener('click',function(){
+  var selected=[];
+  sList.querySelectorAll('input').forEach(function(c){if(c.checked)selected.push(parseInt(c.dataset.idx));});
+  if(selected.length===0)return;
+  startShow(selLang,SPEED,selected);
+});
+
+/* Stop & return to settings: press Escape or double-click */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){stopShow();}
+});
+document.getElementById('slideshow').addEventListener('dblclick',function(){stopShow();});
+
+function stopShow(){
+  clearTimeout(tmr);
+  if(bgm){bgm.pause();bgm.currentTime=0;}
+  document.getElementById('startup').classList.remove('hide');
+  document.getElementById('slideshow').innerHTML='';
+  cur=0;
+}
+
 /* Auto-start if URL params provided */
-if(params.get('lang')){startShow(LANG,SPEED);}
+if(params.get('lang')){
+  var allIdx=[];for(var i=0;i<S.length;i++)allIdx.push(i);
+  startShow(LANG,SPEED,allIdx);
+}
 })();
 </script>
 </body>
