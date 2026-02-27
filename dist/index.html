@@ -248,7 +248,7 @@ function build(){
     d.className='slide'+(s.warm?' warm':'')+(s.css?' '+s.css:'');
     d.dataset.i=i;
     d.style.setProperty('--dur',s.dur+'ms');
-    if(i===0) d.classList.add('active',s.ef||'');
+    if(i===0){d.classList.add('active');if(s.ef)d.classList.add(s.ef);}
     d.innerHTML=s.html?s.html:mkSlide(s);
     c.appendChild(d);
   });
