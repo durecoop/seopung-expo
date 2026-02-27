@@ -9,15 +9,6 @@
 html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
   font-family:'맑은 고딕','Malgun Gothic',sans-serif;-webkit-font-smoothing:antialiased}
 
-/* === PRELOADER === */
-#preloader{position:fixed;inset:0;z-index:9999;background:#0a1628;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s}
-#preloader.done{opacity:0;pointer-events:none}
-.pre-logo{font-size:72px;font-weight:900;color:#4fc3f7;margin-bottom:40px;letter-spacing:12px;
-  text-shadow:0 0 40px rgba(79,195,247,.5)}
-.pre-bar{width:320px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
-.pre-fill{height:100%;width:0;background:linear-gradient(90deg,#4fc3f7,#81d4fa);transition:width .3s}
-.pre-pct{margin-top:16px;font-size:14px;color:rgba(255,255,255,.4)}
 
 /* === WATERMARK === */
 #watermark{position:fixed;top:28px;right:36px;z-index:100;display:flex;align-items:center;gap:12px;pointer-events:none}
@@ -191,11 +182,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 </style>
 </head>
 <body>
-<div id="preloader">
-  <div class="pre-logo">서풍</div>
-  <div class="pre-bar"><div class="pre-fill" id="pf"></div></div>
-  <div class="pre-pct" id="pp">로딩 중...</div>
-</div>
 <div id="watermark">
   <svg viewBox="0 0 48 32" fill="none"><path d="M2 24c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity=".7"/><path d="M2 16c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".45"/><path d="M2 8c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" opacity=".25"/></svg>
   <span>서풍</span>
@@ -323,15 +309,9 @@ function sched(){clearTimeout(tmr);tmr=setTimeout(function(){goTo((cur+1)%T);sch
 
 async function reqWL(){try{if('wakeLock' in navigator){wl=await navigator.wakeLock.request('screen');}}catch(e){}}
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')reqWL();});
-window.onerror=function(){setTimeout(function(){location.reload();},5000);};
-
-async function init(){
-  build();
-  // 첫 슬라이드가 CSS 로고이므로 즉시 시작, 이미지는 백그라운드 로딩
-  document.getElementById('preloader').classList.add('done');
-  setTimeout(function(){document.getElementById('preloader').style.display='none';},600);
+function init(){
+  try{ build(); }catch(e){ console.error(e); }
   updateC();startP(S[0].dur);sched();reqWL();
-  // 다음 슬라이드 이미지를 백그라운드로 미리 로딩
   preAround(0);
 }
 init();
