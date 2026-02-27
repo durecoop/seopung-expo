@@ -15,7 +15,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 
 /* === WATERMARK === */
 #watermark{position:fixed;top:28px;right:36px;z-index:100;display:flex;align-items:center;gap:12px;pointer-events:none}
-#watermark svg{width:44px;height:32px;filter:drop-shadow(0 0 12px rgba(79,195,247,.3))}
+#watermark img{width:44px;height:auto;filter:drop-shadow(0 0 12px rgba(79,195,247,.3))}
 #watermark span{font-size:22px;font-weight:800;color:rgba(79,195,247,.55);letter-spacing:4px}
 
 /* === SLIDESHOW === */
@@ -419,6 +419,204 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
   border:2px solid #4fc3f7;border-radius:6px;font-size:13px;
   font-weight:800;letter-spacing:4px;color:#4fc3f7;margin-bottom:10px;opacity:0;transform:translateY(20px)}
 .slide.active .hero-accent{animation:fadeUp .6s .05s ease both}
+
+/* === SLIDE: PHILOSOPHY === */
+.slide-philosophy{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
+.slide-philosophy .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.phi-cycle{display:flex;align-items:center;justify-content:center;gap:0;margin-top:32px;flex-wrap:wrap}
+.phi-box{padding:18px 28px;background:rgba(79,195,247,.06);border:1px solid rgba(79,195,247,.15);border-radius:12px;
+  font-size:18px;font-weight:800;color:#4fc3f7;opacity:0;transform:translateY(20px)}
+.phi-arrow{font-size:24px;color:rgba(79,195,247,.4);padding:0 8px;opacity:0}
+.slide.active .phi-box{animation:fadeUp .5s ease both}
+.slide.active .phi-box:nth-child(1){animation-delay:.3s}
+.slide.active .phi-box:nth-child(3){animation-delay:.5s}
+.slide.active .phi-box:nth-child(5){animation-delay:.7s}
+.slide.active .phi-box:nth-child(7){animation-delay:.9s}
+.slide.active .phi-box:nth-child(9){animation-delay:1.1s}
+.slide.active .phi-arrow{animation:fadeIn .3s ease both}
+.slide.active .phi-arrow:nth-child(2){animation-delay:.4s}
+.slide.active .phi-arrow:nth-child(4){animation-delay:.6s}
+.slide.active .phi-arrow:nth-child(6){animation-delay:.8s}
+.slide.active .phi-arrow:nth-child(8){animation-delay:1s}
+.phi-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;width:100%;max-width:1100px}
+.phi-col{background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:16px;padding:28px 20px;text-align:center;opacity:0;transform:translateY(20px)}
+.phi-col .phi-title{font-size:20px;font-weight:800;color:#4fc3f7;margin-bottom:8px}
+.phi-col .phi-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+.slide.active .phi-col{animation:countUp .6s ease both}
+.slide.active .phi-col:nth-child(1){animation-delay:1.3s}
+.slide.active .phi-col:nth-child(2){animation-delay:1.5s}
+.slide.active .phi-col:nth-child(3){animation-delay:1.7s}
+
+/* === SLIDE: ONE PLATFORM === */
+.slide-oneplatform{background:linear-gradient(135deg,#0a1628,#0d2040 50%,#0a1628)}
+.slide-oneplatform .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
+.op-chain{display:flex;align-items:center;justify-content:center;gap:0;margin-top:40px;flex-wrap:wrap}
+.op-node{padding:24px 32px;background:rgba(79,195,247,.06);border:1.5px solid rgba(79,195,247,.2);border-radius:14px;
+  text-align:center;opacity:0;transform:scale(.8)}
+.op-node .op-name{font-size:22px;font-weight:900;color:#4fc3f7;margin-bottom:4px}
+.op-node .op-sub{font-size:13px;color:rgba(255,255,255,.5)}
+.op-arrow{font-size:28px;color:rgba(79,195,247,.4);padding:0 12px;opacity:0}
+.slide.active .op-node{animation:fadeInScale .5s ease both}
+.slide.active .op-node:nth-child(1){animation-delay:.3s}
+.slide.active .op-node:nth-child(3){animation-delay:.6s}
+.slide.active .op-node:nth-child(5){animation-delay:.9s}
+.slide.active .op-node:nth-child(7){animation-delay:1.2s}
+.slide.active .op-arrow{animation:fadeIn .3s ease both}
+.slide.active .op-arrow:nth-child(2){animation-delay:.45s}
+.slide.active .op-arrow:nth-child(4){animation-delay:.75s}
+.slide.active .op-arrow:nth-child(6){animation-delay:1.05s}
+.op-badge{margin-top:32px;padding:16px 36px;background:rgba(79,195,247,.1);border:2px solid rgba(79,195,247,.3);
+  border-radius:32px;font-size:20px;font-weight:800;color:#4fc3f7;opacity:0}
+.slide.active .op-badge{animation:bounceIn .8s 1.5s ease both}
+
+/* === SLIDE: REVENUE === */
+.slide-revenue{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
+.slide-revenue .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.rev-bars{display:flex;align-items:flex-end;justify-content:center;gap:48px;margin-top:36px;height:220px}
+.rev-bar{display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
+.rev-bar .rb-fill{width:100px;border-radius:8px 8px 0 0;transition:height 1.5s ease}
+.rev-bar .rb-val{font-size:28px;font-weight:900;color:#fff}
+.rev-bar .rb-year{font-size:16px;color:rgba(255,255,255,.5);font-weight:700}
+.slide.active .rev-bar{animation:fadeIn .5s ease both}
+.slide.active .rev-bar:nth-child(1){animation-delay:.3s}
+.slide.active .rev-bar:nth-child(2){animation-delay:.5s}
+.slide.active .rev-bar:nth-child(3){animation-delay:.7s}
+.rev-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;width:100%;max-width:1000px}
+.rev-col{background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:14px;padding:20px 16px;
+  text-align:center;opacity:0;transform:translateY(20px)}
+.rev-col .rc-title{font-size:17px;font-weight:800;color:#4fc3f7;margin-bottom:6px}
+.rev-col .rc-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.slide.active .rev-col{animation:countUp .5s ease both}
+.slide.active .rev-col:nth-child(1){animation-delay:1s}
+.slide.active .rev-col:nth-child(2){animation-delay:1.2s}
+.slide.active .rev-col:nth-child(3){animation-delay:1.4s}
+
+/* === SLIDE: AI X-RAY DETAIL === */
+.slide-aixray{background:linear-gradient(135deg,#0a1628,#0d2444 50%,#0a1628)}
+.slide-aixray .content{justify-content:center;align-items:center;padding:0 80px;flex-direction:row;gap:60px}
+.ax-left{flex:0 0 420px;display:flex;flex-direction:column;align-items:center;opacity:0}
+.ax-left img{width:400px;border-radius:16px;border:2px solid rgba(79,195,247,.2);box-shadow:0 0 40px rgba(79,195,247,.15)}
+.ax-left .ax-caption{margin-top:12px;font-size:14px;color:rgba(79,195,247,.6);letter-spacing:2px}
+.slide.active .ax-left{animation:fadeInScale .8s .2s ease both}
+.ax-right{flex:1;display:flex;flex-direction:column;gap:20px}
+.ax-step{display:flex;gap:16px;align-items:flex-start;opacity:0;transform:translateX(40px)}
+.ax-step .ax-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(79,195,247,.12);
+  border:2px solid rgba(79,195,247,.3);display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:900;color:#4fc3f7}
+.ax-step .ax-body{flex:1}
+.ax-step .ax-title{font-size:20px;font-weight:800;color:#4fc3f7;margin-bottom:4px}
+.ax-step .ax-desc{font-size:15px;color:rgba(255,255,255,.65);line-height:1.6}
+.slide.active .ax-step{animation:slideInR .5s ease both}
+.slide.active .ax-step:nth-child(1){animation-delay:.5s}
+.slide.active .ax-step:nth-child(2){animation-delay:.7s}
+.slide.active .ax-step:nth-child(3){animation-delay:.9s}
+.slide.active .ax-step:nth-child(4){animation-delay:1.1s}
+.ax-footer{display:flex;gap:16px;margin-top:20px;opacity:0}
+.ax-footer .ax-badge{padding:10px 22px;background:rgba(79,195,247,.08);border:1.5px solid rgba(79,195,247,.3);
+  border-radius:28px;font-size:15px;font-weight:700;color:#4fc3f7}
+.slide.active .ax-footer{animation:fadeUp .5s 1.4s ease both}
+
+/* === SLIDE: INVESTMENT DETAIL === */
+.slide-investment{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
+.slide-investment .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
+.inv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px;width:100%;max-width:1200px}
+.inv-card{background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:16px;
+  padding:32px 16px;text-align:center;opacity:0;transform:translateY(30px)}
+.inv-card .inv-icon{display:flex;justify-content:center;margin-bottom:10px}
+.inv-card .inv-name{font-size:18px;font-weight:800;color:#4fc3f7;margin-bottom:6px}
+.inv-card .inv-cost{font-size:28px;font-weight:900;color:#fff;margin-bottom:8px}
+.inv-card .inv-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.slide.active .inv-card{animation:countUp .6s ease both}
+.slide.active .inv-card:nth-child(1){animation-delay:.3s}
+.slide.active .inv-card:nth-child(2){animation-delay:.5s}
+.slide.active .inv-card:nth-child(3){animation-delay:.7s}
+.slide.active .inv-card:nth-child(4){animation-delay:.9s}
+.inv-total{margin-top:28px;padding:14px 36px;background:rgba(79,195,247,.1);border:2px solid rgba(79,195,247,.35);
+  border-radius:32px;font-size:22px;font-weight:900;color:#4fc3f7;opacity:0}
+.slide.active .inv-total{animation:bounceIn .8s 1.2s ease both}
+
+/* === SLIDE: SUSTAINABLE BRAND === */
+.slide-sustainable{background:linear-gradient(135deg,#0a1628,#0d2444 50%,#0a1628)}
+.slide-sustainable .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.sus-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;width:100%;max-width:1100px}
+.sus-card{background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:16px;
+  padding:32px 20px;text-align:center;opacity:0;transform:translateY(20px)}
+.sus-card .sus-icon{display:flex;justify-content:center;margin-bottom:12px}
+.sus-card .sus-title{font-size:20px;font-weight:800;color:#4fc3f7;margin-bottom:8px}
+.sus-card .sus-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6}
+.slide.active .sus-card{animation:countUp .6s ease both}
+.slide.active .sus-card:nth-child(1){animation-delay:.3s}
+.slide.active .sus-card:nth-child(2){animation-delay:.5s}
+.slide.active .sus-card:nth-child(3){animation-delay:.7s}
+.sus-highlight{margin-top:28px;padding:14px 32px;background:rgba(79,195,247,.08);border:2px solid rgba(79,195,247,.3);
+  border-radius:32px;font-size:18px;font-weight:800;color:#4fc3f7;opacity:0}
+.slide.active .sus-highlight{animation:bounceIn .8s 1s ease both}
+
+/* === SLIDE: MG ITEMS === */
+.slide-mg{background:linear-gradient(135deg,#0a1628,#0f2240 50%,#0a1628)}
+.slide-mg .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.mg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:36px;width:100%;max-width:900px}
+.mg-card{background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:16px;
+  padding:28px 20px;text-align:center;opacity:0;transform:translateY(20px)}
+.mg-card .mg-title{font-size:20px;font-weight:800;color:#4fc3f7;margin-bottom:8px}
+.mg-card .mg-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6}
+.slide.active .mg-card{animation:countUp .6s ease both}
+.slide.active .mg-card:nth-child(1){animation-delay:.3s}
+.slide.active .mg-card:nth-child(2){animation-delay:.5s}
+.slide.active .mg-card:nth-child(3){animation-delay:.7s}
+.slide.active .mg-card:nth-child(4){animation-delay:.9s}
+
+/* === SLIDE: NEW PRODUCTS === */
+.slide-newproducts{background:linear-gradient(135deg,#0a1628,#0d2444 50%,#0a1628)}
+.slide-newproducts .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
+.np-nums{display:flex;gap:48px;justify-content:center;margin-top:28px}
+.np-num{text-align:center;opacity:0;transform:translateY(20px)}
+.np-num .np-val{font-size:48px;font-weight:900;color:#4fc3f7}
+.np-num .np-label{font-size:14px;color:rgba(255,255,255,.5);margin-top:4px}
+.slide.active .np-num{animation:countUp .6s ease both}
+.slide.active .np-num:nth-child(1){animation-delay:.3s}
+.slide.active .np-num:nth-child(2){animation-delay:.5s}
+.slide.active .np-num:nth-child(3){animation-delay:.7s}
+.np-timeline{display:flex;align-items:flex-start;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.np-item{width:200px;text-align:center;opacity:0;transform:translateY(20px);padding:16px 12px;
+  background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.1);border-radius:14px}
+.np-item .np-name{font-size:16px;font-weight:800;color:#4fc3f7;margin-bottom:4px}
+.np-item .np-rev{font-size:14px;color:rgba(255,255,255,.6)}
+.slide.active .np-item{animation:countUp .5s ease both}
+.slide.active .np-item:nth-child(1){animation-delay:.9s}
+.slide.active .np-item:nth-child(2){animation-delay:1.1s}
+.slide.active .np-item:nth-child(3){animation-delay:1.3s}
+.slide.active .np-item:nth-child(4){animation-delay:1.5s}
+.slide.active .np-item:nth-child(5){animation-delay:1.7s}
+
+/* === SLIDE: VISION === */
+.slide-vision{background:radial-gradient(ellipse at 50% 50%,#0d2444,#0a1628 70%)}
+.slide-vision .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
+.vis-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px;width:100%;max-width:1000px}
+.vis-pillar{background:rgba(79,195,247,.05);border:1.5px solid rgba(79,195,247,.15);border-radius:16px;
+  padding:36px 20px;text-align:center;opacity:0;transform:translateY(30px)}
+.vis-pillar .vis-icon{display:flex;justify-content:center;margin-bottom:12px}
+.vis-pillar .vis-title{font-size:22px;font-weight:900;color:#4fc3f7;margin-bottom:8px}
+.vis-pillar .vis-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6}
+.slide.active .vis-pillar{animation:countUp .7s ease both}
+.slide.active .vis-pillar:nth-child(1){animation-delay:.3s}
+.slide.active .vis-pillar:nth-child(2){animation-delay:.6s}
+.slide.active .vis-pillar:nth-child(3){animation-delay:.9s}
+.vis-slogan{margin-top:36px;font-size:28px;font-weight:900;color:#4fc3f7;letter-spacing:3px;opacity:0;
+  text-shadow:0 0 30px rgba(79,195,247,.4)}
+.slide.active .vis-slogan{animation:fadeUp .8s 1.2s ease both}
+
+/* === SLIDE: SLOGAN === */
+.slide-slogan{background:radial-gradient(ellipse at 50% 60%,#0d2040,#0a1628 70%)}
+.slide-slogan .content{justify-content:center;align-items:center;text-align:center;padding:0}
+.slogan-main{font-size:64px;font-weight:900;line-height:1.3;opacity:0;
+  background:linear-gradient(135deg,#4fc3f7,#81d4fa,#b3e5fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:4px;filter:drop-shadow(0 4px 20px rgba(79,195,247,.3))}
+.slogan-en{font-size:22px;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:6px;margin-top:20px;opacity:0}
+.slogan-line{width:160px;height:2px;background:linear-gradient(90deg,transparent,#4fc3f7,transparent);margin:28px auto;opacity:0}
+.slide.active .slogan-main{animation:fadeInScale 1.2s .2s ease both}
+.slide.active .slogan-en{animation:fadeUp .8s .8s ease both}
+.slide.active .slogan-line{animation:fadeIn .8s 1s ease both}
 </style>
 </head>
 <body>
@@ -490,7 +688,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 </div>
 <div id="startup" class="behind-guide">
   <div class="su-left">
-    <svg class="su-wave" viewBox="0 0 120 80" width="80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg>
+    <img class="su-wave" src="images/LOGO.png" style="width:120px;height:auto">
     <div class="su-logo-txt">서풍</div>
     <div class="su-hanja">西風 &middot; SEOPUNG</div>
     <div class="su-meaning">서방정토(西方淨土)로 향하는 바람처럼,<br><em>가장 좋은 곳(바다)에서<br>가장 좋은 것을 가져다주는 존재</em></div>
@@ -523,7 +721,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a1628;color:#fff;
 </div>
 <audio id="bgm" loop preload="auto"></audio>
 <div id="watermark">
-  <svg viewBox="0 0 48 32" fill="none"><path d="M2 24c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity=".7"/><path d="M2 16c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".45"/><path d="M2 8c6-7 14-7 20 0s14 7 20 0" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" opacity=".25"/></svg>
+  <img src="images/LOGO.png" style="width:44px;height:auto;filter:drop-shadow(0 0 12px rgba(79,195,247,.3))">
   <span>서풍</span>
 </div>
 <div id="slideshow"></div>
@@ -544,39 +742,39 @@ if(params.get('speed'))SPEED=parseFloat(params.get('speed'))||1;
 var TX={en:{
 1:{tag:'2ND GENERATION',t:'Reinvestment in Growth<br>for Two Generations',p:'Revenue growth reinvested into facilities and quality.<br>A sustainable cycle of trust and excellence.',b:['Reinvestment','2nd Gen.']},
 2:{tag:'HEADQUARTERS',t:'6,600m\u00B2 State-of-the-Art<br>HACCP Facility',p:'International-standard processing in Yeosu\'s pristine nature.<br>Setting new benchmarks in Korean seafood.',b:['HACCP Certified','6,600m\u00B2']},
-8:{tag:'SIGNATURE',t:'Quality-Certified Squid',p:'The ocean\'s finest gift.<br>Fresh from Yeosu, caught and processed the same day!',b:['National Cert.','Same-Day Catch']},
-9:{tag:'IQF SYSTEM',t:'-40\u00B0C Flash Freezing<br>Locks In Freshness',p:'State-of-the-art IQF system perfectly preserves<br>the freshness of the catch.',b:['IQF Flash-Freeze','-40\u00B0C','900g Certified']},
-10:{tag:'SPANISH MACKEREL',t:'Premium Samchi<br>Bone-Free Perfection',p:'Samchi Jaban 330g / Large Samchi Fillet 700g.<br>AI X-ray inspected, zero defect products.',b:['AI Inspected','Bone-Free']},
-11:{tag:'MACKEREL',t:'Bone-Free Mackerel<br>1kg Pack',p:'Safe boneless fillet, a top choice for school meals.<br>Trusted by families and institutions alike.',b:['School Meals','Bone-Free']},
-12:{tag:'HACCP FACILITY',t:'Expert Staff,<br>Rigorous Selection',p:'Skilled professionals in HACCP-certified facility<br>carefully process each piece.',b:['Hygiene Control','Expert Staff']},
-14:{tag:'PB PRODUCT',t:'CJ Freshway<br>Kids Safe Seafood',p:'Ainuri brand OEM product 1kg.<br>HACCP certified safe seafood for children.',b:['CJ Freshway','Ainuri']},
-15:{tag:'PB PRODUCT',t:'Pulmuone Full\'s Kitchen<br>Lemon Boneless Fish',p:'Kids boneless fish 1kg. Safe bone-free processing.<br>Seopung\'s technology behind Pulmuone premium brand.',b:['Pulmuone','Boneless']},
-16:{tag:'PB PRODUCT',t:'Pulmuone Full\'s Kids<br>Green Tea Seafood',p:'Premium kids seafood with Boseong green tea.<br>PB product completed by Seopung\'s processing expertise.',b:['Pulmuone','Green Tea']},
-18:{tag:'OUR PROMISE',t:'Seopung<br>Promises',prom:['Selecting only the finest with 50 years of expertise','Complying with HACCP\u00B7ASC\u00B7MSC\u00B7Quality Cert\u00B7Traceability','Maintaining cold chain from origin to table','Customer satisfaction is our top priority']}
+12:{tag:'SIGNATURE',t:'Quality-Certified Squid',p:'The ocean\'s finest gift.<br>Fresh from Yeosu, caught and processed the same day!',b:['National Cert.','Same-Day Catch']},
+13:{tag:'IQF SYSTEM',t:'-40\u00B0C Flash Freezing<br>Locks In Freshness',p:'State-of-the-art IQF system perfectly preserves<br>the freshness of the catch.',b:['IQF Flash-Freeze','-40\u00B0C','900g Certified']},
+14:{tag:'SPANISH MACKEREL',t:'Premium Samchi<br>Bone-Free Perfection',p:'Samchi Jaban 330g / Large Samchi Fillet 700g.<br>AI X-ray inspected, zero defect products.',b:['AI Inspected','Bone-Free']},
+15:{tag:'MACKEREL',t:'Bone-Free Mackerel<br>1kg Pack',p:'Safe boneless fillet, a top choice for school meals.<br>Trusted by families and institutions alike.',b:['School Meals','Bone-Free']},
+16:{tag:'HACCP FACILITY',t:'Expert Staff,<br>Rigorous Selection',p:'Skilled professionals in HACCP-certified facility<br>carefully process each piece.',b:['Hygiene Control','Expert Staff']},
+20:{tag:'PB PRODUCT',t:'CJ Freshway<br>Kids Safe Seafood',p:'Ainuri brand OEM product 1kg.<br>HACCP certified safe seafood for children.',b:['CJ Freshway','Ainuri']},
+21:{tag:'PB PRODUCT',t:'Pulmuone Full\'s Kitchen<br>Lemon Boneless Fish',p:'Kids boneless fish 1kg. Safe bone-free processing.<br>Seopung\'s technology behind Pulmuone premium brand.',b:['Pulmuone','Boneless']},
+22:{tag:'PB PRODUCT',t:'Pulmuone Full\'s Kids<br>Green Tea Seafood',p:'Premium kids seafood with Boseong green tea.<br>PB product completed by Seopung\'s processing expertise.',b:['Pulmuone','Green Tea']},
+26:{tag:'OUR PROMISE',t:'Seopung<br>Promises',prom:['Selecting only the finest with 50 years of expertise','Complying with HACCP\u00B7ASC\u00B7MSC\u00B7Quality Cert\u00B7Traceability','Maintaining cold chain from origin to table','Customer satisfaction is our top priority']}
 },zh:{
 1:{tag:'第二代经营',t:'两代人的<br>良性循环再投资经营',p:'将销售增长回馈到现场和品质。<br>可持续的信赖与卓越循环。',b:['再投资','二代经营']},
 2:{tag:'总部',t:'6,600\u33A1 最先进<br>HACCP加工设施',p:'丽水清净自然中的国际标准设施。<br>树立韩国水产加工新标杆。',b:['HACCP认证','6,600\u33A1']},
-8:{tag:'招牌产品',t:'品质认证鱿鱼',p:'大海的最佳馈赠。<br>丽水近海当日捕捞的新鲜！',b:['国家品质认证','当日捕捞']},
-9:{tag:'IQF系统',t:'-40\u2103急速冷冻<br>锁住新鲜',p:'最先进IQF速冻系统，<br>完美保存捕获瞬间的新鲜。',b:['IQF急冻','-40\u2103','900g认证']},
-10:{tag:'鲅鱼',t:'优质鲅鱼<br>无骨完美',p:'鲅鱼自斑330g / 大鲅鱼片700g。<br>AI X光检测，零缺陷产品。',b:['AI检测','无骨']},
-11:{tag:'鲭鱼',t:'无骨鲭鱼<br>1kg装',p:'安全无骨鱼片，校餐首选。<br>深受家庭和机构信赖。',b:['校餐供应','无骨']},
-12:{tag:'HACCP设施',t:'专业人员的<br>严格筛选',p:'HACCP认证设施中专业人员<br>精心加工每一份产品。',b:['卫生管理','专业人员']},
-14:{tag:'PB产品',t:'CJ Freshway<br>儿童安心水产',p:'Ainuri品牌OEM产品1kg。<br>HACCP认证儿童安心水产品。',b:['CJ Freshway','Ainuri']},
-15:{tag:'PB产品',t:'Pulmuone<br>柠檬无骨鱼',p:'儿童无骨鱼1kg。安全无骨加工。<br>西风技术力支撑Pulmuone高端品牌。',b:['Pulmuone','无骨']},
-16:{tag:'PB产品',t:'Pulmuone<br>宝城绿茶海鲜',p:'绿茶去腥的高端儿童海鲜。<br>西风加工技术完成的PB供应产品。',b:['Pulmuone','绿茶海鲜']},
-18:{tag:'我们的承诺',t:'西风<br>向您承诺',prom:['以50年经验精选最优质原料','遵守HACCP\u00B7ASC\u00B7MSC\u00B7品质认证\u00B7可追溯','从产地到餐桌全程冷链','以客户满意为最高价值']}
+12:{tag:'招牌产品',t:'品质认证鱿鱼',p:'大海的最佳馈赠。<br>丽水近海当日捕捞的新鲜！',b:['国家品质认证','当日捕捞']},
+13:{tag:'IQF系统',t:'-40\u2103急速冷冻<br>锁住新鲜',p:'最先进IQF速冻系统，<br>完美保存捕获瞬间的新鲜。',b:['IQF急冻','-40\u2103','900g认证']},
+14:{tag:'鲅鱼',t:'优质鲅鱼<br>无骨完美',p:'鲅鱼自斑330g / 大鲅鱼片700g。<br>AI X光检测，零缺陷产品。',b:['AI检测','无骨']},
+15:{tag:'鲭鱼',t:'无骨鲭鱼<br>1kg装',p:'安全无骨鱼片，校餐首选。<br>深受家庭和机构信赖。',b:['校餐供应','无骨']},
+16:{tag:'HACCP设施',t:'专业人员的<br>严格筛选',p:'HACCP认证设施中专业人员<br>精心加工每一份产品。',b:['卫生管理','专业人员']},
+20:{tag:'PB产品',t:'CJ Freshway<br>儿童安心水产',p:'Ainuri品牌OEM产品1kg。<br>HACCP认证儿童安心水产品。',b:['CJ Freshway','Ainuri']},
+21:{tag:'PB产品',t:'Pulmuone<br>柠檬无骨鱼',p:'儿童无骨鱼1kg。安全无骨加工。<br>西风技术力支撑Pulmuone高端品牌。',b:['Pulmuone','无骨']},
+22:{tag:'PB产品',t:'Pulmuone<br>宝城绿茶海鲜',p:'绿茶去腥的高端儿童海鲜。<br>西风加工技术完成的PB供应产品。',b:['Pulmuone','绿茶海鲜']},
+26:{tag:'我们的承诺',t:'西风<br>向您承诺',prom:['以50年经验精选最优质原料','遵守HACCP\u00B7ASC\u00B7MSC\u00B7品质认证\u00B7可追溯','从产地到餐桌全程冷链','以客户满意为最高价值']}
 },ja:{
 1:{tag:'2代目経営',t:'2代にわたる<br>好循環再投資経営',p:'売上成長を現場と品質に還元する経営。<br>持続可能な信頼と卓越の循環。',b:['再投資','2代経営']},
 2:{tag:'本社',t:'6,600\u33A1 最先端<br>HACCP加工施設',p:'麗水の清浄自然の中、国際基準の施設。<br>韓国水産加工の新基準を確立。',b:['HACCP認証','6,600\u33A1']},
-8:{tag:'看板商品',t:'品質認証イカ',p:'海が贈る最高の一杯。<br>麗水近海で当日漁獲の鮮度そのまま！',b:['国家品質認証','当日漁獲']},
-9:{tag:'IQFシステム',t:'-40\u2103 急速冷凍<br>鮮度を閉じ込める',p:'最先端IQF個別急速冷凍で<br>獲れた瞬間の鮮度を完璧に保存。',b:['IQF急速冷凍','-40\u2103','900g認証']},
-10:{tag:'サワラ',t:'プレミアムサワラ<br>無骨の完璧さ',p:'サワラ自斑330g / 大サワラフィレ700g。<br>AI X線検査済み、ゼロ欠陥製品。',b:['AI検査済','無骨']},
-11:{tag:'サバ',t:'骨なしサバ<br>1kgパック',p:'安全な骨なしフィレ、学校給食の人気商品。<br>ご家庭にも施設にも信頼されています。',b:['給食納品','骨なし']},
-12:{tag:'HACCP施設',t:'熟練専門人材の<br>徹底した選別',p:'HACCP施設で衛生服の専門人材が<br>一つ一つ丁寧に加工。',b:['衛生管理','専門人材']},
-14:{tag:'PB製品',t:'CJ Freshway<br>子供安心水産物',p:'アイヌリブランドOEM製品1kg。<br>HACCP認証の安全な子供用水産物。',b:['CJ Freshway','アイヌリ']},
-15:{tag:'PB製品',t:'Pulmuone<br>レモン骨なし魚',p:'子供用骨なし魚1kg。安全な骨なし加工。<br>西風の技術力がPulmuoneプレミアムブランドを支える。',b:['Pulmuone','骨なし']},
-16:{tag:'PB製品',t:'Pulmuone<br>宝城緑茶海鮮',p:'緑茶で生臭さを抑えたプレミアム子供向け海鮮。<br>西風の加工技術で完成されたPB納品製品。',b:['Pulmuone','緑茶海鮮']},
-18:{tag:'お約束',t:'西風が<br>お約束します',prom:['50年のノウハウで最高級原料のみ厳選','HACCP\u00B7ASC\u00B7MSC\u00B7品質認証\u00B7トレーサビリティを遵守','産地から食卓までコールドチェーン維持','お客様満足を最優先価値に']}
+12:{tag:'看板商品',t:'品質認証イカ',p:'海が贈る最高の一杯。<br>麗水近海で当日漁獲の鮮度そのまま！',b:['国家品質認証','当日漁獲']},
+13:{tag:'IQFシステム',t:'-40\u2103 急速冷凍<br>鮮度を閉じ込める',p:'最先端IQF個別急速冷凍で<br>獲れた瞬間の鮮度を完璧に保存。',b:['IQF急速冷凍','-40\u2103','900g認証']},
+14:{tag:'サワラ',t:'プレミアムサワラ<br>無骨の完璧さ',p:'サワラ自斑330g / 大サワラフィレ700g。<br>AI X線検査済み、ゼロ欠陥製品。',b:['AI検査済','無骨']},
+15:{tag:'サバ',t:'骨なしサバ<br>1kgパック',p:'安全な骨なしフィレ、学校給食の人気商品。<br>ご家庭にも施設にも信頼されています。',b:['給食納品','骨なし']},
+16:{tag:'HACCP施設',t:'熟練専門人材の<br>徹底した選別',p:'HACCP施設で衛生服の専門人材が<br>一つ一つ丁寧に加工。',b:['衛生管理','専門人材']},
+20:{tag:'PB製品',t:'CJ Freshway<br>子供安心水産物',p:'アイヌリブランドOEM製品1kg。<br>HACCP認証の安全な子供用水産物。',b:['CJ Freshway','アイヌリ']},
+21:{tag:'PB製品',t:'Pulmuone<br>レモン骨なし魚',p:'子供用骨なし魚1kg。安全な骨なし加工。<br>西風の技術力がPulmuoneプレミアムブランドを支える。',b:['Pulmuone','骨なし']},
+22:{tag:'PB製品',t:'Pulmuone<br>宝城緑茶海鮮',p:'緑茶で生臭さを抑えたプレミアム子供向け海鮮。<br>西風の加工技術で完成されたPB納品製品。',b:['Pulmuone','緑茶海鮮']},
+26:{tag:'お約束',t:'西風が<br>お約束します',prom:['50年のノウハウで最高級原料のみ厳選','HACCP\u00B7ASC\u00B7MSC\u00B7品質認証\u00B7トレーサビリティを遵守','産地から食卓までコールドチェーン維持','お客様満足を最優先価値に']}
 }};
 
 /* CSS-only slide HTML generators */
@@ -584,7 +782,7 @@ function logoHtml(lg){
 var n={ko:'서풍',en:'SEOPUNG',zh:'西风',ja:'西風'};
 var d={ko:'여수에서 시작된 50년 수산의 길',en:'50 Years of Seafood Excellence from Yeosu',zh:'源自丽水的50年水产之路',ja:'麗水から始まった50年水産の道'};
 var P='<div class="p"></div>';
-return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><svg viewBox="0 0 120 80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
+return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
 
 function certs5Html(lg){
 var ti={ko:'5대 인증 완비',en:'5 Major Certifications',zh:'五大认证完备',ja:'5大認証完備'};
@@ -596,20 +794,153 @@ var tr={ko:'이력추적제',en:'Traceability',zh:'可追溯制度',ja:'トレ�
 var sv='<svg class="cert-icon" viewBox="0 0 24 24" width="30" height="30" fill="#4fc3f7"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>';
 return '<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">GLOBAL CERTIFICATION</div><h1 style="font-size:50px">'+ti[lg]+'</h1><p style="font-size:22px;color:rgba(255,255,255,.7);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal">'+sv+'<div class="cert-name">HACCP</div><div class="cert-org">'+hs[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal">'+sv+'<div class="cert-name">ASC</div><div class="cert-org">Aquaculture Stewardship</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal">'+sv+'<div class="cert-name">MSC</div><div class="cert-org">Marine Stewardship</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal">'+sv+'<div class="cert-name" style="font-size:16px">'+qc[lg]+'</div><div class="cert-org">National Quality</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal">'+sv+'<div class="cert-name" style="font-size:16px">'+tr[lg]+'</div><div class="cert-org">All Domestic Species</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div></div></div>';}
 
-function zeroHtml(lg){
-var ti={ko:'이물 Zero화 & 급식 안전',en:'Zero Foreign Matter & Meal Safety',zh:'异物零化与供餐安全',ja:'異物ゼロ化＆給食安全'};
-var su={ko:'AI 엑스레이로 뼈·이물질 자동 검출<br>100개 이상 학교급식 안전 공급',en:'AI X-ray auto-detects bones & foreign matter<br>Safe supply to 100+ school meal programs',zh:'AI X光自动检测骨头·异物<br>安全供应100+学校餐',ja:'AI X線で骨・異物を自動検出<br>100+学校給食に安全供給'};
-var c1t={ko:'AI 엑스레이',en:'AI X-Ray',zh:'AI X光',ja:'AI X線'};
-var c1d={ko:'뼈·이물질 자동 검출<br>초분광 카메라 연계',en:'Auto bone/foreign matter detection<br>Hyperspectral camera integration',zh:'自动骨头·异物检测<br>超光谱相机联动',ja:'骨・異物自動検出<br>ハイパースペクトルカメラ連携'};
-var c2t={ko:'학교급식 납품',en:'School Meals',zh:'校餐供应',ja:'学校給食'};
-var c2d={ko:'100개 이상 학교에<br>안전한 수산물 공급',en:'Safe seafood supply to<br>100+ schools nationwide',zh:'向100+学校<br>安全供应水产品',ja:'100+学校に<br>安全な水産物を供給'};
-var c3t={ko:'VOC 저감',en:'VOC Reduction',zh:'VOC减少',ja:'VOC低減'};
-var c3d={ko:'원료 기인성 이물<br>발생 건수 Zero 달성',en:'Zero raw material-origin<br>foreign matter incidents',zh:'原料来源异物<br>发生件数归零',ja:'原料起因異物<br>発生件数ゼロ達成'};
-var msg={ko:'아이들 급식에 원료 기인성 이물 발생 Zero',en:'Zero raw-material foreign matter in children\'s meals',zh:'儿童餐食中原料来源异物发生归零',ja:'子供の給食に原料起因異物発生ゼロ'};
-var svgScanner='<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><circle cx="12" cy="12" r="3"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>';
-var svgBuilding='<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="22" x2="9" y2="16"/><line x1="15" y1="22" x2="15" y2="16"/><rect x="8" y="6" width="3" height="3"/><rect x="13" y="6" width="3" height="3"/><rect x="8" y="11" width="3" height="3"/><rect x="13" y="11" width="3" height="3"/></svg>';
-var svgShieldChk='<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>';
-return '<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">FOOD SAFETY</div><h1 style="font-size:46px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.65);margin-top:8px">'+su[lg]+'</p><div class="zero-grid"><div class="zero-card"><div class="zc-icon">'+svgScanner+'</div><div class="zc-title">'+c1t[lg]+'</div><div class="zc-desc">'+c1d[lg]+'</div></div><div class="zero-card"><div class="zc-icon">'+svgBuilding+'</div><div class="zc-title">'+c2t[lg]+'</div><div class="zc-desc">'+c2d[lg]+'</div></div><div class="zero-card"><div class="zc-icon">'+svgShieldChk+'</div><div class="zc-title">'+c3t[lg]+'</div><div class="zc-desc">'+c3d[lg]+'</div></div></div><div class="zero-msg">'+msg[lg]+'</div></div>';}
+function aixrayHtml(lg){
+var ti={ko:'AI 엑스레이 검사 시스템',en:'AI X-Ray Inspection System',zh:'AI X光检查系统',ja:'AI X線検査システム'};
+var su={ko:'원료기인성 이물 발생 Zero를 위한 최첨단 검사 장비',en:'Cutting-edge inspection equipment for zero foreign matter',zh:'为实现异物零化的最先进检查设备',ja:'異物ゼロ化のための最先端検査装備'};
+var s1t={ko:'도입 목적',en:'Purpose',zh:'导入目的',ja:'導入目的'};
+var s1d={ko:'원료기인성(뼈) VOC 이물 발생 관리 강화',en:'Strengthen raw-material (bone) VOC foreign matter management',zh:'强化原料源(骨头)VOC异物发生管理',ja:'原料起因(骨)VOC異物発生管理強化'};
+var s2t={ko:'검출 원리',en:'Detection Principle',zh:'检测原理',ja:'検出原理'};
+var s2d={ko:'X-ray 촬영 → AI가 이물·결함·충진량 이상을 자동 판별',en:'X-ray imaging → AI auto-detects foreign matter, defects & fill anomalies',zh:'X光拍摄 → AI自动判别异物·缺陷·填充量异常',ja:'X線撮影 → AIが異物・欠陥・充填量異常を自動判別'};
+var s3t={ko:'검증 과정',en:'Verification',zh:'验证过程',ja:'検証過程'};
+var s3d={ko:'농심엔지니어링과 6개월간 엄격한 검증 완료',en:'6-month rigorous verification with Nongshim Engineering',zh:'与农心工程公司6个月严格验证完成',ja:'農心エンジニアリングと6ヶ月間の厳格な検証完了'};
+var s4t={ko:'도입 일정',en:'Schedule',zh:'导入日程',ja:'導入日程'};
+var s4d={ko:'26년 1월 발주(약 2억원), 4월 현장 도입 예정',en:'Ordered Jan 2026 (~200M KRW), on-site April 2026',zh:'26年1月发订(约2亿韩元), 4月现场导入',ja:'26年1月発注(約2億ウォン), 4月現場導入予定'};
+var b1={ko:'투자금액 약 2억원',en:'Investment ~200M KRW',zh:'投资金额约2亿韩元',ja:'投資金額約2億ウォン'};
+var b2={ko:'2026년 4월 가동 개시',en:'Operations start April 2026',zh:'2026年4月启动运行',ja:'2026年4月稼動開始'};
+var cap={ko:'AI 엑스레이 장비 작동 모습',en:'AI X-Ray equipment in operation',zh:'AI X光设备运行画面',ja:'AI X線装備稼働の様子'};
+return '<div class="content"><div class="ax-left"><img src="images/검사기.gif" alt="AI X-Ray"><div class="ax-caption">'+cap[lg]+'</div></div><div class="ax-right"><div style="margin-bottom:12px"><div class="tag" style="font-size:16px;letter-spacing:6px;opacity:1;transform:none">AI X-RAY INSPECTION</div><h1 style="font-size:40px;opacity:1;transform:none">'+ti[lg]+'</h1><p style="font-size:16px;color:rgba(255,255,255,.6);opacity:1;transform:none;margin-top:4px">'+su[lg]+'</p></div><div class="ax-step"><div class="ax-num">1</div><div class="ax-body"><div class="ax-title">'+s1t[lg]+'</div><div class="ax-desc">'+s1d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">2</div><div class="ax-body"><div class="ax-title">'+s2t[lg]+'</div><div class="ax-desc">'+s2d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">3</div><div class="ax-body"><div class="ax-title">'+s3t[lg]+'</div><div class="ax-desc">'+s3d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">4</div><div class="ax-body"><div class="ax-title">'+s4t[lg]+'</div><div class="ax-desc">'+s4d[lg]+'</div></div></div><div class="ax-footer"><div class="ax-badge">'+b1[lg]+'</div><div class="ax-badge">'+b2[lg]+'</div></div></div></div>';}
+
+function philosophyHtml(lg){
+var ti={ko:'경영 철학 & 전략 방향',en:'Management Philosophy & Strategy',zh:'经营哲学与战略方向',ja:'経営哲学＆戦略方向'};
+var su={ko:'선순환 재투자 경영으로 50년 지속 성장',en:'50 years of sustainable growth through virtuous reinvestment',zh:'通过良性循环再投资经营实现50年持续增长',ja:'好循環再投資経営で50年持続成長'};
+var c=[
+{ko:'재투자',en:'Reinvest',zh:'再投资',ja:'再投資'},
+{ko:'인프라',en:'Infrastructure',zh:'基础设施',ja:'インフラ'},
+{ko:'품질',en:'Quality',zh:'品质',ja:'品質'},
+{ko:'매출성장',en:'Revenue Growth',zh:'销售增长',ja:'売上成長'},
+{ko:'재투자',en:'Reinvest',zh:'再投资',ja:'再投資'}
+];
+var col1t={ko:'재투자',en:'Reinvestment',zh:'再投资',ja:'再投資'};
+var col1d={ko:'매출액 5~6%를<br>설비 투자에 환원',en:'5-6% of revenue<br>reinvested in facilities',zh:'将销售额5~6%<br>回馈设备投资',ja:'売上の5～6%を<br>設備投資に還元'};
+var col2t={ko:'품질강화',en:'Quality Enhancement',zh:'品质强化',ja:'品質強化'};
+var col2d={ko:'HACCP(2011) → 이력추적(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',en:'HACCP(2011) → Traceability(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',zh:'HACCP(2011) → 追溯制(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)',ja:'HACCP(2011) → トレーサビリティ(2013)<br>→ ASC/MSC(2024) → FSSC 22000(2026)'};
+var col3t={ko:'생산효율화',en:'Production Efficiency',zh:'生产效率化',ja:'生産効率化'};
+var col3d={ko:'급속동결, 자동화 포장,<br>생산라인 고도화',en:'Flash freezing, auto packaging,<br>production line upgrades',zh:'急速冷冻, 自动化包装,<br>生产线高度化',ja:'急速凍結, 自動化包装,<br>生産ライン高度化'};
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">MANAGEMENT PHILOSOPHY</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="phi-cycle">';
+c.forEach(function(item,i){if(i>0)h+='<div class="phi-arrow">\u279C</div>';h+='<div class="phi-box">'+item[lg]+'</div>';});
+h+='</div><div class="phi-cols"><div class="phi-col"><div class="phi-title">'+col1t[lg]+'</div><div class="phi-desc">'+col1d[lg]+'</div></div><div class="phi-col"><div class="phi-title">'+col2t[lg]+'</div><div class="phi-desc">'+col2d[lg]+'</div></div><div class="phi-col"><div class="phi-title">'+col3t[lg]+'</div><div class="phi-desc">'+col3d[lg]+'</div></div></div></div>';
+return h;}
+
+function oneplatformHtml(lg){
+var ti={ko:'One Platform 밸류체인',en:'One Platform Value Chain',zh:'One Platform价值链',ja:'One Platformバリューチェーン'};
+var su={ko:'원료 매입부터 유통까지, 원스톱 수직계열화 시스템',en:'From raw material procurement to distribution, one-stop vertical integration',zh:'从原料采购到流通，一站式垂直一体化系统',ja:'原料仕入れから流通まで、ワンストップ垂直系列化'};
+var nodes=[
+{n:{ko:'원료매입',en:'Procurement',zh:'原料采购',ja:'原料仕入れ'},s:{ko:'중매인49호',en:'Broker #49',zh:'中介人49号',ja:'仲買人49号'}},
+{n:{ko:'저장',en:'Storage',zh:'储存',ja:'貯蔵'},s:{ko:'대주냉장',en:'Daeju Cold Storage',zh:'大洲冷藏',ja:'大主冷蔵'}},
+{n:{ko:'제조',en:'Manufacturing',zh:'制造',ja:'製造'},s:{ko:'서풍',en:'Seopung',zh:'西风',ja:'西風'}},
+{n:{ko:'유통',en:'Distribution',zh:'流通',ja:'流通'},s:{ko:'여수유통',en:'Yeosu Distribution',zh:'丽水流通',ja:'麗水流通'}}
+];
+var badge={ko:'원스톱 수직계열화 One Platform',en:'One-Stop Vertical Integration Platform',zh:'一站式垂直一体化平台',ja:'ワンストップ垂直系列化プラットフォーム'};
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">VALUE CHAIN</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="op-chain">';
+nodes.forEach(function(nd,i){if(i>0)h+='<div class="op-arrow">\u279C</div>';h+='<div class="op-node"><div class="op-name">'+nd.n[lg]+'</div><div class="op-sub">'+nd.s[lg]+'</div></div>';});
+h+='</div><div class="op-badge">'+badge[lg]+'</div></div>';return h;}
+
+function revenueHtml(lg){
+var ti={ko:'매출 현황 & 사업계획',en:'Revenue Status & Business Plan',zh:'销售现状与事业计划',ja:'売上現況＆事業計画'};
+var su={ko:'지속적인 성장으로 400억 매출 목표 달성',en:'Achieving 40B KRW revenue target through steady growth',zh:'通过持续增长实现400亿韩元销售目标',ja:'持続的成長で400億ウォン売上目標達成'};
+var u={ko:'억',en:'B',zh:'亿',ja:'億'};
+var c1t={ko:'MG 품목 확산',en:'MG Item Expansion',zh:'MG品目扩散',ja:'MG品目拡散'};
+var c1d={ko:'전략적 저단가 품목으로<br>물량 기반 매출 확대',en:'Volume-based revenue growth<br>with strategic low-cost items',zh:'以战略性低价品目<br>扩大物量基础销售',ja:'戦略的低単価品目で<br>物量基盤売上拡大'};
+var c2t={ko:'튀김전용 활성화',en:'Fry-Ready Activation',zh:'油炸专用活性化',ja:'揚げ物専用活性化'};
+var c2d={ko:'튀김전용 제품 라인<br>B2B 채널 강화',en:'Fry-ready product line<br>B2B channel strengthening',zh:'油炸专用产品线<br>B2B渠道强化',ja:'揚げ物専用製品ライン<br>B2Bチャネル強化'};
+var c3t={ko:'ASC/MSC 매출 +330%',en:'ASC/MSC Revenue +330%',zh:'ASC/MSC销售 +330%',ja:'ASC/MSC売上 +330%'};
+var c3d={ko:'인증 제품 매출<br>26년 12억 목표',en:'Certified product revenue<br>target 1.2B KRW in 2026',zh:'认证产品销售<br>26年12亿目标',ja:'認証製品売上<br>26年12億目標'};
+return '<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">REVENUE & PLAN</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="rev-bars"><div class="rev-bar"><div class="rb-fill" style="height:160px;background:rgba(79,195,247,.3)"></div><div class="rb-val">376'+u[lg]+'</div><div class="rb-year">2024</div></div><div class="rev-bar"><div class="rb-fill" style="height:170px;background:rgba(79,195,247,.5)"></div><div class="rb-val">379'+u[lg]+'</div><div class="rb-year">2025</div></div><div class="rev-bar"><div class="rb-fill" style="height:190px;background:linear-gradient(180deg,#ffd54f,#ffb300)"></div><div class="rb-val" style="color:#ffd54f">400'+u[lg]+'</div><div class="rb-year" style="color:#ffd54f;font-weight:900">2026 '+({ko:'목표',en:'Target',zh:'目标',ja:'目標'})[lg]+'</div></div></div><div class="rev-cols"><div class="rev-col"><div class="rc-title">'+c1t[lg]+'</div><div class="rc-desc">'+c1d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c2t[lg]+'</div><div class="rc-desc">'+c2d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c3t[lg]+'</div><div class="rc-desc">'+c3d[lg]+'</div></div></div></div>';}
+
+function investmentHtml(lg){
+var ti={ko:'2026 투자계획 상세',en:'2026 Investment Plan Detail',zh:'2026投资计划详情',ja:'2026投資計画詳細'};
+var su={ko:'총 8.9억원 규모 스마트 팩토리 투자',en:'Total 890M KRW Smart Factory Investment',zh:'总计8.9亿韩元智能工厂投资',ja:'総額8.9億ウォン スマートファクトリー投資'};
+var svgXray='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="10" r="4"/><line x1="12" y1="14" x2="12" y2="18"/></svg>';
+var svgCam='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
+var svgGear='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
+var svgOven='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="7" r="1"/><circle cx="12" cy="7" r="1"/><rect x="6" y="13" width="12" height="4" rx="1"/></svg>';
+var items=[
+{icon:svgXray,n:{ko:'AI 엑스레이',en:'AI X-Ray',zh:'AI X光',ja:'AI X線'},c:'2'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'뼈·이물질 자동검출',en:'Auto bone/matter detection',zh:'骨头·异物自动检测',ja:'骨・異物自動検出'}},
+{icon:svgCam,n:{ko:'AI 초분광',en:'AI Hyperspectral',zh:'AI超光谱',ja:'AI超分光'},c:'2.5'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'비가시 이물 판별',en:'Non-visible matter detection',zh:'不可见异物判别',ja:'非可視異物判別'}},
+{icon:svgGear,n:{ko:'전처리 자동화',en:'Pre-process Auto',zh:'前处理自动化',ja:'前処理自動化'},c:'3.5'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'해동·세척·절단 자동화',en:'Thaw/wash/cut automation',zh:'解冻·清洗·切割自动化',ja:'解凍・洗浄・切断自動化'}},
+{icon:svgOven,n:{ko:'오븐 설비',en:'Oven Equipment',zh:'烤箱设备',ja:'オーブン設備'},c:'0.9'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg],d:{ko:'마리네이드 오븐구이',en:'Marinade oven grill',zh:'腌制烤箱烧烤',ja:'マリネードオーブン焼き'}}
+];
+var total={ko:'총 투자 8.9억원',en:'Total Investment 890M KRW',zh:'总投资8.9亿韩元',ja:'総投資8.9億ウォン'};
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">2026 INVESTMENT</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="inv-grid">';
+items.forEach(function(it){h+='<div class="inv-card"><div class="inv-icon">'+it.icon+'</div><div class="inv-name">'+it.n[lg]+'</div><div class="inv-cost">'+it.c+'</div><div class="inv-desc">'+it.d[lg]+'</div></div>';});
+h+='</div><div class="inv-total">'+total[lg]+'</div></div>';return h;}
+
+function sustainableHtml(lg){
+var ti={ko:'지속가능 브랜드 개발',en:'Sustainable Brand Development',zh:'可持续品牌开发',ja:'持続可能ブランド開発'};
+var su={ko:'ASC/MSC 인증 기반 친환경 수산물 브랜드 확대',en:'Eco-friendly seafood brand expansion based on ASC/MSC certification',zh:'基于ASC/MSC认证的环保水产品牌扩大',ja:'ASC/MSC認証基盤のエコフレンドリー水産ブランド拡大'};
+var svgLeaf='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20c4 0 8.68-3.45 9-11"/><path d="M17 8c.68-.26 1.36-.52 2-.82 3-1.34 5-3.18 5-3.18S21 2 18 3.18c-.64.3-1.32.56-2 .82"/></svg>';
+var svgBox='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>';
+var svgFlame='<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M12 22c3.976 0 7-2.686 7-6 0-1.672-.67-3.398-1.764-4.868C15.86 9.224 12 8 12 8s-3.86 1.224-5.236 3.132C5.67 12.602 5 14.328 5 16c0 3.314 3.024 6 7 6z"/><path d="M12 22c-1.657 0-3-1.343-3-3 0-1.4 1-2.8 2-3.5.667.5 1.333 1 2 1.5.333.667.667 1.333 1 2 0 1.657-1.343 3-3 3z"/></svg>';
+var items=[
+{icon:svgLeaf,t:{ko:'ASC/MSC 인증 확대',en:'ASC/MSC Cert. Expansion',zh:'ASC/MSC认证扩大',ja:'ASC/MSC認証拡大'},d:{ko:'지속가능 수산물 인증 품목 확대<br>친환경 가치 소비 트렌드 선도',en:'Expanding certified sustainable items<br>Leading eco-value consumption trend',zh:'扩大可持续水产品认证品目<br>引领环保价值消费趋势',ja:'持続可能水産物認証品目拡大<br>エコ価値消費トレンド先導'}},
+{icon:svgBox,t:{ko:'B2B 원팩 Kit',en:'B2B One-Pack Kit',zh:'B2B一包Kit',ja:'B2Bワンパックキット'},d:{ko:'급식·외식 원스톱 밀키트<br>간편 조리 솔루션 제공',en:'School/restaurant one-stop meal kit<br>Easy cooking solution',zh:'供餐·外食一站式料理包<br>提供简便烹饪方案',ja:'給食・外食ワンストップミールキット<br>簡便調理ソリューション提供'}},
+{icon:svgFlame,t:{ko:'마리네이드 오븐구이',en:'Marinade Oven Grill',zh:'腌制烤箱烧烤',ja:'マリネードオーブン焼き'},d:{ko:'프리미엄 간편식 신규 라인<br>HMR 시장 진출 기반 확보',en:'Premium ready-meal new line<br>HMR market entry foundation',zh:'高端简便餐新产品线<br>确保HMR市场进入基础',ja:'プレミアム簡便食新ライン<br>HMR市場進出基盤確保'}}
+];
+var hl={ko:'ASC/MSC 매출 26년 12억 (+330%)',en:'ASC/MSC Revenue 1.2B KRW in 2026 (+330%)',zh:'ASC/MSC销售26年12亿(+330%)',ja:'ASC/MSC売上26年12億(+330%)'};
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">SUSTAINABLE BRAND</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="sus-cards">';
+items.forEach(function(it){h+='<div class="sus-card"><div class="sus-icon">'+it.icon+'</div><div class="sus-title">'+it.t[lg]+'</div><div class="sus-desc">'+it.d[lg]+'</div></div>';});
+h+='</div><div class="sus-highlight">'+hl[lg]+'</div></div>';return h;}
+
+function mgHtml(lg){
+var ti={ko:'MG 품목 운영 확산',en:'MG Item Operation Expansion',zh:'MG品目运营扩散',ja:'MG品目運営拡散'};
+var su={ko:'전략적 물량 기반 매출 확대 & 채널 다변화',en:'Strategic volume-based revenue expansion & channel diversification',zh:'战略性物量基础销售扩大 & 渠道多元化',ja:'戦略的物量基盤売上拡大＆チャネル多様化'};
+var items=[
+{t:{ko:'전략적 저단가',en:'Strategic Low-Cost',zh:'战略性低价',ja:'戦略的低単価'},d:{ko:'물량 기반 매출 확대를 위한<br>경쟁력 있는 가격 전략',en:'Competitive pricing strategy for<br>volume-based revenue growth',zh:'为物量基础销售扩大的<br>有竞争力价格战略',ja:'物量基盤売上拡大のための<br>競争力ある価格戦略'}},
+{t:{ko:'국산/수입산 물량계약',en:'Domestic/Import Contracts',zh:'国产/进口物量合同',ja:'国産/輸入物量契約'},d:{ko:'안정적 원료 확보를 위한<br>장기 물량 계약 체결',en:'Long-term volume contracts<br>for stable raw material supply',zh:'为稳定原料确保的<br>长期物量合同签订',ja:'安定的原料確保のための<br>長期物量契約締結'}},
+{t:{ko:'튀김전용',en:'Fry-Ready',zh:'油炸专用',ja:'揚げ物専用'},d:{ko:'B2B 급식·외식 채널 특화<br>튀김전용 제품 라인 강화',en:'B2B meal/restaurant channel<br>fry-ready product line expansion',zh:'B2B供餐·外食渠道特化<br>油炸专用产品线强化',ja:'B2B給食・外食チャネル特化<br>揚げ物専用製品ライン強化'}},
+{t:{ko:'무결점 순살',en:'Flawless Boneless',zh:'无缺陷纯肉',ja:'無欠陥純身'},d:{ko:'AI 엑스레이 기반<br>100% 무결점 순살 보증',en:'AI X-ray based<br>100% flawless boneless guarantee',zh:'AI X光基础<br>100%无缺陷纯肉保证',ja:'AI X線基盤<br>100%無欠陥純身保証'}}
+];
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">MG ITEMS</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="mg-grid">';
+items.forEach(function(it){h+='<div class="mg-card"><div class="mg-title">'+it.t[lg]+'</div><div class="mg-desc">'+it.d[lg]+'</div></div>';});
+h+='</div></div>';return h;}
+
+function newproductsHtml(lg){
+var ti={ko:'신제품 개발현황',en:'New Product Development',zh:'新产品开发现状',ja:'新製品開発現況'};
+var su={ko:'10년간 134품목 개발, 제품당 평균 1천만원 투자',en:'134 products developed over 10 years, ~10M KRW investment per product',zh:'10年间开发134品目，每品目平均投资1千万韩元',ja:'10年間134品目開発、製品当たり平均1千万ウォン投資'};
+var n1l={ko:'개발 기간',en:'Duration',zh:'开发期间',ja:'開発期間'};
+var n2l={ko:'개발 품목',en:'Products',zh:'开发品目',ja:'開発品目'};
+var n3l={ko:'품목당 투자',en:'Per Product',zh:'每品目投资',ja:'品目当たり投資'};
+var tl=[
+{n:{ko:'한번얼린',en:'Flash-Frozen',zh:'急冻系列',ja:'一度冷凍'},r:'45'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg]},
+{n:{ko:'품질인증',en:'Quality Cert.',zh:'品质认证',ja:'品質認証'},r:'31'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg]},
+{n:{ko:'레몬담은',en:'Lemon Series',zh:'柠檬系列',ja:'レモン漬'},r:'238'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg]},
+{n:{ko:'마리네이드',en:'Marinade',zh:'腌制系列',ja:'マリネード'},r:'41'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg]},
+{n:{ko:'ASC/MSC',en:'ASC/MSC',zh:'ASC/MSC',ja:'ASC/MSC'},r:'6'+({ko:'억',en:'B',zh:'亿',ja:'億'})[lg]}
+];
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">NEW PRODUCT R&D</div><h1 style="font-size:44px">'+ti[lg]+'</h1><p style="font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="np-nums"><div class="np-num"><div class="np-val">10<span style="font-size:24px;color:rgba(79,195,247,.7)">'+({ko:'년',en:'yr',zh:'年',ja:'年'})[lg]+'</span></div><div class="np-label">'+n1l[lg]+'</div></div><div class="np-num"><div class="np-val">134<span style="font-size:24px;color:rgba(79,195,247,.7)">'+({ko:'품목',en:'items',zh:'品目',ja:'品目'})[lg]+'</span></div><div class="np-label">'+n2l[lg]+'</div></div><div class="np-num"><div class="np-val">1,000<span style="font-size:24px;color:rgba(79,195,247,.7)">'+({ko:'만원',en:'M',zh:'万',ja:'万'})[lg]+'</span></div><div class="np-label">'+n3l[lg]+'</div></div></div><div class="np-timeline">';
+tl.forEach(function(it){h+='<div class="np-item"><div class="np-name">'+it.n[lg]+'</div><div class="np-rev">'+({ko:'누적매출 ',en:'Cumulative ',zh:'累计销售 ',ja:'累積売上 '})[lg]+it.r+'</div></div>';});
+h+='</div></div>';return h;}
+
+function visionHtml(lg){
+var ti={ko:'Vision: No.1 수산가공 파트너',en:'Vision: No.1 Seafood Processing Partner',zh:'愿景: No.1 水产加工合作伙伴',ja:'ビジョン: No.1 水産加工パートナー'};
+var svgRocket='<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>';
+var svgChip='<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>';
+var svgHeart='<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4fc3f7" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+var pillars=[
+{icon:svgRocket,t:{ko:'미래전략',en:'Future Strategy',zh:'未来战略',ja:'未来戦略'},d:{ko:'ASC/MSC 인증 확대<br>글로벌 식품안전 리더십<br>FSSC 22000 취득',en:'ASC/MSC cert. expansion<br>Global food safety leadership<br>FSSC 22000 acquisition',zh:'ASC/MSC认证扩大<br>全球食品安全领导力<br>FSSC 22000取得',ja:'ASC/MSC認証拡大<br>グローバル食品安全リーダーシップ<br>FSSC 22000取得'}},
+{icon:svgChip,t:{ko:'기술혁신',en:'Tech Innovation',zh:'技术革新',ja:'技術革新'},d:{ko:'AI 엑스레이·초분광 도입<br>스마트팩토리 전면 구축<br>자동화·IoT 기반 생산',en:'AI X-ray & hyperspectral<br>Full smart factory build<br>Automation & IoT production',zh:'AI X光·超光谱导入<br>智能工厂全面构建<br>自动化·IoT基础生产',ja:'AI X線・超分光導入<br>スマートファクトリー全面構築<br>自動化・IoT基盤生産'}},
+{icon:svgHeart,t:{ko:'파트너십',en:'Partnership',zh:'合作伙伴',ja:'パートナーシップ'},d:{ko:'풀무원·CJ 장기 파트너<br>B2B 원팩·MG 품목 확산<br>상생 성장 생태계 구축',en:'Pulmuone/CJ long-term partner<br>B2B one-pack/MG expansion<br>Win-win growth ecosystem',zh:'Pulmuone·CJ长期合作<br>B2B原包·MG品目扩散<br>共赢成长生态系统构建',ja:'プルムウォン・CJ長期パートナー<br>B2Bワンパック・MG品目拡散<br>共生成長エコシステム構築'}}
+];
+var slogan={ko:'No.1 수산가공 파트너',en:'No.1 Seafood Processing Partner',zh:'No.1 水产加工合作伙伴',ja:'No.1 水産加工パートナー'};
+var h='<div class="content"><div class="tag" style="font-size:16px;letter-spacing:6px">VISION 2026+</div><h1 style="font-size:44px">'+ti[lg]+'</h1><div class="vis-pillars">';
+pillars.forEach(function(p){h+='<div class="vis-pillar"><div class="vis-icon">'+p.icon+'</div><div class="vis-title">'+p.t[lg]+'</div><div class="vis-desc">'+p.d[lg]+'</div></div>';});
+h+='</div><div class="vis-slogan">'+slogan[lg]+'</div></div>';return h;}
+
+function sloganHtml(lg){
+var main={ko:'지속가능한 바다,<br>책임 있는 먹거리의 약속',en:'Sustainable Oceans,<br>A Promise of Responsible Food',zh:'可持续的海洋,<br>负责任食品的承诺',ja:'持続可能な海、<br>責任ある食の約束'};
+var en={ko:'Sustainable Oceans, Responsible Food Promise',en:'Seopung \u2014 Since 1976',zh:'Seopung \u2014 Since 1976',ja:'Seopung \u2014 Since 1976'};
+var P='<div class="p"></div>';
+return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="slogan-main">'+main[lg]+'</div><div class="slogan-en">'+en[lg]+'</div><div class="slogan-line"></div></div>';}
 
 function statsHtml(lg){
 var ti={ko:'사업 실적',en:'Business Performance',zh:'业务实绩',ja:'事業実績'};
@@ -690,40 +1021,52 @@ function endHtml(lg){
 var n={ko:'서풍',en:'SEOPUNG',zh:'西风',ja:'西風'};
 var sb={ko:'No.1 수산 가공 파트너',en:'No.1 Seafood Processing Partner',zh:'No.1 水产加工合作伙伴',ja:'No.1 水産加工パートナー'};
 var P='<div class="p"></div>';
-return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><svg viewBox="0 0 120 80" fill="none"><path d="M5 55c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/><path d="M5 40c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M5 25c15-20 35-20 50 0s35 20 50 0" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity=".3"/></svg></div><div class="logo-main glow" style="font-size:140px">'+n[lg]+'</div><div class="logo-sub" style="margin-top:14px;font-size:17px">'+sb[lg]+'</div><div class="logo-line"></div><div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div></div>';}
+return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:160px;height:auto"></div><div class="logo-main glow" style="font-size:140px">'+n[lg]+'</div><div class="logo-sub" style="margin-top:14px;font-size:17px">'+sb[lg]+'</div><div class="logo-line"></div><div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div></div>';}
 
 var S=[
-/* ACT 1 - 브랜드 오프닝 */
+/* ACT 1 — 브랜드 오프닝 (3장) */
 /* 0 */ {id:null,dur:7000,ef:'',css:'slide-logo',htmlFn:'logo'},
 /* 1 */ {id:'slide02',dur:7000,ef:'kb-pu',tag:'2대째 경영',t:'2대째 선순환<br>재투자 경영',p:'매출 성장을 현장과 품질에 환원하는 경영.<br>50년 수산 전문 기업의 지속가능한 성장.',b:['선순환 재투자','2대 경영']},
 /* 2 */ {id:'slide_f1',dur:6000,ef:'kb-pu',tag:'HEADQUARTERS',t:'6,600㎡ 최첨단<br>HACCP 가공시설',p:'여수 청정 자연 속, 국제 기준을 갖춘 최신 가공 시설.<br>대한민국 수산 가공의 새로운 기준을 세웁니다.',b:['HACCP 인증','6,600㎡']},
-/* ACT 2 - 인증 & 안전 */
-/* 3 */ {id:null,dur:7000,ef:'',css:'slide-certs5',htmlFn:'certs5'},
-/* 4 */ {id:null,dur:8000,ef:'',css:'slide-zero',htmlFn:'zero'},
-/* 5 */ {id:null,dur:9000,ef:'',css:'slide-stats',htmlFn:'stats'},
-/* ACT 3 - 최첨단 설비 */
-/* 6 */ {id:null,dur:9000,ef:'',css:'slide-equip',htmlFn:'equip'},
-/* 7 */ {id:null,dur:8000,ef:'',css:'slide-timeline',htmlFn:'timeline'},
-/* ACT 4 - 주력 제품: 삼치·오징어·고등어 */
-/* 8 */ {id:'slide07',dur:7000,ef:'kb-pd',hero:true,tag:'SIGNATURE PRODUCT',t:'품질인증 오징어',p:'바다가 선물한 최고의 한 마리.<br>여수 근해에서 당일 조업한 신선함 그대로!',b:['국가 품질인증','당일 조업']},
-/* 9 */ {id:'slide_h2',dur:6000,ef:'kb-zi',tag:'IQF SYSTEM',t:'-40℃ 급속냉동<br>신선함을 잠그다',p:'최첨단 IQF 개별급속냉동 시스템으로<br>잡은 그 순간의 신선함을 완벽하게 보존합니다.',b:['IQF 급속냉동','-40℃','900g 품질인증']},
-/* 10 */ {id:'slide_samchi1',dur:7000,ef:'kb-zo',hero:true,tag:'SPANISH MACKEREL',t:'삼치',p:'삼치자반 330g / 대삼치살 700g.<br>AI 엑스레이 검출, 순살 무결점 제품.',b:['AI 검출','순살 무결점']},
-/* 11 */ {id:'slide_godeungeo',dur:7000,ef:'kb-pr',hero:true,tag:'MACKEREL',t:'순살 고등어 1kg',p:'뼈 없는 안심 순살 고등어.<br>학교급식 납품 인기 상품, AI 엑스레이 검출.',b:['학교급식 인기','뼈 없는 안심']},
-/* 12 */ {id:'slide_h1',dur:6000,ef:'kb-pr',tag:'HACCP FACILITY',t:'숙련된 전문 인력의<br>철저한 선별',p:'HACCP 인증 시설에서 위생복을 갖춘 전문 인력이<br>한 마리 한 마리 정성껏 가공합니다.',b:['위생 관리','전문 인력']},
-/* ACT 5 - 전문 PB 파트너십 */
-/* 13 */ {id:null,dur:9000,ef:'',css:'slide-pb',htmlFn:'pb'},
-/* 14 */ {id:'slide_pb_cj',dur:6000,ef:'kb-sl',tag:'PB PRODUCT',t:'CJ프레쉬웨이<br>어린이 안심 수산물',p:'아이누리 브랜드 납품 제품 1kg.<br>아이들이 안심하고 먹을 수 있는 HACCP 인증 수산물.',b:['CJ프레쉬웨이','아이누리']},
-/* 15 */ {id:'slide_pb_pulmuone1',dur:6000,ef:'kb-sl',tag:'PB PRODUCT',t:'풀무원 풀스키친<br>레몬담은 순살생선',p:'어린이 순살생선 1kg. 뼈 없는 안심 순살 가공.<br>풀무원 프리미엄 브랜드에 납품하는 서풍의 기술력.',b:['풀무원','순살생선']},
-/* 16 */ {id:'slide_pb_pulmuone2',dur:6000,ef:'kb-pd',tag:'PB PRODUCT',t:'풀무원 풀스키즈<br>보성녹차 담은 해산물',p:'녹차로 비린내를 잡은 프리미엄 어린이 해산물.<br>서풍의 가공 기술로 완성된 PB 납품 제품.',b:['풀무원','녹차 해산물']},
-/* ACT 6 - 비전 & 마무리 */
-/* 17 */ {id:null,dur:8000,ef:'',css:'slide-priorities',htmlFn:'priorities'},
-/* 18 */ {id:'slide16',dur:8000,ef:'kb-zi',css:'slide-promise',tag:'OUR PROMISE',t:'서풍이<br>약속합니다',p:'',b:[],prom:['50년 노하우로 최상급 원물만 엄선합니다','HACCP·ASC·MSC·품질인증·이력제를 준수합니다','산지에서 식탁까지 콜드체인을 유지합니다','고객 만족을 최우선 가치로 삼겠습니다'],contact:true},
-/* 19 */ {id:null,dur:7000,ef:'',css:'slide-end',htmlFn:'end'}
+/* ACT 2 — 경영철학 & 전략 (3장) */
+/* 3 */ {id:null,dur:9000,ef:'',css:'slide-philosophy',htmlFn:'philosophy'},
+/* 4 */ {id:null,dur:8000,ef:'',css:'slide-oneplatform',htmlFn:'oneplatform'},
+/* 5 */ {id:null,dur:9000,ef:'',css:'slide-revenue',htmlFn:'revenue'},
+/* ACT 3 — 인증 & 안전 (3장) */
+/* 6 */ {id:null,dur:7000,ef:'',css:'slide-certs5',htmlFn:'certs5'},
+/* 7 */ {id:null,dur:10000,ef:'',css:'slide-aixray',htmlFn:'aixray'},
+/* 8 */ {id:null,dur:9000,ef:'',css:'slide-stats',htmlFn:'stats'},
+/* ACT 4 — 스마트 팩토리 (3장) */
+/* 9 */ {id:null,dur:9000,ef:'',css:'slide-equip',htmlFn:'equip'},
+/* 10 */ {id:null,dur:8000,ef:'',css:'slide-timeline',htmlFn:'timeline'},
+/* 11 */ {id:null,dur:9000,ef:'',css:'slide-investment',htmlFn:'investment'},
+/* ACT 5 — 3대 주력 제품 (5장) */
+/* 12 */ {id:'slide07',dur:7000,ef:'kb-pd',hero:true,tag:'SIGNATURE PRODUCT',t:'품질인증 오징어',p:'바다가 선물한 최고의 한 마리.<br>여수 근해에서 당일 조업한 신선함 그대로!',b:['국가 품질인증','당일 조업']},
+/* 13 */ {id:'slide_h2',dur:6000,ef:'kb-zi',tag:'IQF SYSTEM',t:'-40℃ 급속냉동<br>신선함을 잠그다',p:'최첨단 IQF 개별급속냉동 시스템으로<br>잡은 그 순간의 신선함을 완벽하게 보존합니다.',b:['IQF 급속냉동','-40℃','900g 품질인증']},
+/* 14 */ {id:'slide_samchi1',dur:7000,ef:'kb-zo',hero:true,tag:'SPANISH MACKEREL',t:'삼치',p:'삼치자반 330g / 대삼치살 700g.<br>AI 엑스레이 검출, 순살 무결점 제품.',b:['AI 검출','순살 무결점']},
+/* 15 */ {id:'slide_godeungeo',dur:7000,ef:'kb-pr',hero:true,tag:'MACKEREL',t:'순살 고등어 1kg',p:'뼈 없는 안심 순살 고등어.<br>학교급식 납품 인기 상품, AI 엑스레이 검출.',b:['학교급식 인기','뼈 없는 안심']},
+/* 16 */ {id:'slide_h1',dur:6000,ef:'kb-pr',tag:'HACCP FACILITY',t:'숙련된 전문 인력의<br>철저한 선별',p:'HACCP 인증 시설에서 위생복을 갖춘 전문 인력이<br>한 마리 한 마리 정성껏 가공합니다.',b:['위생 관리','전문 인력']},
+/* ACT 6 — 지속가능 브랜드 & MG (2장) */
+/* 17 */ {id:null,dur:8000,ef:'',css:'slide-sustainable',htmlFn:'sustainable'},
+/* 18 */ {id:null,dur:8000,ef:'',css:'slide-mg',htmlFn:'mg'},
+/* ACT 7 — PB 파트너십 (4장) */
+/* 19 */ {id:null,dur:9000,ef:'',css:'slide-pb',htmlFn:'pb'},
+/* 20 */ {id:'slide_pb_cj',dur:6000,ef:'kb-sl',tag:'PB PRODUCT',t:'CJ프레쉬웨이<br>어린이 안심 수산물',p:'아이누리 브랜드 납품 제품 1kg.<br>아이들이 안심하고 먹을 수 있는 HACCP 인증 수산물.',b:['CJ프레쉬웨이','아이누리']},
+/* 21 */ {id:'slide_pb_pulmuone1',dur:6000,ef:'kb-sl',tag:'PB PRODUCT',t:'풀무원 풀스키친<br>레몬담은 순살생선',p:'어린이 순살생선 1kg. 뼈 없는 안심 순살 가공.<br>풀무원 프리미엄 브랜드에 납품하는 서풍의 기술력.',b:['풀무원','순살생선']},
+/* 22 */ {id:'slide_pb_pulmuone2',dur:6000,ef:'kb-pd',tag:'PB PRODUCT',t:'풀무원 풀스키즈<br>보성녹차 담은 해산물',p:'녹차로 비린내를 잡은 프리미엄 어린이 해산물.<br>서풍의 가공 기술로 완성된 PB 납품 제품.',b:['풀무원','녹차 해산물']},
+/* ACT 8 — 혁신 & R&D (2장) */
+/* 23 */ {id:null,dur:9000,ef:'',css:'slide-newproducts',htmlFn:'newproducts'},
+/* 24 */ {id:null,dur:8000,ef:'',css:'slide-priorities',htmlFn:'priorities'},
+/* ACT 9 — 비전 & 마무리 (4장) */
+/* 25 */ {id:null,dur:8000,ef:'',css:'slide-vision',htmlFn:'vision'},
+/* 26 */ {id:'slide16',dur:8000,ef:'kb-zi',css:'slide-promise',tag:'OUR PROMISE',t:'서풍이<br>약속합니다',p:'',b:[],prom:['50년 노하우로 최상급 원물만 엄선합니다','HACCP·ASC·MSC·품질인증·이력제를 준수합니다','산지에서 식탁까지 콜드체인을 유지합니다','고객 만족을 최우선 가치로 삼겠습니다'],contact:true},
+/* 27 */ {id:null,dur:7000,ef:'',css:'slide-slogan',htmlFn:'slogan'},
+/* 28 */ {id:null,dur:7000,ef:'',css:'slide-end',htmlFn:'end'}
 ];
 
 var L={"slide02":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAfEAACAgICAwEAAAAAAAAAAAAAAQIDESEEEhQiMUL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREhP/2gAMAwEAAhEDEQA/AERu9cHYzWDtNcN5ZpdItp/CukJxJEpLIG5OrsBfSE5lLK2VVm2b8iM47J+Un3EZZjTW1DvhkCd1SewHRLeSTfpAAA9fAAAD/9k=","slide_f1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABoQAAIDAQEAAAAAAAAAAAAAAAABAgMRBDH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AF+bkVkdbw3lwV56IU2zWJSZSbbpT0Anz5EpNJgM4BF//9k=","slide07":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgUG/8QAGxAAAgMBAQEAAAAAAAAAAAAAAAECAyEEETP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABETH/2gAMAwEAAhEDEQA/AOitfkGxDmulK1pvBy/a2Z/JF/ZsL1UzGgAAUkWbBoV5q3CbbGW8KoCsBACH/9k=","slide_h1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEAv/EABoQAAMAAwEAAAAAAAAAAAAAAAABAgMRMRP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAA//EABcRAAMBAAAAAAAAAAAAAAAAAAABAhH/2gAMAwEAAhEDEQA/AJ/K7NxheNbKcY74xgJXVbAb6BF29KKEf//Z","slide_h2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABsQAAMAAgMAAAAAAAAAAAAAAAABAgMEERIx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AM4LmV1Q2qTIsXpQgFXrqq5AeAH/2Q==","slide_samchi1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAQADAAAAAAAAAAAAAAAAAAIBAwX/xAAZEAEAAwEBAAAAAAAAAAAAAAAAAQIRIUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7fCcTaJ8Tats4CpwREWzoDdBgAzkAA//2Q==","slide_godeungeo":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEC/8QAHBAAAwADAAMAAAAAAAAAAAAAAAECAwQhEDEy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABkRAQACAwAAAAAAAAAAAAAAAAABEgIhMf/aAAwDAQACEQMRAD8A0dzYrCuEGHdu7SZNvwqkr6+OfJMiJZ5WtpprqTB2flAGqHLKpdPGPFCfEAIp6sL0AAU//9k=","slide16":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAiABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAdEAACAwADAQEAAAAAAAAAAAAAAQIDEQQSISIy/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABgRAQEBAQEAAAAAAAAAAAAAAAABERIT/9oADAMBAAIRAxEAPwCdW/OHYzR2muHuml0i3pfpE8VPKS0DcnV2Ar0iealldKqz1jFcrIaTcxPsYqbzDHGlthrvimAiVUnLQHhaq5AmP6QAApwAAG//2Q==","slide_pb_cj":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwT/xAAfEAACAQQCAwAAAAAAAAAAAAAAAgEDERIxIVEEExT/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAgP/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIRAyH/2gAMAwEAAhEDEQA/AOqFnYp2KK3AvbEiFOehdKAzmpyBROGqeNkuyvljshGbHZWbdhH1rRaiTN6NmtcCXactgaKnhm5R/9k=","slide_pb_pulmuone1":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgH/xAAfEAACAgICAwEAAAAAAAAAAAAAAgEDEiEEESIxUUL/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABAhEDITH/2gAMAwEAAhEDEQA/ALcNlCceGgTXcj6j2PiX/JLz5Z9EtqhVlOLdAdslstgFUrREvCWePNLeJTVnG2nRjKfplmb6UvriDUazdj9sAoCN1rGSP//Z","slide_pb_pulmuone2":"data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAbABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMEAf/EAB0QAAMAAgIDAAAAAAAAAAAAAAABAgMREjEEITL/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAH/xAAaEQACAwEBAAAAAAAAAAAAAAAAAgEhMRES/9oADAMBAAIRAxEAPwCyTNeLx1cbJTw1psrNXPz0a8+glTmmfJHG2gdyNu22B4igp0iot3s2zuMPfskMrfFAKtlDPRFttgApJT//2Q=="};
 
-var htmlFns={logo:logoHtml,certs5:certs5Html,zero:zeroHtml,stats:statsHtml,equip:equipHtml,timeline:timelineHtml,pb:pbHtml,priorities:prioritiesHtml,end:endHtml};
+var htmlFns={logo:logoHtml,certs5:certs5Html,aixray:aixrayHtml,stats:statsHtml,equip:equipHtml,timeline:timelineHtml,pb:pbHtml,priorities:prioritiesHtml,end:endHtml,philosophy:philosophyHtml,oneplatform:oneplatformHtml,revenue:revenueHtml,investment:investmentHtml,sustainable:sustainableHtml,mg:mgHtml,newproducts:newproductsHtml,vision:visionHtml,slogan:sloganHtml};
 
 /* Apply language + speed to slides */
 function applyLang(lg){
@@ -878,11 +1221,14 @@ document.querySelectorAll('.lang-btn').forEach(function(btn){
 /* Slide names for checklist */
 var slideNames=[
 '로고 오프닝','2대째 재투자 경영','HACCP 가공시설',
-'5대 인증 완비','이물 Zero & 급식안전','사업 실적',
-'스마트 생산라인','투자 로드맵',
+'경영철학 & 전략','One Platform 밸류체인','매출현황 & 사업계획',
+'5대 인증 완비','AI 엑스레이 상세','사업 실적',
+'스마트 생산라인','투자 로드맵','2026 투자계획 상세',
 '품질인증 오징어','IQF 급속냉동','삼치','순살 고등어','HACCP 가공',
+'지속가능 브랜드','MG 품목 운영',
 '전문 PB 파트너','CJ 어린이 안심 수산물','풀무원 순살생선','풀무원 녹차 해산물',
-'5대 중점 과제','서풍의 약속','마무리 로고'
+'신제품 개발현황','5대 중점 과제',
+'Vision No.1 파트너','서풍의 약속','지속가능한 바다 슬로건','마무리 로고'
 ];
 
 /* Build slide checklist with editable duration */
