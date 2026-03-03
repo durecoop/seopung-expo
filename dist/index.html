@@ -375,6 +375,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#110B07;color:#fff;
 .tl-node{display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(20px)}
 .tl-dot{width:24px;height:24px;border-radius:50%;background:#110B07;border:3px solid rgba(245,93,32,.3);margin-bottom:12px}
 .slide.active .tl-dot{border-color:#F55D20;background:rgba(245,93,32,.15)}
+.tl-done .tl-dot{border-color:#4caf50!important;background:#4caf50!important;color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.tl-done .tl-year{color:#4caf50}
 .tl-year{font-size:20px;font-weight:900;color:#F55D20;margin-bottom:6px}
 .tl-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.4;max-width:180px;text-align:center}
 .tl-cost{font-size:12px;color:rgba(245,93,32,.6);margin-top:4px;font-weight:700}
@@ -895,12 +897,12 @@ return h;}
 
 function oneplatformHtml(lg){
 var ti={ko:'One Platform 밸류체인',en:'One Platform Value Chain',zh:'One Platform价值链',ja:'One Platformバリューチェーン'};
-var su={ko:'원료 매입부터 유통까지, 원스톱 수직계열화 시스템',en:'From raw material procurement to distribution, one-stop vertical integration',zh:'从原料采购到流通，一站式垂直一体化系统',ja:'原料仕入れから流通まで、ワンストップ垂直系列化'};
+var su={ko:'원료 매입부터 수출까지, 원스톱 수직계열화 시스템',en:'From raw material procurement to export, one-stop vertical integration',zh:'从原料采购到出口，一站式垂直一体化系统',ja:'原料仕入れから輸出まで、ワンストップ垂直系列化'};
 var nodes=[
 {n:{ko:'원료매입',en:'Procurement',zh:'原料采购',ja:'原料仕入れ'},s:{ko:'중매인49호',en:'Broker #49',zh:'中介人49号',ja:'仲買人49号'}},
 {n:{ko:'저장',en:'Storage',zh:'储存',ja:'貯蔵'},s:{ko:'대주냉장',en:'Daeju Cold Storage',zh:'大洲冷藏',ja:'大主冷蔵'}},
 {n:{ko:'제조',en:'Manufacturing',zh:'制造',ja:'製造'},s:{ko:'서풍',en:'Seopung',zh:'西风',ja:'西風'}},
-{n:{ko:'유통',en:'Distribution',zh:'流通',ja:'流通'},s:{ko:'여수유통',en:'Yeosu Distribution',zh:'丽水流通',ja:'麗水流通'}}
+{n:{ko:'수출',en:'Export',zh:'出口',ja:'輸出'},s:{ko:'글로벌 수출',en:'Global Export',zh:'全球出口',ja:'グローバル輸出'}}
 ];
 var badge={ko:'원스톱 수직계열화 One Platform',en:'One-Stop Vertical Integration Platform',zh:'一站式垂直一体化平台',ja:'ワンストップ垂直系列化プラットフォーム'};
 var h='<div class="content"><div class="tag" style="font-size:20px;letter-spacing:6px">VALUE CHAIN</div><h1 style="font-size:52px">'+ti[lg]+'</h1><p style="font-size:24px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="op-chain">';
@@ -1036,14 +1038,14 @@ function timelineHtml(lg){
 var ti={ko:'투자 로드맵',en:'Investment Roadmap',zh:'投资路线图',ja:'投資ロードマップ'};
 var su={ko:'지속적인 설비 투자로 미래를 준비합니다',en:'Preparing for the future with continuous investment',zh:'以持续设备投资迎接未来',ja:'継続的な設備投資で未来を準備します'};
 var nodes=[
-{y:'~2024',d:{ko:'터널프리져<br>까스성형기',en:'Tunnel Freezer<br>Gas Former',zh:'隧道速冻机<br>气体成型机',ja:'トンネルフリーザー<br>ガス成形機'},c:''},
-{y:'2024',d:{ko:'멀티박<br>오징어 할복기',en:'Multivac<br>Squid Processor',zh:'多功能真空机<br>鱿鱼切割机',ja:'マルチバック<br>イカ割腹機'},c:'8\uC5B5'},
-{y:'2025',d:{ko:'로터리 포장기',en:'Rotary Packer',zh:'旋转包装机',ja:'ロータリー包装機'},c:'7.4\uC5B5'},
-{y:'2026',d:{ko:'AI 엑스레이<br>초분광·자동화',en:'AI X-Ray<br>Hyperspectral',zh:'AI X光<br>超光谱·自动化',ja:'AI X線<br>超分光・自動化'},c:'8.9\uC5B5'},
-{y:'2027',d:{ko:'연속식 구이기<br>신규 공장',en:'Continuous Grill<br>New Factory',zh:'连续烤机<br>新工厂',ja:'連続式焼き機<br>新工場'},c:''}
+{y:'~2024',d:{ko:'터널프리져<br>까스성형기',en:'Tunnel Freezer<br>Gas Former',zh:'隧道速冻机<br>气体成型机',ja:'トンネルフリーザー<br>ガス成形機'},c:'',done:true},
+{y:'2024',d:{ko:'멀티박<br>오징어 할복기',en:'Multivac<br>Squid Processor',zh:'多功能真空机<br>鱿鱼切割机',ja:'マルチバック<br>イカ割腹機'},c:'8\uC5B5',done:true},
+{y:'2025',d:{ko:'로터리 포장기',en:'Rotary Packer',zh:'旋转包装机',ja:'ロータリー包装機'},c:'7.4\uC5B5',done:true},
+{y:'2026',d:{ko:'AI 엑스레이<br>초분광·자동화',en:'AI X-Ray<br>Hyperspectral',zh:'AI X光<br>超光谱·自动化',ja:'AI X線<br>超分光・自動化'},c:'8.9\uC5B5',done:false},
+{y:'2027',d:{ko:'연속식 구이기<br>신규 공장',en:'Continuous Grill<br>New Factory',zh:'连续烤机<br>新工厂',ja:'連続式焼き機<br>新工場'},c:'',done:false}
 ];
 var h='<div class="content"><div class="tag" style="font-size:20px;letter-spacing:6px">INVESTMENT ROADMAP</div><h1 style="font-size:54px">'+ti[lg]+'</h1><p style="font-size:24px;color:rgba(255,255,255,.6);margin-top:8px">'+su[lg]+'</p><div class="tl-wrap"><div class="tl-bar"><div class="tl-bar-fill"></div></div><div class="tl-nodes">';
-nodes.forEach(function(nd){h+='<div class="tl-node"><div class="tl-dot"></div><div class="tl-year">'+nd.y+'</div><div class="tl-desc">'+nd.d[lg]+'</div>'+(nd.c?'<div class="tl-cost">'+nd.c+'</div>':'')+'</div>';});
+nodes.forEach(function(nd){h+='<div class="tl-node'+(nd.done?' tl-done':'')+'"><div class="tl-dot">'+(nd.done?'\u2713':'')+'</div><div class="tl-year">'+nd.y+'</div><div class="tl-desc">'+nd.d[lg]+'</div>'+(nd.c?'<div class="tl-cost">'+nd.c+'</div>':'')+(nd.done?'<div class="tl-status" style="font-size:12px;color:#4caf50;font-weight:800;margin-top:4px">\u2713 '+ ({ko:'완료',en:'Done',zh:'完成',ja:'完了'})[lg] +'</div>':'')+'</div>';});
 h+='</div></div></div>';return h;}
 
 function pbHtml(lg){
