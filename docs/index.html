@@ -1248,6 +1248,8 @@ function startShow(lg,sp,selected){
   try{ buildFiltered(activeSlides); }catch(e){ console.error(e); }
   updateC();startP(activeSlides[0]._dur);sched();reqWL();preAroundA(0);
   document.getElementById('startup').classList.add('hide');
+  /* Fullscreen */
+  try{var el=document.documentElement;if(el.requestFullscreen)el.requestFullscreen();else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();}catch(e){}
   /* Play BGM */
   if(bgm){try{bgm.volume=0.3;bgm.play().catch(function(){});}catch(e){}}
 }
@@ -1356,6 +1358,8 @@ function stopShow(){
   document.getElementById('slideshow').innerHTML='';
   document.getElementById('controls').classList.remove('show');
   cur=0;
+  /* Exit fullscreen */
+  try{if(document.fullscreenElement)document.exitFullscreen();else if(document.webkitFullscreenElement)document.webkitExitFullscreen();}catch(e){}
 }
 
 /* === CONTROLS PANEL LOGIC === */
