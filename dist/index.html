@@ -92,12 +92,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:#110B07;color:#fff;
 .logo-main{font-size:200px;font-weight:900;letter-spacing:20px;opacity:0;
   text-shadow:0 0 60px rgba(245,93,32,.6),0 8px 60px rgba(0,0,0,.5)}
 .logo-sub{font-size:24px;font-weight:600;letter-spacing:8px;color:rgba(245,93,32,.8);margin-top:20px;opacity:0}
+.logo-hanja{font-size:22px;font-weight:300;color:rgba(245,93,32,.6);letter-spacing:6px;margin-top:10px;opacity:0}
+.logo-meaning{font-size:18px;font-weight:400;color:rgba(255,255,255,.55);line-height:1.8;margin-top:12px;opacity:0;max-width:600px}
+.logo-meaning em{color:#F55D20;font-style:normal;font-weight:700}
 .logo-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,#F55D20,transparent);margin:24px auto;opacity:0}
 .logo-desc{font-size:38px;font-weight:300;color:rgba(255,255,255,.7);opacity:0;letter-spacing:3px}
 .slide.active .logo-main{animation:fadeInScale 1.2s .2s ease both}
 .slide.active .logo-sub{animation:fadeUp .8s .8s ease both}
-.slide.active .logo-line{animation:fadeIn .8s 1s ease both}
-.slide.active .logo-desc{animation:fadeUp .8s 1.2s ease both}
+.slide.active .logo-hanja{animation:fadeUp .6s 1s ease both}
+.slide.active .logo-meaning{animation:fadeUp .7s 1.2s ease both}
+.slide.active .logo-line{animation:fadeIn .8s 1.5s ease both}
+.slide.active .logo-desc{animation:fadeUp .8s 1.7s ease both}
 .particles{position:absolute;inset:0;overflow:hidden;z-index:0}
 .p{position:absolute;border-radius:50%;background:rgba(245,93,32,.25);animation:float 4s ease-in-out infinite}
 .p:nth-child(1){width:6px;height:6px;left:12%;top:18%;animation-duration:5s}
@@ -878,9 +883,11 @@ var TX={en:{
 /* CSS-only slide HTML generators */
 function logoHtml(lg){
 var n={ko:'서풍',en:'SEOPUNG',zh:'西风',ja:'西風'};
+var hanja={ko:'西風',en:'西風 (Xīfēng)',zh:'西风',ja:'西風'};
+var meaning={ko:'서방정토(西方淨土)로 향하는 바람처럼,<br>가장 좋은 곳(바다)에서 가장 좋은 것을 가져다주는 존재',en:'Like a wind toward the Western Paradise,<br>bringing the finest from the ocean to your table',zh:'如同吹向西方净土的风，<br>从最好的地方（大海）带来最好的东西',ja:'西方浄土へ向かう風のように、<br>最も良い場所（海）から最も良いものを届ける存在'};
 var d={ko:'여수에서 시작된 50년 수산의 길',en:'50 Years of Seafood Excellence from Yeosu',zh:'源自丽水的50年水产之路',ja:'麗水から始まった50年水産の道'};
 var P='<div class="p"></div>';
-return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
+return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-hanja">'+hanja[lg]+'</div><div class="logo-meaning">'+meaning[lg]+'</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
 
 function certs5aHtml(lg){
 var ti={ko:'<span class="hl hl-orange">국제 인증</span> 현황',en:'<span class="hl hl-orange">International</span> Certifications',zh:'<span class="hl hl-orange">国际认证</span>现状',ja:'<span class="hl hl-orange">国際認証</span>現況'};
