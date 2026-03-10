@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>서풍 - 여수에서 시작된 50년 수산의 길</title>
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;word-break:keep-all;overflow-wrap:break-word}
 html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
   font-family:'맑은 고딕','Malgun Gothic',sans-serif;-webkit-font-smoothing:antialiased}
 
@@ -103,8 +103,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .logo-icon{animation:fadeInScale 1s .1s ease both}
 .logo-main{font-size:240px;font-weight:900;letter-spacing:20px;opacity:0;
   text-shadow:0 0 60px rgba(27,108,229,.6),0 8px 60px rgba(0,0,0,.5)}
-.logo-sub{font-size:30px;font-weight:600;letter-spacing:8px;color:rgba(27,108,229,.8);margin-top:20px;opacity:0}
-.logo-hanja{font-size:28px;font-weight:300;color:rgba(27,108,229,.6);letter-spacing:6px;margin-top:10px;opacity:0}
+.logo-sub{font-size:30px;font-weight:600;letter-spacing:8px;color:#7EC8F7;margin-top:20px;opacity:0;
+  text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.logo-hanja{font-size:28px;font-weight:300;color:#7EC8F7;letter-spacing:6px;margin-top:10px;opacity:0;
+  text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .logo-meaning{font-size:24px;font-weight:400;color:rgba(255,255,255,.78);line-height:1.8;margin-top:12px;opacity:0;max-width:600px}
 .logo-meaning em{color:#1B6CE5;font-style:normal;font-weight:700}
 .logo-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,#1B6CE5,transparent);margin:24px auto;opacity:0}
@@ -200,6 +202,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide[data-i="22"] .overlay,
 .slide[data-i="23"] .overlay{
   background:linear-gradient(180deg,transparent 0%,transparent 45%,rgba(15,30,55,.5) 70%,rgba(15,30,55,.88) 100%)!important}
+.slide[data-i="21"] .content .tag,
+.slide[data-i="22"] .content .tag,
+.slide[data-i="23"] .content .tag{text-shadow:none!important}
 
 /* === SLIDE: PROMISE === */
 .slide-promise .content{justify-content:center;align-items:center;text-align:center;
@@ -386,12 +391,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .cert5-row{display:flex;gap:32px;margin-top:40px;justify-content:center;flex-wrap:wrap}
 .cert5-seal{width:168px;height:168px;border-radius:50%;border:2.5px solid rgba(27,108,229,.3);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;opacity:0;background:rgba(27,108,229,.08);box-shadow:0 0 30px rgba(27,108,229,.12)}
+  position:relative;opacity:0;background:rgba(255,255,255,.92);box-shadow:0 0 30px rgba(27,108,229,.12)}
 .slide.active .cert5-seal{animation:certIn .7s ease both,certGlow 2s 1.6s ease-in-out infinite}
-.cert5-seal::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(27,108,229,.12)}
+.cert5-seal::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(27,108,229,.25)}
 .cert5-seal .cert-icon{margin-bottom:2px;opacity:.9}
 .cert5-seal .cert-name{font-size:34px;font-weight:900;color:#1B6CE5;letter-spacing:1px}
-.cert5-seal .cert-org{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:1.5px;margin-top:3px}
+.cert5-seal .cert-org{font-size:9px;color:rgba(30,50,80,.6);letter-spacing:1.5px;margin-top:3px}
 .cert5-seal .cert-check{font-size:12px;color:#4caf50;margin-top:4px;opacity:0;text-shadow:0 0 12px rgba(76,175,80,.5)}
 .slide.active .cert5-seal:nth-child(1){animation-delay:.2s}
 .slide.active .cert5-seal:nth-child(2){animation-delay:.4s}
@@ -468,7 +473,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 /* === SLIDE: PB PARTNERS === */
 .slide-pb{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(36,61,98,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1465862391058-b246fa982724?w=1920&q=80&fit=crop') center/cover no-repeat}
 .slide-pb .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
-.pb-platform{margin-top:16px;font-size:16px;color:rgba(27,108,229,.6);letter-spacing:3px;opacity:0}
+.pb-platform{margin-top:16px;font-size:16px;color:rgba(255,255,255,.9);letter-spacing:3px;opacity:0}
 .slide.active .pb-platform{animation:fadeUp .6s .2s ease both}
 .pb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;width:100%;max-width:1100px}
 .pb-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 20px;text-align:center;
@@ -511,21 +516,22 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .pri-card:nth-child(5){animation-delay:1.1s}
 
 /* === HERO PRODUCT ACCENT === */
-.hero-accent{display:inline-block;padding:6px 18px;background:rgba(27,108,229,.15);
-  border:2px solid #1B6CE5;border-radius:6px;font-size:13px;
-  font-weight:800;letter-spacing:4px;color:#1B6CE5;margin-bottom:10px;opacity:0;transform:translateY(20px)}
+.hero-accent{display:inline-block;padding:4px 0;background:transparent;
+  border:none;border-radius:0;font-size:13px;
+  font-weight:800;letter-spacing:4px;color:rgba(91,163,245,.9);margin-bottom:10px;opacity:0;transform:translateY(20px);
+  text-shadow:0 1px 6px rgba(0,0,0,.8),0 0 16px rgba(0,0,0,.4)}
 .slide.active .hero-accent{animation:fadeUp .6s .05s ease both}
 
 /* === PENCIL HIGHLIGHT EFFECT === */
 .hl{position:relative;display:inline;padding:0 4px}
-.hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:0;height:40%;z-index:-1;border-radius:2px;opacity:.7;
+.hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:0;height:34%;z-index:-1;border-radius:2px;opacity:.45;
   transform:skewX(-2deg) rotate(-.5deg)}
-.hl-yellow::after{background:linear-gradient(90deg,rgba(255,235,59,.6),rgba(255,213,0,.7),rgba(255,235,59,.5))}
-.hl-cyan::after{background:linear-gradient(90deg,rgba(27,108,229,.5),rgba(129,212,250,.6),rgba(27,108,229,.4))}
-.hl-green::after{background:linear-gradient(90deg,rgba(76,175,80,.5),rgba(129,199,132,.6),rgba(76,175,80,.4))}
-.hl-orange::after{background:linear-gradient(90deg,rgba(255,152,0,.5),rgba(255,183,77,.6),rgba(255,152,0,.4))}
-.hl-pink::after{background:linear-gradient(90deg,rgba(233,30,99,.4),rgba(240,98,146,.5),rgba(233,30,99,.35))}
-.hl-red::after{background:linear-gradient(90deg,rgba(244,67,54,.4),rgba(229,115,115,.5),rgba(244,67,54,.35))}
+.hl-yellow::after{background:rgba(255,213,0,.5)}
+.hl-cyan::after{background:rgba(100,181,246,.45)}
+.hl-green::after{background:rgba(102,187,106,.45)}
+.hl-orange::after{background:rgba(255,167,38,.45)}
+.hl-pink::after{background:rgba(240,98,146,.4)}
+.hl-red::after{background:rgba(229,115,115,.4)}
 
 /* === PB BRAND LOGOS === */
 .pb-logo{display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:16px;margin:0 auto 12px;position:relative;overflow:hidden}
@@ -586,24 +592,24 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 /* === SLIDE: REVENUE === */
 .slide-revenue{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(36,61,98,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1703925155035-fd10b9c19b24?w=1920&q=80&fit=crop') center/cover no-repeat}
 .slide-revenue .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
-.rev-bars{display:flex;align-items:flex-end;justify-content:center;gap:48px;margin-top:36px;height:220px}
-.rev-bar{display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
+.rev-bars{display:flex;align-items:flex-end;justify-content:center;gap:48px;margin-top:48px;height:140px}
+.rev-bar{display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0}
 .rev-bar .rb-fill{width:100px;border-radius:8px 8px 0 0;transition:height 1.5s cubic-bezier(.4,0,.2,1);
   position:relative;overflow:hidden}
 .rev-bar .rb-fill::after{content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(255,255,255,.15) 0%,transparent 50%,rgba(0,0,0,.1) 100%);
   border-radius:inherit}
-.rev-bar .rb-val{font-size:36px;font-weight:900;color:#fff;text-shadow:0 0 12px rgba(27,108,229,.4)}
-.rev-bar .rb-year{font-size:22px;color:rgba(255,255,255,.88);font-weight:700}
+.rev-bar .rb-val{font-size:30px;font-weight:900;color:#fff;text-shadow:0 0 12px rgba(27,108,229,.4)}
+.rev-bar .rb-year{font-size:18px;color:rgba(255,255,255,.88);font-weight:700}
 .slide.active .rev-bar{animation:fadeIn .5s ease both}
 .slide.active .rev-bar:nth-child(1){animation-delay:.3s}
 .slide.active .rev-bar:nth-child(2){animation-delay:.5s}
 .slide.active .rev-bar:nth-child(3){animation-delay:.7s}
-.rev-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;width:100%;max-width:1000px}
-.rev-col{background:rgba(27,108,229,.08);border:1px solid rgba(27,108,229,.1);border-radius:14px;padding:20px 16px;
+.rev-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px;width:100%;max-width:1000px}
+.rev-col{background:rgba(27,108,229,.08);border:1px solid rgba(27,108,229,.1);border-radius:14px;padding:16px 16px;
   text-align:center;opacity:0;transform:translateY(20px);transition:transform .3s,box-shadow .3s,border-color .3s}
 .slide.active .rev-col:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 10px 30px rgba(27,108,229,.18);border-color:rgba(27,108,229,.35)}
-.rev-col .rc-title{font-size:22px;font-weight:800;color:#1B6CE5;margin-bottom:6px}
+.rev-col .rc-title{font-size:20px;font-weight:800;color:#1B6CE5;margin-bottom:4px}
 .rev-col .rc-desc{font-size:13px;color:rgba(255,255,255,.78);line-height:1.5}
 .slide.active .rev-col{animation:countUp .5s ease both}
 .slide.active .rev-col:nth-child(1){animation-delay:1s}
@@ -1037,7 +1043,7 @@ var c2t={ko:'튀김전용 활성화',en:'Fry-Ready Activation',zh:'油炸专用�
 var c2d={ko:'튀김전용 제품 라인<br>B2B 채널 강화',en:'Fry-ready product line<br>B2B channel strengthening',zh:'油炸专用产品线<br>B2B渠道强化',ja:'揚げ物専用製品ライン<br>B2Bチャネル強化'};
 var c3t={ko:'ASC/MSC 매출 <span class="hl hl-green">+330%</span>',en:'ASC/MSC Revenue <span class="hl hl-green">+330%</span>',zh:'ASC/MSC销售 <span class="hl hl-green">+330%</span>',ja:'ASC/MSC売上 <span class="hl hl-green">+330%</span>'};
 var c3d={ko:'인증 제품 매출<br>26년 <span class="hl hl-yellow">12억</span> 목표',en:'Certified product revenue<br>target <span class="hl hl-yellow">1.2B KRW</span> in 2026',zh:'认证产品销售<br>26年<span class="hl hl-yellow">12亿</span>目标',ja:'認証製品売上<br>26年<span class="hl hl-yellow">12億</span>目標'};
-return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">REVENUE & PLAN</div><h1 style="font-size:64px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="rev-bars"><div class="rev-bar"><div class="rb-fill" style="height:160px;background:rgba(27,108,229,.3)"></div><div class="rb-val">376'+u[lg]+'</div><div class="rb-year">2024</div></div><div class="rev-bar"><div class="rb-fill" style="height:170px;background:rgba(27,108,229,.5)"></div><div class="rb-val">379'+u[lg]+'</div><div class="rb-year">2025</div></div><div class="rev-bar"><div class="rb-fill" style="height:190px;background:linear-gradient(180deg,#4FC3F7,#2196F3)"></div><div class="rb-val" style="color:#4FC3F7">400'+u[lg]+'</div><div class="rb-year" style="color:#4FC3F7;font-weight:900">2026 '+({ko:'목표',en:'Target',zh:'目标',ja:'目標'})[lg]+'</div></div></div><div class="rev-cols"><div class="rev-col"><div class="rc-title">'+c1t[lg]+'</div><div class="rc-desc">'+c1d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c2t[lg]+'</div><div class="rc-desc">'+c2d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c3t[lg]+'</div><div class="rc-desc">'+c3d[lg]+'</div></div></div></div>';}
+return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">REVENUE & PLAN</div><h1 style="font-size:56px">'+ti[lg]+'</h1><p style="font-size:24px;color:rgba(255,255,255,.82);margin-top:6px">'+su[lg]+'</p><div class="rev-bars"><div class="rev-bar"><div class="rb-fill" style="height:70px;background:rgba(27,108,229,.3)"></div><div class="rb-val">376'+u[lg]+'</div><div class="rb-year">2024</div></div><div class="rev-bar"><div class="rb-fill" style="height:85px;background:rgba(27,108,229,.5)"></div><div class="rb-val">379'+u[lg]+'</div><div class="rb-year">2025</div></div><div class="rev-bar"><div class="rb-fill" style="height:105px;background:linear-gradient(180deg,#4FC3F7,#2196F3)"></div><div class="rb-val" style="color:#4FC3F7">400'+u[lg]+'</div><div class="rb-year" style="color:#4FC3F7;font-weight:900">2026 '+({ko:'목표',en:'Target',zh:'目标',ja:'目標'})[lg]+'</div></div></div><div class="rev-cols"><div class="rev-col"><div class="rc-title">'+c1t[lg]+'</div><div class="rc-desc">'+c1d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c2t[lg]+'</div><div class="rc-desc">'+c2d[lg]+'</div></div><div class="rev-col"><div class="rc-title">'+c3t[lg]+'</div><div class="rc-desc">'+c3d[lg]+'</div></div></div></div>';}
 
 function investmentHtml(lg){
 var ti={ko:'2026 투자계획 상세',en:'2026 Investment Plan Detail',zh:'2026投资计划详情',ja:'2026投資計画詳細'};
