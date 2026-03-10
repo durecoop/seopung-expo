@@ -83,7 +83,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeInScale{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 @keyframes popIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
-@keyframes bounceIn{0%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes bounceIn{0%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
 @keyframes slideInR{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
 @keyframes glowPulse{0%,100%{text-shadow:0 0 30px rgba(27,108,229,.5),0 4px 40px rgba(0,0,0,.5)}50%{text-shadow:0 0 80px rgba(27,108,229,.9),0 0 120px rgba(27,108,229,.4),0 4px 40px rgba(0,0,0,.5)}}
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
@@ -161,7 +161,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .haccp-line{margin-top:28px;opacity:0;display:inline-flex;align-items:center;gap:10px;padding:10px 24px;
   background:linear-gradient(135deg,rgba(27,108,229,.1),rgba(27,108,229,.18));border:2px solid rgba(27,108,229,.4);border-radius:28px;
   font-size:20px;font-weight:800;color:#1B6CE5;text-shadow:0 0 10px rgba(27,108,229,.3)}
-.slide.active .haccp-line{animation:bounceIn .8s .85s ease both,glowPulse 2.5s 1.7s ease infinite}
+.slide.active .haccp-line{animation:bounceIn .8s .85s ease both}
 
 /* === SLIDE: INK (수묵화) === */
 .slide-ink .bg{filter:brightness(.95) saturate(1.1)!important;background-color:#e8eef5}
@@ -389,15 +389,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide-certs5b{background:radial-gradient(ellipse at 50% 50%,rgba(42,69,112,.45),rgba(26,48,80,.55) 70%),url('https://images.unsplash.com/photo-1602489736301-ddb77067e869?w=1920&q=80&fit=crop') center/cover no-repeat}
 .slide-certs5 .content,.slide-certs5a .content,.slide-certs5b .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
 .cert5-row{display:flex;gap:32px;margin-top:40px;justify-content:center;flex-wrap:wrap}
-.cert5-seal{width:168px;height:168px;border-radius:50%;border:2.5px solid rgba(27,108,229,.3);
+.cert5-seal{width:190px;height:190px;border-radius:50%;border:2.5px solid rgba(27,108,229,.3);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   position:relative;opacity:0;background:rgba(255,255,255,.92);box-shadow:0 0 30px rgba(27,108,229,.12)}
 .slide.active .cert5-seal{animation:certIn .7s ease both,certGlow 2s 1.6s ease-in-out infinite}
 .cert5-seal::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(27,108,229,.25)}
 .cert5-seal .cert-icon{margin-bottom:2px;opacity:.9}
-.cert5-seal .cert-name{font-size:34px;font-weight:900;color:#1B6CE5;letter-spacing:1px}
-.cert5-seal .cert-org{font-size:9px;color:rgba(30,50,80,.6);letter-spacing:1.5px;margin-top:3px}
-.cert5-seal .cert-check{font-size:12px;color:#4caf50;margin-top:4px;opacity:0;text-shadow:0 0 12px rgba(76,175,80,.5)}
+.cert5-seal .cert-name{font-size:40px;font-weight:900;color:#1052A0;letter-spacing:1px}
+.cert5-seal .cert-org{font-size:11px;font-weight:700;color:rgba(20,40,70,.7);letter-spacing:1px;margin-top:3px}
+.cert5-seal .cert-check{font-size:14px;font-weight:900;color:#2e7d32;margin-top:4px;opacity:0}
 .slide.active .cert5-seal:nth-child(1){animation-delay:.2s}
 .slide.active .cert5-seal:nth-child(2){animation-delay:.4s}
 .slide.active .cert5-seal:nth-child(3){animation-delay:.6s}
@@ -435,8 +435,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
   padding:28px 16px;text-align:center;opacity:0;transform:translateY(30px) scale(.9);transition:transform .3s,box-shadow .3s,border-color .3s}
 .slide.active .equip-card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 12px 40px rgba(27,108,229,.2);border-color:rgba(27,108,229,.4)}
 .equip-card .eq-icon{display:flex;justify-content:center;margin-bottom:10px}
-.equip-card .eq-name{font-size:28px;font-weight:800;color:#1B6CE5;margin-bottom:6px;letter-spacing:.5px}
-.equip-card .eq-desc{font-size:22px;color:rgba(255,255,255,.78);line-height:1.5}
+.equip-card .eq-name{font-size:28px;font-weight:800;color:#7EC8F7;margin-bottom:6px;letter-spacing:.5px}
+.equip-card .eq-desc{font-size:22px;color:rgba(255,255,255,.92);line-height:1.5}
 .slide.active .equip-card{animation:fadeInScale .6s ease both}
 .slide.active .equip-card:nth-child(1){animation-delay:.2s}
 .slide.active .equip-card:nth-child(2){animation-delay:.4s}
@@ -542,9 +542,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide-philosophy{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(36,61,98,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1634043270873-f2f830e5d4bf?w=1920&q=80&fit=crop') center/cover no-repeat}
 .slide-philosophy .content{justify-content:center;align-items:center;text-align:center;padding:0 80px}
 .phi-cycle{display:flex;align-items:center;justify-content:center;gap:0;margin-top:32px;flex-wrap:wrap}
-.phi-box{padding:20px 32px;background:rgba(27,108,229,.12);border:1px solid rgba(27,108,229,.15);border-radius:12px;
-  font-size:24px;font-weight:800;color:#1B6CE5;opacity:0;transform:translateY(20px)}
-.phi-arrow{font-size:24px;color:rgba(27,108,229,.4);padding:0 8px;opacity:0}
+.phi-box{padding:20px 32px;background:rgba(27,108,229,.18);border:1px solid rgba(91,163,245,.35);border-radius:12px;
+  font-size:24px;font-weight:800;color:#7EC8F7;opacity:0;transform:translateY(20px)}
+.phi-arrow{font-size:24px;color:#5BA3F5;padding:0 8px;opacity:0}
 .slide.active .phi-box{animation:fadeUp .5s ease both}
 .slide.active .phi-box:nth-child(1){animation-delay:.3s}
 .slide.active .phi-box:nth-child(3){animation-delay:.5s}
@@ -557,10 +557,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .phi-arrow:nth-child(6){animation-delay:.8s}
 .slide.active .phi-arrow:nth-child(8){animation-delay:1s}
 .phi-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;width:100%;max-width:1100px}
-.phi-col{background:rgba(27,108,229,.08);border:1px solid rgba(27,108,229,.1);border-radius:16px;padding:28px 20px;text-align:center;opacity:0;transform:translateY(20px);transition:transform .3s,box-shadow .3s,border-color .3s}
-.slide.active .phi-col:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 12px 40px rgba(27,108,229,.2);border-color:rgba(27,108,229,.4)}
-.phi-col .phi-title{font-size:30px;font-weight:800;color:#1B6CE5;margin-bottom:8px}
-.phi-col .phi-desc{font-size:22px;color:rgba(255,255,255,.82);line-height:1.7}
+.phi-col{background:rgba(27,108,229,.12);border:1px solid rgba(91,163,245,.25);border-radius:16px;padding:28px 20px;text-align:center;opacity:0;transform:translateY(20px);transition:transform .3s,box-shadow .3s,border-color .3s}
+.slide.active .phi-col:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 12px 40px rgba(27,108,229,.2);border-color:rgba(91,163,245,.5)}
+.phi-col .phi-title{font-size:30px;font-weight:800;color:#7EC8F7;margin-bottom:8px}
+.phi-col .phi-desc{font-size:22px;color:rgba(255,255,255,.92);line-height:1.7}
 .slide.active .phi-col{animation:countUp .6s ease both}
 .slide.active .phi-col:nth-child(1){animation-delay:1.3s}
 .slide.active .phi-col:nth-child(2){animation-delay:1.5s}
@@ -570,12 +570,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide-oneplatform{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(38,60,100,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1759216373394-91146ca977c7?w=1920&q=80&fit=crop') center/cover no-repeat}
 .slide-oneplatform .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
 .op-chain{display:flex;align-items:center;justify-content:center;gap:0;margin-top:40px;flex-wrap:wrap}
-.op-node{padding:24px 32px;background:rgba(27,108,229,.12);border:1.5px solid rgba(27,108,229,.2);border-radius:14px;
+.op-node{padding:28px 36px;background:rgba(27,108,229,.18);border:1.5px solid rgba(91,163,245,.35);border-radius:14px;
   text-align:center;opacity:0;transform:scale(.8);transition:transform .3s,box-shadow .3s,border-color .3s}
-.slide.active .op-node:hover{transform:translateY(-6px) scale(1.08);box-shadow:0 8px 30px rgba(27,108,229,.25);border-color:rgba(27,108,229,.5)}
-.op-node .op-name{font-size:28px;font-weight:900;color:#1B6CE5;margin-bottom:4px}
-.op-node .op-sub{font-size:13px;color:rgba(255,255,255,.88)}
-.op-arrow{font-size:28px;color:rgba(27,108,229,.4);padding:0 12px;opacity:0}
+.slide.active .op-node:hover{transform:translateY(-6px) scale(1.08);box-shadow:0 8px 30px rgba(27,108,229,.25);border-color:rgba(91,163,245,.5)}
+.op-node .op-name{font-size:34px;font-weight:900;color:#7EC8F7;margin-bottom:4px}
+.op-node .op-sub{font-size:16px;color:rgba(255,255,255,.92)}
+.op-arrow{font-size:32px;color:#5BA3F5;padding:0 12px;opacity:0}
 .slide.active .op-node{animation:fadeInScale .5s ease both}
 .slide.active .op-node:nth-child(1){animation-delay:.3s}
 .slide.active .op-node:nth-child(3){animation-delay:.6s}
@@ -585,9 +585,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .op-arrow:nth-child(2){animation-delay:.45s}
 .slide.active .op-arrow:nth-child(4){animation-delay:.75s}
 .slide.active .op-arrow:nth-child(6){animation-delay:1.05s}
-.op-badge{margin-top:32px;padding:16px 36px;background:linear-gradient(135deg,rgba(27,108,229,.08),rgba(27,108,229,.15));border:2px solid rgba(27,108,229,.3);
-  border-radius:32px;font-size:20px;font-weight:800;color:#1B6CE5;opacity:0;text-shadow:0 0 12px rgba(27,108,229,.3)}
-.slide.active .op-badge{animation:bounceIn .8s 1.5s ease both,glowPulse 2.5s 2.3s ease infinite}
+.op-badge{margin-top:32px;padding:16px 36px;background:linear-gradient(135deg,rgba(27,108,229,.12),rgba(27,108,229,.2));border:2px solid rgba(91,163,245,.4);
+  border-radius:32px;font-size:22px;font-weight:800;color:#7EC8F7;opacity:0;text-shadow:0 0 12px rgba(27,108,229,.3);will-change:opacity,transform}
+.slide.active .op-badge{animation:bounceIn .8s 1.5s ease both}
 
 /* === SLIDE: REVENUE === */
 .slide-revenue{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(36,61,98,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1703925155035-fd10b9c19b24?w=1920&q=80&fit=crop') center/cover no-repeat}
@@ -650,7 +650,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .ax-hero-badge{margin-top:14px;padding:12px 32px;background:linear-gradient(135deg,rgba(27,108,229,.2),rgba(27,108,229,.35));
   border:2px solid #1B6CE5;border-radius:28px;font-size:20px;font-weight:900;color:#8BC5FF;
   letter-spacing:2px;text-shadow:0 0 12px rgba(27,108,229,.5);opacity:0}
-.slide.active .ax-hero-badge{animation:bounceIn .8s 1.6s ease both,glowPulse 2s 2.4s ease infinite}
+.slide.active .ax-hero-badge{animation:bounceIn .8s 1.6s ease both}
 .ax-step-highlight{background:rgba(27,108,229,.12);border:1px solid rgba(27,108,229,.2);border-radius:12px;padding:12px 16px}
 .ax-badge-glow{background:rgba(27,108,229,.15)!important;border-color:#1B6CE5!important;animation:glowPulse 2s ease infinite}
 
@@ -662,7 +662,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
   padding:32px 16px;text-align:center;opacity:0;transform:translateY(30px);transition:transform .3s,box-shadow .3s,border-color .3s}
 .slide.active .inv-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 12px 40px rgba(27,108,229,.2);border-color:rgba(27,108,229,.4)}
 .inv-card .inv-icon{display:flex;justify-content:center;margin-bottom:10px}
-.inv-card .inv-name{font-size:28px;font-weight:800;color:#1B6CE5;margin-bottom:6px}
+.inv-card .inv-name{font-size:28px;font-weight:800;color:#7EC8F7;margin-bottom:6px}
 .inv-card .inv-cost{font-size:36px;font-weight:900;color:#fff;margin-bottom:8px}
 .inv-card .inv-desc{font-size:16px;color:rgba(255,255,255,.88);line-height:1.5}
 .slide.active .inv-card{animation:countUp .6s ease both}
@@ -670,9 +670,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .inv-card:nth-child(2){animation-delay:.5s}
 .slide.active .inv-card:nth-child(3){animation-delay:.7s}
 .slide.active .inv-card:nth-child(4){animation-delay:.9s}
-.inv-total{margin-top:28px;padding:14px 36px;background:rgba(27,108,229,.1);border:2px solid rgba(27,108,229,.35);
-  border-radius:32px;font-size:22px;font-weight:900;color:#1B6CE5;opacity:0}
-.slide.active .inv-total{animation:bounceIn .8s 1.2s ease both,glowPulse 2.5s 2s ease infinite}
+.inv-total{margin-top:28px;padding:14px 36px;background:rgba(27,108,229,.1);border:2px solid rgba(91,163,245,.4);
+  border-radius:32px;font-size:22px;font-weight:900;color:#7EC8F7;opacity:0}
+.slide.active .inv-total{animation:bounceIn .8s 1.2s ease both}
 
 /* === SLIDE: SUSTAINABLE BRAND === */
 .slide-sustainable{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(42,69,112,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1749382871869-4c8dcaa4a540?w=1920&q=80&fit=crop') center/cover no-repeat}
@@ -690,7 +690,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide.active .sus-card:nth-child(3){animation-delay:.7s}
 .sus-highlight{margin-top:28px;padding:14px 32px;background:rgba(27,108,229,.08);border:2px solid rgba(27,108,229,.3);
   border-radius:32px;font-size:18px;font-weight:800;color:#1B6CE5;opacity:0}
-.slide.active .sus-highlight{animation:bounceIn .8s 1s ease both,glowPulse 2.5s 1.8s ease infinite}
+.slide.active .sus-highlight{animation:bounceIn .8s 1s ease both}
 
 /* === SLIDE: MG ITEMS === */
 .slide-mg{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(36,61,98,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1642517245785-c89127ba8bcd?w=1920&q=80&fit=crop') center/cover no-repeat}
@@ -709,7 +709,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .mg-bottom{margin-top:28px;padding:16px 36px;background:linear-gradient(135deg,rgba(27,108,229,.08),rgba(27,108,229,.14));
   border:2px solid rgba(27,108,229,.35);border-radius:32px;font-size:20px;font-weight:800;color:#1B6CE5;
   line-height:1.6;opacity:0;text-shadow:0 0 12px rgba(27,108,229,.3)}
-.slide.active .mg-bottom{animation:bounceIn .8s 1.2s ease both,glowPulse 2.5s 2s ease infinite}
+.slide.active .mg-bottom{animation:bounceIn .8s 1.2s ease both}
 
 /* === SLIDE: NEW PRODUCTS === */
 .slide-newproducts{background:linear-gradient(135deg,rgba(26,48,80,.5),rgba(42,69,112,.5) 50%,rgba(26,48,80,.5)),url('https://images.unsplash.com/photo-1562513763-ddbd3a4609cf?w=1920&q=80&fit=crop') center/cover no-repeat}
@@ -941,7 +941,8 @@ var TX={en:{
 function logoHtml(lg){
 var n={ko:'서풍',en:'SEOPUNG',zh:'西风',ja:'西風'};
 var hanja={ko:'西風',en:'西風 (Xīfēng)',zh:'西风',ja:'西風'};
-var meaning={ko:'서방정토(西方淨土)로 향하는 바람처럼,<br>가장 좋은 곳(바다)에서 가장 좋은 것을 가져다주는 존재',en:'Like a wind toward the Western Paradise,<br>bringing the finest from the ocean to your table',zh:'如同吹向西方净土的风，<br>从最好的地方（大海）带来最好的东西',ja:'西方浄土へ向かう風のように、<br>最も良い場所（海）から最も良いものを届ける存在'};
+var meaning={ko:'서방정토(西方淨土)로 향하는 바람처럼,<br><span style="white-space:nowrap">가장 좋은 곳(바다)에서 가장 좋은 것을 가져다주는 존재</span>',en:'Like a wind toward the Western Paradise,<br>bringing the finest from the ocean to your table',zh:'如同吹向西方净土的风，<br>从最好的地方（大海）带来最好的东西',ja:'西方浄土へ向かう風のように、<br>最も良い場所（海）から最も良いものを届ける存在'};
+
 var d={ko:'여수에서 시작된 50년 수산의 길',en:'50 Years of Seafood Excellence from Yeosu',zh:'源自丽水的50年水产之路',ja:'麗水から始まった50年水産の道'};
 var P='<div class="p"></div>';
 return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-hanja">'+hanja[lg]+'</div><div class="logo-meaning">'+meaning[lg]+'</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
@@ -978,7 +979,7 @@ var svgGh='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><ci
 var qd={ko:'대한민국 수산물 품질인증',en:'Korea Seafood Quality Certified',zh:'韩国水产品品质认证',ja:'韓国水産物品質認証'};
 var td={ko:'국내 전 품종 이력추적 등록',en:'All domestic species traceability',zh:'国内全品种可追溯登记',ja:'国内全品種トレーサビリティ登録'};
 var msg={ko:'대한민국 수산가공 최다 인증 보유',en:'Most certifications in Korean seafood processing',zh:'韩国水产加工最多认证保有',ja:'韓国水産加工最多認証保有'};
-return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">NATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:200px;height:200px">'+svgQc+'<div class="cert-name" style="font-size:20px">'+ ({ko:'\uC218\uC0B0\uBB3C \uD488\uC9C8\uC778\uC99D',en:'Quality Cert.',zh:'\u6C34\u4EA7\u54C1\u8D28\u8BA4\u8BC1',ja:'\u6C34\u7523\u7269\u54C1\u8CEA\u8A8D\u8A3C'})[lg] +'</div><div class="cert-org" style="font-size:10px;max-width:150px">'+qd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:200px;height:200px">'+svgTr+'<div class="cert-name" style="font-size:20px">'+ ({ko:'\uC774\uB825\uCD94\uC801\uC81C',en:'Traceability',zh:'\u53EF\u8FFD\u6EAF\u5236\u5EA6',ja:'\u30C8\u30EC\u30FC\u30B5\u30D3\u30EA\u30C6\u30A3'})[lg] +'</div><div class="cert-org" style="font-size:10px;max-width:150px">'+td[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:200px;height:200px;border-style:dashed;opacity:.7">'+svgGh+'<div class="cert-name" style="font-size:18px">Global HACCP</div><div class="cert-org" style="font-size:10px">'+plan[lg]+'</div></div></div><div style="margin-top:28px;padding:14px 32px;background:rgba(27,108,229,.08);border:2px solid rgba(27,108,229,.3);border-radius:32px;font-size:22px;font-weight:800;color:#1B6CE5;opacity:0;animation:bounceIn .8s 1.2s ease both">'+msg[lg]+'</div></div>';}
+return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">NATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:200px;height:200px">'+svgQc+'<div class="cert-name" style="font-size:24px;font-weight:900;color:#1052A0">'+ ({ko:'\uC218\uC0B0\uBB3C \uD488\uC9C8\uC778\uC99D',en:'Quality Cert.',zh:'\u6C34\u4EA7\u54C1\u8D28\u8BA4\u8BC1',ja:'\u6C34\u7523\u7269\u54C1\u8CEA\u8A8D\u8A3C'})[lg] +'</div><div class="cert-org" style="font-size:11px;font-weight:700;max-width:160px">'+qd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:200px;height:200px">'+svgTr+'<div class="cert-name" style="font-size:24px;font-weight:900;color:#1052A0">'+ ({ko:'\uC774\uB825\uCD94\uC801\uC81C',en:'Traceability',zh:'\u53EF\u8FFD\u6EAF\u5236\u5EA6',ja:'\u30C8\u30EC\u30FC\u30B5\u30D3\u30EA\u30C6\u30A3'})[lg] +'</div><div class="cert-org" style="font-size:11px;font-weight:700;max-width:160px">'+td[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:200px;height:200px;border-style:dashed;opacity:.7">'+svgGh+'<div class="cert-name" style="font-size:20px;font-weight:900;color:#1052A0">Global HACCP</div><div class="cert-org" style="font-size:11px;font-weight:700">'+plan[lg]+'</div></div></div><div style="margin-top:28px;padding:14px 32px;background:rgba(27,108,229,.08);border:2px solid rgba(27,108,229,.3);border-radius:32px;font-size:22px;font-weight:800;color:#7EC8F7;opacity:0;animation:bounceIn .8s 1.2s ease both">'+msg[lg]+'</div></div>';}
 
 function aixrayHtml(lg){
 var ti={ko:'AI 엑스레이 검사 시스템',en:'AI X-Ray Inspection System',zh:'AI X光检查系统',ja:'AI X線検査システム'};
@@ -1011,7 +1012,7 @@ var c=[
 var col1t={ko:'재투자',en:'Reinvestment',zh:'再投资',ja:'再投資'};
 var col1d={ko:'매출액 <span class="hl hl-yellow">5~6%</span>를<br>설비 투자에 환원',en:'<span class="hl hl-yellow">5-6%</span> of revenue<br>reinvested in facilities',zh:'将销售额<span class="hl hl-yellow">5~6%</span><br>回馈设备投资',ja:'売上の<span class="hl hl-yellow">5～6%</span>を<br>設備投資に還元'};
 var col2t={ko:'품질강화',en:'Quality Enhancement',zh:'品质强化',ja:'品質強化'};
-var col2d={ko:'HACCP(2011) → 이력추적(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',en:'HACCP(2011) → Traceability(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',zh:'HACCP(2011) → 追溯制(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',ja:'HACCP(2011) → トレーサビリティ(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)'};
+var col2d={ko:'HACCP(2011) → <span style="white-space:nowrap">이력추적(2013)</span><br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',en:'HACCP(2011) → Traceability(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',zh:'HACCP(2011) → 追溯制(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)',ja:'HACCP(2011) → トレーサビリティ(2013)<br>→ ASC/MSC(2024) → <span class="hl hl-green">FSSC 22000</span>(2026)'};
 var col3t={ko:'생산효율화',en:'Production Efficiency',zh:'生产效率化',ja:'生産効率化'};
 var col3d={ko:'급속동결, 자동화 포장,<br>생산라인 고도화',en:'Flash freezing, auto packaging,<br>production line upgrades',zh:'急速冷冻, 自动化包装,<br>生产线高度化',ja:'急速凍結, 自動化包装,<br>生産ライン高度化'};
 var h='<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">MANAGEMENT PHILOSOPHY</div><h1 style="font-size:64px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="phi-cycle">';
@@ -1223,7 +1224,7 @@ var S=[
 /* ACT 1 — 브랜드 오프닝 (3장) */
 /* 0 */ {id:null,dur:7000,ef:'',css:'slide-logo',htmlFn:'logo'},
 /* 1 */ {id:'slide02',dur:7000,ef:'kb-pu',tag:'2대째 경영',t:'2대째 선순환<br>재투자 경영',p:'매출 성장을 현장과 품질에 환원하는 경영.<br>50년 수산 전문 기업의 지속가능한 성장.',b:['선순환 재투자','2대 경영']},
-/* 2 */ {id:'slide_f1',dur:6000,ef:'kb-pu',tag:'HEADQUARTERS',t:'6,600㎡ 최첨단<br>HACCP 가공시설',p:'여수 청정 자연 속, 국제 기준을 갖춘 최신 가공 시설.<br>대한민국 수산 가공의 새로운 기준을 세웁니다.',b:['HACCP 인증','6,600㎡']},
+/* 2 */ {id:'slide_f1',dur:6000,ef:'kb-pu',tag:'HEADQUARTERS',t:'6,600㎡ 최첨단<br>HACCP 가공시설',p:'<span style="white-space:nowrap">여수 청정 자연 속, 국제 기준을 갖춘 최신 가공 시설.</span><br>대한민국 수산 가공의 새로운 기준을 세웁니다.',b:['HACCP 인증','6,600㎡']},
 /* ACT 2 — 경영철학 & 전략 (3장) */
 /* 3 */ {id:null,dur:9000,ef:'',css:'slide-philosophy',htmlFn:'philosophy'},
 /* 4 */ {id:null,dur:8000,ef:'',css:'slide-oneplatform',htmlFn:'oneplatform'},
