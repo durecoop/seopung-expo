@@ -395,7 +395,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
   position:relative;opacity:0;background:rgba(255,255,255,.92);box-shadow:0 0 30px rgba(27,108,229,.12)}
 .slide.active .cert5-seal{animation:certIn .7s ease both,certGlow 2s 1.6s ease-in-out infinite}
 .cert5-seal::before{content:'';position:absolute;inset:10px;border-radius:50%;border:1.5px dashed rgba(27,108,229,.25)}
-.cert5-seal .cert-icon{margin-bottom:4px;opacity:.9;transform:scale(1.3)}
+.cert5-seal .cert-icon{margin-bottom:4px;opacity:.9}
 .cert5-seal .cert-name{font-size:46px;font-weight:900;color:#1052A0;letter-spacing:1px}
 .cert5-seal .cert-org{font-size:22px;font-weight:700;color:rgba(20,40,70,.7);letter-spacing:0;margin-top:5px;line-height:1.4;text-align:center;padding:0 12px}
 .cert5-seal .cert-check{font-size:22px;font-weight:900;color:#2e7d32;margin-top:4px;opacity:0}
@@ -953,14 +953,14 @@ var ti={ko:'<span class="hl hl-orange">국제 인증</span> 현황',en:'<span cl
 var su={ko:'글로벌 식품안전 기준을 선도하는 인증 체계',en:'Certification system leading global food safety standards',zh:'引领全球食品安全标准的认证体系',ja:'グローバル食品安全基準をリードする認証体系'};
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 취득 예정',en:'2026 Planned',zh:'2026年取得预定',ja:'2026年取得予定'};
-/* HACCP real mark SVG */
-var svgHaccp='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><path d="M30 2L8 14v16c0 14.5 9.4 28 22 32 12.6-4 22-17.5 22-32V14L30 2z" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/><path d="M30 8L14 17v11c0 11 7.2 21.5 16 25 8.8-3.5 16-14 16-25V17L30 8z" fill="#1976D2"/><text x="30" y="30" text-anchor="middle" font-size="8" font-weight="900" fill="#fff" font-family="sans-serif">HACCP</text><path d="M22 36l3 3 8-8" stroke="#4FC3F7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-/* ASC real mark SVG */
-var svgAsc='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><ellipse cx="30" cy="30" rx="26" ry="20" fill="#2E7D32"/><path d="M16 30c3-6 8-10 14-10s11 4 14 10c-3 6-8 10-14 10s-11-4-14-10z" fill="#43A047"/><path d="M26 24c2-1 5-1 8 0l-4 12-4-12z" fill="#fff" opacity=".9"/><text x="30" y="46" text-anchor="middle" font-size="7" font-weight="800" fill="#2E7D32" font-family="sans-serif">ASC CERTIFIED</text></svg>';
-/* MSC real mark SVG */
-var svgMsc='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><ellipse cx="30" cy="30" rx="26" ry="20" fill="#1565C0"/><path d="M18 30c2-5 6-9 12-9s10 4 12 9-6 9-12 9-10-4-12-9z" fill="#1976D2"/><path d="M24 28c2-2 5-3 8-1l-2 8-6-7z" fill="#fff" opacity=".9"/><polyline points="22 32 26 36 34 26" stroke="#4FC3F7" stroke-width="2" fill="none" stroke-linecap="round"/><text x="30" y="46" text-anchor="middle" font-size="7" font-weight="800" fill="#1565C0" font-family="sans-serif">MSC CERTIFIED</text></svg>';
-/* FSSC 22000 upcoming */
-var svgFssc='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><rect x="8" y="10" width="44" height="40" rx="6" fill="rgba(27,108,229,.15)" stroke="#1B6CE5" stroke-width="1.5" stroke-dasharray="4 3"/><text x="30" y="28" text-anchor="middle" font-size="7" font-weight="900" fill="#1B6CE5" font-family="sans-serif">FSSC</text><text x="30" y="38" text-anchor="middle" font-size="7" font-weight="900" fill="#1B6CE5" font-family="sans-serif">22000</text><text x="30" y="48" text-anchor="middle" font-size="5" fill="rgba(255,255,255,.5)" font-family="sans-serif">2026</text></svg>';
+/* HACCP logo */
+var svgHaccp='<img class="cert-icon" src="images/logo_haccpjpg.jpg" style="width:80px;height:80px;object-fit:contain">';
+/* ASC logo */
+var svgAsc='<img class="cert-icon" src="images/logo_asc.png" style="width:80px;height:80px;object-fit:contain">';
+/* MSC logo */
+var svgMsc='<img class="cert-icon" src="images/logo_msc.png" style="width:80px;height:80px;object-fit:contain">';
+/* FSSC 22000 logo */
+var svgFssc='<img class="cert-icon" src="images/logo_fssc.png" style="width:80px;height:80px;object-fit:contain">';
 var hd={ko:'2011년 인증<br>전 품목 적용',en:'Certified 2011<br>All items',zh:'2011年认证<br>全品目适用',ja:'2011年認証<br>全品目適用'};
 var ad={ko:'2024년 취득, 책임있는 양식',en:'Certified 2024, responsible aquaculture',zh:'2024年取得，负责任养殖',ja:'2024年取得、責任ある養殖'};
 var md={ko:'2024년 취득, 지속가능 어업',en:'Certified 2024, sustainable fisheries',zh:'2024年取得，可持续渔业',ja:'2024年取得、持続可能漁業'};
@@ -971,10 +971,10 @@ var ti={ko:'<span class="hl hl-orange">국가 인증</span> & 이력제',en:'<sp
 var su={ko:'산지에서 식탁까지 <span class="hl hl-yellow">100% 추적 가능</span>',en:'<span class="hl hl-yellow">100% traceable</span> from origin to table',zh:'从产地到餐桌<span class="hl hl-yellow">100%可追溯</span>',ja:'産地から食卓まで<span class="hl hl-yellow">100%追跡可能</span>'};
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 목표',en:'2026 Target',zh:'2026年目标',ja:'2026年目標'};
-/* Quality cert mark SVG */
-var svgQc='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><circle cx="30" cy="28" r="20" fill="#C62828" stroke="#B71C1C" stroke-width="1.5"/><circle cx="30" cy="28" r="14" fill="#D32F2F"/><circle cx="24" cy="25" r="5" fill="#1565C0"/><circle cx="36" cy="25" r="5" fill="#C62828" stroke="#fff" stroke-width="1"/><path d="M27 31c0 0 3 4 6 0" stroke="#fff" stroke-width="1.5" fill="none"/><text x="30" y="52" text-anchor="middle" font-size="6" font-weight="800" fill="#C62828" font-family="sans-serif">\uD488\uC9C8\uC778\uC99D</text></svg>';
-/* Traceability mark SVG */
-var svgTr='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><rect x="10" y="10" width="40" height="40" rx="4" fill="#00695C" stroke="#004D40" stroke-width="1.5"/><rect x="16" y="16" width="8" height="8" fill="#fff" rx="1"/><rect x="26" y="16" width="8" height="8" fill="#004D40" rx="1"/><rect x="36" y="16" width="8" height="8" fill="#fff" rx="1"/><rect x="16" y="26" width="8" height="8" fill="#004D40" rx="1"/><rect x="26" y="26" width="8" height="8" fill="#fff" rx="1"/><rect x="36" y="26" width="8" height="8" fill="#004D40" rx="1"/><rect x="16" y="36" width="8" height="8" fill="#fff" rx="1"/><rect x="26" y="36" width="8" height="8" fill="#004D40" rx="1"/><path d="M38 38l6 6M44 38l-6 6" stroke="#4FC3F7" stroke-width="2" stroke-linecap="round"/><text x="30" y="56" text-anchor="middle" font-size="6" font-weight="800" fill="#00695C" font-family="sans-serif">\uC774\uB825\uCD94\uC801</text></svg>';
+/* Quality cert logo */
+var svgQc='<img class="cert-icon" src="images/logo_susan.png" style="width:80px;height:80px;object-fit:contain">';
+/* Traceability logo */
+var svgTr='<img class="cert-icon" src="images/logo_susan2.png" style="width:80px;height:80px;object-fit:contain">';
 /* Global HACCP upcoming */
 var svgGh='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><circle cx="30" cy="28" r="20" fill="rgba(27,108,229,.12)" stroke="#1B6CE5" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M16 28c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#1B6CE5" stroke-width="1.5" fill="none"/><line x1="14" y1="28" x2="46" y2="28" stroke="#1B6CE5" stroke-width="1"/><text x="30" y="24" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">GLOBAL</text><text x="30" y="34" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">HACCP</text><text x="30" y="52" text-anchor="middle" font-size="5" fill="rgba(255,255,255,.5)" font-family="sans-serif">2026</text></svg>';
 var qd={ko:'대한민국 수산물 품질인증',en:'Korea Seafood Quality Certified',zh:'韩国水产品品质认证',ja:'韓国水産物品質認証'};
