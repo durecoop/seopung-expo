@@ -946,7 +946,7 @@ var meaning={ko:'서방정토(西方淨土)로 향하는 바람처럼,<br><span 
 
 var d={ko:'여수에서 시작된 50년 수산의 길',en:'50 Years of Seafood Excellence from Yeosu',zh:'源自丽水的50年水产之路',ja:'麗水から始まった50年水産の道'};
 var P='<div class="p"></div>';
-return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-hanja">'+hanja[lg]+'</div><div class="logo-meaning">'+meaning[lg]+'</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
+return '<div class="particles">'+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png'+CB+'" style="width:200px;height:auto"></div><div class="logo-main">'+n[lg]+'</div><div class="logo-sub">SEOPUNG &middot; SINCE 1976</div><div class="logo-hanja">'+hanja[lg]+'</div><div class="logo-meaning">'+meaning[lg]+'</div><div class="logo-line"></div><div class="logo-desc">'+d[lg]+'</div></div>';}
 
 function certs5aHtml(lg){
 var ti={ko:'<span class="hl hl-orange">국제 인증</span> 현황',en:'<span class="hl hl-orange">International</span> Certifications',zh:'<span class="hl hl-orange">国际认证</span>现状',ja:'<span class="hl hl-orange">国際認証</span>現況'};
@@ -954,13 +954,13 @@ var su={ko:'글로벌 식품안전 기준을 선도하는 인증 체계',en:'Cer
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 취득 예정',en:'2026 Planned',zh:'2026年取得预定',ja:'2026年取得予定'};
 /* HACCP logo */
-var svgHaccp='<img class="cert-icon" src="images/logo_haccpjpg.jpg" style="width:80px;height:80px;object-fit:contain">';
+var svgHaccp='<img class="cert-icon" src="images/logo_haccpjpg.jpg'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 /* ASC logo */
-var svgAsc='<img class="cert-icon" src="images/logo_asc2.png" style="width:80px;height:80px;object-fit:contain">';
+var svgAsc='<img class="cert-icon" src="images/logo_asc2.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 /* MSC logo */
-var svgMsc='<img class="cert-icon" src="images/logo_msc.png" style="width:80px;height:80px;object-fit:contain">';
+var svgMsc='<img class="cert-icon" src="images/logo_msc.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 /* FSSC 22000 logo */
-var svgFssc='<img class="cert-icon" src="images/logo_fssc.png" style="width:80px;height:80px;object-fit:contain">';
+var svgFssc='<img class="cert-icon" src="images/logo_fssc.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 var hd={ko:'2011년 인증<br>전 품목 적용',en:'Certified 2011<br>All items',zh:'2011年认证<br>全品目适用',ja:'2011年認証<br>全品目適用'};
 var ad={ko:'2024년 취득, 책임있는 양식',en:'Certified 2024, responsible aquaculture',zh:'2024年取得，负责任养殖',ja:'2024年取得、責任ある養殖'};
 var md={ko:'2024년 취득, 지속가능 어업',en:'Certified 2024, sustainable fisheries',zh:'2024年取得，可持续渔业',ja:'2024年取得、持続可能漁業'};
@@ -972,9 +972,9 @@ var su={ko:'산지에서 식탁까지 <span class="hl hl-yellow">100% 추적 가
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 목표',en:'2026 Target',zh:'2026年目标',ja:'2026年目標'};
 /* Quality cert logo */
-var svgQc='<img class="cert-icon" src="images/logo_susan.png" style="width:80px;height:80px;object-fit:contain">';
+var svgQc='<img class="cert-icon" src="images/logo_susan.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 /* Traceability logo */
-var svgTr='<img class="cert-icon" src="images/logo_susan2.png" style="width:80px;height:80px;object-fit:contain">';
+var svgTr='<img class="cert-icon" src="images/logo_susan2.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
 /* Global HACCP upcoming */
 var svgGh='<svg class="cert-icon" viewBox="0 0 60 60" width="48" height="48"><circle cx="30" cy="28" r="20" fill="rgba(27,108,229,.12)" stroke="#1B6CE5" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M16 28c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#1B6CE5" stroke-width="1.5" fill="none"/><line x1="14" y1="28" x2="46" y2="28" stroke="#1B6CE5" stroke-width="1"/><text x="30" y="24" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">GLOBAL</text><text x="30" y="34" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">HACCP</text><text x="30" y="52" text-anchor="middle" font-size="5" fill="rgba(255,255,255,.5)" font-family="sans-serif">2026</text></svg>';
 var qd={ko:'대한민국 수산물 품질인증',en:'Korea Seafood Quality Certified',zh:'韩国水产品品质认证',ja:'韓国水産物品質認証'};
@@ -998,7 +998,7 @@ var b2={ko:'순살 가시제거율 <span class="hl hl-red">100%</span>',en:'Bone
 var b3={ko:'2026년 4월 가동 개시',en:'Operations start April 2026',zh:'2026年4月启动运行',ja:'2026年4月稼動開始'};
 var cap={ko:'AI 엑스레이 장비 작동 모습',en:'AI X-Ray equipment in operation',zh:'AI X光设备运行画面',ja:'AI X線装備稼働の様子'};
 var hero={ko:'순살 완전 가시제거 가능',en:'Complete Bone Removal',zh:'纯肉完全去骨',ja:'純身完全骨除去'};
-return '<div class="content"><div class="ax-left"><div class="ax-img-wrap"><img src="images/검사기.gif" alt="AI X-Ray"><div class="ax-scan-line"></div></div><div class="ax-caption">'+cap[lg]+'</div><div class="ax-hero-badge">'+hero[lg]+'</div></div><div class="ax-right"><div style="margin-bottom:12px"><div class="tag" style="font-size:26px;letter-spacing:6px;opacity:1;transform:none">AI X-RAY INSPECTION</div><h1 style="font-size:60px;opacity:1;transform:none">'+ti[lg]+'</h1><p style="font-size:16px;color:rgba(255,255,255,.82);opacity:1;transform:none;margin-top:4px">'+su[lg]+'</p></div><div class="ax-step"><div class="ax-num">1</div><div class="ax-body"><div class="ax-title">'+s1t[lg]+'</div><div class="ax-desc">'+s1d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">2</div><div class="ax-body"><div class="ax-title">'+s2t[lg]+'</div><div class="ax-desc">'+s2d[lg]+'</div></div></div><div class="ax-step ax-step-highlight"><div class="ax-num" style="background:rgba(27,108,229,.25);border-color:#1B6CE5;font-size:20px">&#9733;</div><div class="ax-body"><div class="ax-title" style="font-size:22px;color:#8BC5FF">'+s3t[lg]+'</div><div class="ax-desc" style="font-size:16px;color:rgba(255,255,255,.95)">'+s3d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">3</div><div class="ax-body"><div class="ax-title">'+s4t[lg]+'</div><div class="ax-desc">'+s4d[lg]+'</div></div></div><div class="ax-footer"><div class="ax-badge">'+b1[lg]+'</div><div class="ax-badge ax-badge-glow">'+b2[lg]+'</div><div class="ax-badge">'+b3[lg]+'</div></div></div></div>';}
+return '<div class="content"><div class="ax-left"><div class="ax-img-wrap"><img src="images/검사기.gif'+CB+'" alt="AI X-Ray"><div class="ax-scan-line"></div></div><div class="ax-caption">'+cap[lg]+'</div><div class="ax-hero-badge">'+hero[lg]+'</div></div><div class="ax-right"><div style="margin-bottom:12px"><div class="tag" style="font-size:26px;letter-spacing:6px;opacity:1;transform:none">AI X-RAY INSPECTION</div><h1 style="font-size:60px;opacity:1;transform:none">'+ti[lg]+'</h1><p style="font-size:16px;color:rgba(255,255,255,.82);opacity:1;transform:none;margin-top:4px">'+su[lg]+'</p></div><div class="ax-step"><div class="ax-num">1</div><div class="ax-body"><div class="ax-title">'+s1t[lg]+'</div><div class="ax-desc">'+s1d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">2</div><div class="ax-body"><div class="ax-title">'+s2t[lg]+'</div><div class="ax-desc">'+s2d[lg]+'</div></div></div><div class="ax-step ax-step-highlight"><div class="ax-num" style="background:rgba(27,108,229,.25);border-color:#1B6CE5;font-size:20px">&#9733;</div><div class="ax-body"><div class="ax-title" style="font-size:22px;color:#8BC5FF">'+s3t[lg]+'</div><div class="ax-desc" style="font-size:16px;color:rgba(255,255,255,.95)">'+s3d[lg]+'</div></div></div><div class="ax-step"><div class="ax-num">3</div><div class="ax-body"><div class="ax-title">'+s4t[lg]+'</div><div class="ax-desc">'+s4d[lg]+'</div></div></div><div class="ax-footer"><div class="ax-badge">'+b1[lg]+'</div><div class="ax-badge ax-badge-glow">'+b2[lg]+'</div><div class="ax-badge">'+b3[lg]+'</div></div></div></div>';}
 
 function philosophyHtml(lg){
 var ti={ko:'경영 철학 & 전략 방향',en:'Management Philosophy & Strategy',zh:'经营哲学与战略方向',ja:'経営哲学＆戦略方向'};
@@ -1179,12 +1179,12 @@ function pbHtml(lg){
 var ti={ko:'전문 PB 파트너',en:'Professional PB Partners',zh:'专业PB合作伙伴',ja:'専門PBパートナー'};
 var su={ko:'One Platform \u2014 10년간 <span class="hl hl-yellow">134품목</span> 개발 파트너십',en:'One Platform \u2014 <span class="hl hl-yellow">134 products</span> developed over 10 years',zh:'One Platform \u2014 10年间<span class="hl hl-yellow">134品目</span>开发合作',ja:'One Platform \u2014 10年間<span class="hl hl-yellow">134品目</span>開発パートナーシップ'};
 /* SVG brand logos for each PB partner */
-var logoP='<div class="pb-logo" style="background:rgba(44,167,72,.1);width:120px;height:60px;border-radius:10px"><img src="images/logo_pulmuonepng.png" style="width:100%;height:100%;object-fit:contain"></div>';
-var logoCJ='<div class="pb-logo" style="background:rgba(228,0,43,.08)"><img src="images/logo_cjfreshway.jpg" style="width:100%;height:100%;object-fit:contain;border-radius:12px"></div>';
-var logoCoup='<div class="pb-logo" style="background:rgba(227,70,0,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_coupangpng.png" style="width:100%;height:100%;object-fit:contain"></div>';
-var logoOrga='<div class="pb-logo" style="background:rgba(90,143,60,.1);width:120px;height:60px;border-radius:10px"><img src="images/logo_orgawhole.jpg" style="width:100%;height:100%;object-fit:contain"></div>';
-var logoDure='<div class="pb-logo" style="background:rgba(0,120,60,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_dure.png" style="width:100%;height:100%;object-fit:contain"></div>';
-var logoChoroc='<div class="pb-logo" style="background:rgba(26,140,26,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_chorocpng.png" style="width:100%;height:100%;object-fit:contain"></div>';
+var logoP='<div class="pb-logo" style="background:rgba(44,167,72,.1);width:120px;height:60px;border-radius:10px"><img src="images/logo_pulmuonepng.png'+CB+'" style="width:100%;height:100%;object-fit:contain"></div>';
+var logoCJ='<div class="pb-logo" style="background:rgba(228,0,43,.08)"><img src="images/logo_cjfreshway.jpg'+CB+'" style="width:100%;height:100%;object-fit:contain;border-radius:12px"></div>';
+var logoCoup='<div class="pb-logo" style="background:rgba(227,70,0,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_coupangpng.png'+CB+'" style="width:100%;height:100%;object-fit:contain"></div>';
+var logoOrga='<div class="pb-logo" style="background:rgba(90,143,60,.1);width:120px;height:60px;border-radius:10px"><img src="images/logo_orgawhole.jpg'+CB+'" style="width:100%;height:100%;object-fit:contain"></div>';
+var logoDure='<div class="pb-logo" style="background:rgba(0,120,60,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_dure.png'+CB+'" style="width:100%;height:100%;object-fit:contain"></div>';
+var logoChoroc='<div class="pb-logo" style="background:rgba(26,140,26,.08);width:120px;height:60px;border-radius:10px"><img src="images/logo_chorocpng.png'+CB+'" style="width:100%;height:100%;object-fit:contain"></div>';
 var partners=[
 {n:'풀무원',logo:logoP,r:{ko:'제조',en:'Manufacturing',zh:'制造',ja:'製造'},cls:'b-pulmuone2'},
 {n:'CJ프레쉬웨이',logo:logoCJ,r:{ko:'B2B 식자재',en:'B2B Food Service',zh:'B2B食材',ja:'B2B食材'},cls:'b-cjfw'},
@@ -1219,7 +1219,7 @@ function endHtml(lg){
 var n={ko:'서풍',en:'SEOPUNG',zh:'西风',ja:'西風'};
 var sb={ko:'No.1 수산 가공 파트너',en:'No.1 Seafood Processing Partner',zh:'No.1 水产加工合作伙伴',ja:'No.1 水産加工パートナー'};
 var P='<div class="p"></div>';
-return '<div class="particles">'+P+P+P+P+P+P+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png" style="width:160px;height:auto"></div><div class="logo-main glow" style="font-size:170px">'+n[lg]+'</div><div class="logo-sub" style="margin-top:14px;font-size:17px">'+sb[lg]+'</div><div class="logo-line"></div><div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div></div>';}
+return '<div class="particles">'+P+P+P+P+P+P+P+P+P+P+P+P+'</div><div class="content"><div class="logo-icon"><img src="images/LOGO.png'+CB+'" style="width:160px;height:auto"></div><div class="logo-main glow" style="font-size:170px">'+n[lg]+'</div><div class="logo-sub" style="margin-top:14px;font-size:17px">'+sb[lg]+'</div><div class="logo-line"></div><div class="contact-block"><div class="cl">Tel. 061-686-5014 &nbsp;|&nbsp; Fax. 061-686-5015</div><div class="cl">www.seopung.co.kr</div></div></div>';}
 
 var S=[
 /* ACT 1 — 브랜드 오프닝 (3장) */
