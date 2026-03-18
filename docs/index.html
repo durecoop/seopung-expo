@@ -248,6 +248,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 @keyframes certIn{0%{opacity:0;transform:scale(2.5) rotate(-15deg)}50%{opacity:1;transform:scale(.85) rotate(0)}100%{opacity:1;transform:scale(1) rotate(0)}}
 @keyframes checkPop{0%{opacity:0;transform:scale(0) rotate(-20deg)}60%{opacity:1;transform:scale(1.4) rotate(0)}100%{opacity:1;transform:scale(1) rotate(0)}}
 @keyframes certGlow{0%,100%{box-shadow:0 0 40px rgba(27,108,229,.1),0 0 80px rgba(27,108,229,.03)}50%{box-shadow:0 0 60px rgba(27,108,229,.3),0 0 100px rgba(27,108,229,.12),0 0 140px rgba(27,108,229,.10)}}
+@keyframes certGlow5{0%,100%{box-shadow:0 0 30px rgba(27,108,229,.15),0 0 60px rgba(27,108,229,.05);border-color:rgba(27,108,229,.4)}50%{box-shadow:0 0 50px rgba(27,108,229,.45),0 0 90px rgba(27,108,229,.2),0 0 130px rgba(27,108,229,.12);border-color:rgba(27,108,229,.8)}}
+@keyframes iconShine{0%,100%{filter:drop-shadow(0 2px 8px rgba(27,108,229,.3)) brightness(1)}50%{filter:drop-shadow(0 2px 16px rgba(27,108,229,.6)) brightness(1.1)}}
+.slide.active .cert5-seal .cert-icon{animation:iconShine 2s 2s ease-in-out infinite}
 .slide.active .cert-seal:nth-child(1){animation-delay:.3s}
 .slide.active .cert-seal:nth-child(2){animation-delay:.6s}
 .slide.active .cert-seal:nth-child(3){animation-delay:.9s}
@@ -390,15 +393,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1A3050;color:#fff;
 .slide-certs5b{background:radial-gradient(ellipse at 50% 50%,rgba(42,69,112,.45),rgba(26,48,80,.55) 70%),url('images/bg_certs5b.jpg') center/cover no-repeat}
 .slide-certs5 .content,.slide-certs5a .content,.slide-certs5b .content{justify-content:center;align-items:center;text-align:center;padding:0 60px}
 .cert5-row{display:flex;gap:32px;margin-top:40px;justify-content:center;flex-wrap:wrap}
-.cert5-seal{width:250px;height:250px;border-radius:50%;border:2.5px solid rgba(27,108,229,.3);
+.cert5-seal{width:290px;height:290px;border-radius:50%;border:3px solid rgba(27,108,229,.5);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;opacity:0;background:rgba(255,255,255,.92);box-shadow:0 0 30px rgba(27,108,229,.12)}
-.slide.active .cert5-seal{animation:certIn .7s ease both,certGlow 2s 1.6s ease-in-out infinite}
-.cert5-seal::before{content:'';position:absolute;inset:10px;border-radius:50%;border:1.5px dashed rgba(27,108,229,.25)}
-.cert5-seal .cert-icon{margin-bottom:4px;opacity:.9}
-.cert5-seal .cert-name{font-size:46px;font-weight:900;color:#1052A0;letter-spacing:1px}
-.cert5-seal .cert-org{font-size:22px;font-weight:700;color:rgba(20,40,70,.7);letter-spacing:0;margin-top:5px;line-height:1.4;text-align:center;padding:0 12px}
-.cert5-seal .cert-check{font-size:22px;font-weight:900;color:#2e7d32;margin-top:4px;opacity:0}
+  position:relative;opacity:0;background:rgba(255,255,255,.95);box-shadow:0 0 40px rgba(27,108,229,.2),0 0 80px rgba(27,108,229,.08)}
+.slide.active .cert5-seal{animation:certIn .7s ease both,certGlow5 1.8s 1.4s ease-in-out infinite}
+.cert5-seal::before{content:'';position:absolute;inset:10px;border-radius:50%;border:2px dashed rgba(27,108,229,.3)}
+.cert5-seal .cert-icon{margin-bottom:6px;opacity:1;filter:drop-shadow(0 2px 8px rgba(27,108,229,.3))}
+.cert5-seal .cert-name{font-size:50px;font-weight:900;color:#1052A0;letter-spacing:1px;text-shadow:0 1px 4px rgba(16,82,160,.15)}
+.cert5-seal .cert-org{font-size:22px;font-weight:700;color:rgba(20,40,70,.75);letter-spacing:0;margin-top:5px;line-height:1.4;text-align:center;padding:0 12px}
+.cert5-seal .cert-check{font-size:24px;font-weight:900;color:#2e7d32;margin-top:4px;opacity:0;text-shadow:0 0 8px rgba(46,125,50,.4)}
 .slide.active .cert5-seal:nth-child(1){animation-delay:.2s}
 .slide.active .cert5-seal:nth-child(2){animation-delay:.4s}
 .slide.active .cert5-seal:nth-child(3){animation-delay:.6s}
@@ -954,17 +957,17 @@ var su={ko:'글로벌 식품안전 기준을 선도하는 인증 체계',en:'Cer
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 취득 예정',en:'2026 Planned',zh:'2026年取得预定',ja:'2026年取得予定'};
 /* HACCP logo */
-var svgHaccp='<img class="cert-icon" src="images/logo_haccpjpg.jpg'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgHaccp='<img class="cert-icon" src="images/logo_haccpjpg.jpg'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 /* ASC logo */
-var svgAsc='<img class="cert-icon" src="images/logo_asc2.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgAsc='<img class="cert-icon" src="images/logo_asc2.png'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 /* MSC logo */
-var svgMsc='<img class="cert-icon" src="images/logo_msc.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgMsc='<img class="cert-icon" src="images/logo_msc.png'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 /* FSSC 22000 logo */
-var svgFssc='<img class="cert-icon" src="images/logo_fssc.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgFssc='<img class="cert-icon" src="images/logo_fssc.png'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 var hd={ko:'2011년 인증<br>전 품목 적용',en:'Certified 2011<br>All items',zh:'2011年认证<br>全品目适用',ja:'2011年認証<br>全品目適用'};
 var ad={ko:'2024년 취득, 책임있는 양식',en:'Certified 2024, responsible aquaculture',zh:'2024年取得，负责任养殖',ja:'2024年取得、責任ある養殖'};
 var md={ko:'2024년 취득, 지속가능 어업',en:'Certified 2024, sustainable fisheries',zh:'2024年取得，可持续渔业',ja:'2024年取得、持続可能漁業'};
-return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">INTERNATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:250px;height:250px">'+svgHaccp+'<div class="cert-name">HACCP</div><div class="cert-org" style="font-size:22px;max-width:220px">'+hd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:250px;height:250px">'+svgAsc+'<div class="cert-name">ASC</div><div class="cert-org" style="font-size:22px;max-width:220px">'+ad[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:250px;height:250px">'+svgMsc+'<div class="cert-name">MSC</div><div class="cert-org" style="font-size:22px;max-width:220px">'+md[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:250px;height:250px;border-style:dashed;opacity:.7">'+svgFssc+'<div class="cert-name" style="font-size:26px">FSSC 22000</div><div class="cert-org" style="font-size:22px">'+plan[lg]+'</div></div></div></div>';}
+return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">INTERNATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:290px;height:290px">'+svgHaccp+'<div class="cert-name">HACCP</div><div class="cert-org" style="font-size:22px;max-width:220px">'+hd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:290px;height:290px">'+svgAsc+'<div class="cert-name">ASC</div><div class="cert-org" style="font-size:22px;max-width:220px">'+ad[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:290px;height:290px">'+svgMsc+'<div class="cert-name">MSC</div><div class="cert-org" style="font-size:22px;max-width:220px">'+md[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:290px;height:290px;border-style:dashed;opacity:.7">'+svgFssc+'<div class="cert-name" style="font-size:26px">FSSC 22000</div><div class="cert-org" style="font-size:22px">'+plan[lg]+'</div></div></div></div>';}
 
 function certs5bHtml(lg){
 var ti={ko:'<span class="hl hl-orange">국가 인증</span> & 이력제',en:'<span class="hl hl-orange">National</span> Cert. & Traceability',zh:'<span class="hl hl-orange">国家认证</span>与可追溯',ja:'<span class="hl hl-orange">国家認証</span>＆トレーサビリティ'};
@@ -972,15 +975,15 @@ var su={ko:'산지에서 식탁까지 <span class="hl hl-yellow">100% 추적 가
 var dn={ko:'인증완료',en:'Certified',zh:'已认证',ja:'認証済'};
 var plan={ko:'2026 목표',en:'2026 Target',zh:'2026年目标',ja:'2026年目標'};
 /* Quality cert logo */
-var svgQc='<img class="cert-icon" src="images/logo_susan.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgQc='<img class="cert-icon" src="images/logo_susan.png'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 /* Traceability logo */
-var svgTr='<img class="cert-icon" src="images/logo_susan2.png'+CB+'" style="width:80px;height:80px;object-fit:contain">';
+var svgTr='<img class="cert-icon" src="images/logo_susan2.png'+CB+'" style="width:100px;height:100px;object-fit:contain">';
 /* Global HACCP upcoming */
-var svgGh='<svg class="cert-icon" viewBox="0 0 60 60" width="80" height="80"><circle cx="30" cy="28" r="20" fill="rgba(27,108,229,.12)" stroke="#1B6CE5" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M16 28c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#1B6CE5" stroke-width="1.5" fill="none"/><line x1="14" y1="28" x2="46" y2="28" stroke="#1B6CE5" stroke-width="1"/><text x="30" y="24" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">GLOBAL</text><text x="30" y="34" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">HACCP</text><text x="30" y="52" text-anchor="middle" font-size="5" fill="rgba(255,255,255,.5)" font-family="sans-serif">2026</text></svg>';
+var svgGh='<svg class="cert-icon" viewBox="0 0 60 60" width="100" height="100"><circle cx="30" cy="28" r="20" fill="rgba(27,108,229,.12)" stroke="#1B6CE5" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M16 28c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#1B6CE5" stroke-width="1.5" fill="none"/><line x1="14" y1="28" x2="46" y2="28" stroke="#1B6CE5" stroke-width="1"/><text x="30" y="24" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">GLOBAL</text><text x="30" y="34" text-anchor="middle" font-size="6" font-weight="900" fill="#1B6CE5" font-family="sans-serif">HACCP</text><text x="30" y="52" text-anchor="middle" font-size="5" fill="rgba(255,255,255,.5)" font-family="sans-serif">2026</text></svg>';
 var qd={ko:'대한민국 수산물 품질인증',en:'Korea Seafood Quality Certified',zh:'韩国水产品品质认证',ja:'韓国水産物品質認証'};
 var td={ko:'국내 전 품종<br>이력추적 등록',en:'All domestic species<br>traceability',zh:'国内全品种<br>可追溯登记',ja:'国内全品種<br>トレーサビリティ登録'};
 var msg={ko:'대한민국 수산가공 최다 인증 보유',en:'Most certifications in Korean seafood processing',zh:'韩国水产加工最多认证保有',ja:'韓国水産加工最多認証保有'};
-return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">NATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:260px;height:260px">'+svgQc+'<div class="cert-name" style="font-size:30px;font-weight:900;color:#1052A0">'+ ({ko:'\uC218\uC0B0\uBB3C \uD488\uC9C8\uC778\uC99D',en:'Quality Cert.',zh:'\u6C34\u4EA7\u54C1\u8D28\u8BA4\u8BC1',ja:'\u6C34\u7523\u7269\u54C1\u8CEA\u8A8D\u8A3C'})[lg] +'</div><div class="cert-org" style="font-size:22px;font-weight:700;max-width:230px">'+qd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:260px;height:260px">'+svgTr+'<div class="cert-name" style="font-size:30px;font-weight:900;color:#1052A0">'+ ({ko:'\uC774\uB825\uCD94\uC801\uC81C',en:'Traceability',zh:'\u53EF\u8FFD\u6EAF\u5236\u5EA6',ja:'\u30C8\u30EC\u30FC\u30B5\u30D3\u30EA\u30C6\u30A3'})[lg] +'</div><div class="cert-org" style="font-size:22px;font-weight:700;max-width:230px">'+td[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:260px;height:260px;border-style:dashed;opacity:.7">'+svgGh+'<div class="cert-name" style="font-size:26px;font-weight:900;color:#1052A0">Global HACCP</div><div class="cert-org" style="font-size:22px;font-weight:700">'+plan[lg]+'</div></div></div><div style="margin-top:28px;padding:14px 32px;background:rgba(27,108,229,.08);border:2px solid rgba(27,108,229,.3);border-radius:32px;font-size:30px;font-weight:800;color:#7EC8F7;opacity:0;animation:bounceIn .8s 1.2s ease both">'+msg[lg]+'</div></div>';}
+return '<div class="content"><div class="tag" style="font-size:26px;letter-spacing:6px">NATIONAL CERTIFICATION</div><h1 style="font-size:66px">'+ti[lg]+'</h1><p style="font-size:30px;color:rgba(255,255,255,.82);margin-top:8px">'+su[lg]+'</p><div class="cert5-row"><div class="cert5-seal" style="width:290px;height:290px">'+svgQc+'<div class="cert-name" style="font-size:30px;font-weight:900;color:#1052A0">'+ ({ko:'\uC218\uC0B0\uBB3C \uD488\uC9C8\uC778\uC99D',en:'Quality Cert.',zh:'\u6C34\u4EA7\u54C1\u8D28\u8BA4\u8BC1',ja:'\u6C34\u7523\u7269\u54C1\u8CEA\u8A8D\u8A3C'})[lg] +'</div><div class="cert-org" style="font-size:22px;font-weight:700;max-width:230px">'+qd[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:290px;height:290px">'+svgTr+'<div class="cert-name" style="font-size:30px;font-weight:900;color:#1052A0">'+ ({ko:'\uC774\uB825\uCD94\uC801\uC81C',en:'Traceability',zh:'\u53EF\u8FFD\u6EAF\u5236\u5EA6',ja:'\u30C8\u30EC\u30FC\u30B5\u30D3\u30EA\u30C6\u30A3'})[lg] +'</div><div class="cert-org" style="font-size:22px;font-weight:700;max-width:230px">'+td[lg]+'</div><div class="cert-check">\u2713 '+dn[lg]+'</div></div><div class="cert5-seal" style="width:290px;height:290px;border-style:dashed;opacity:.7">'+svgGh+'<div class="cert-name" style="font-size:26px;font-weight:900;color:#1052A0">Global HACCP</div><div class="cert-org" style="font-size:22px;font-weight:700">'+plan[lg]+'</div></div></div><div style="margin-top:28px;padding:14px 32px;background:rgba(27,108,229,.08);border:2px solid rgba(27,108,229,.3);border-radius:32px;font-size:30px;font-weight:800;color:#7EC8F7;opacity:0;animation:bounceIn .8s 1.2s ease both">'+msg[lg]+'</div></div>';}
 
 function aixrayHtml(lg){
 var ti={ko:'AI 엑스레이 검사 시스템',en:'AI X-Ray Inspection System',zh:'AI X光检查系统',ja:'AI X線検査システム'};
